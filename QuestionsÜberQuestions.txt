@@ -1,0 +1,38 @@
+Wichtig:
+- 4 Hauptmessparameter: Carbon Footprint, Energy Consumption & Generation, the yield of the By-Products of the processes, and the Overall Performance of the Equipment and Reliability (Productivity) 
+
+Fragen:
+
+- Ist die Überschrift des Dokuments auch der Titel der Masterarbeit?
+- Wo auf der Grafik fängt unser System an und wo hört es auf - welche Schnittstellen bieten wir an welche Schnittstellen müssen wir kennen
+	- Wie hängen mobile networks und smarte meter mit unserem system zusammen
+- Direkter Kontakt mit den Indern? oder nur über Ali
+- Hört das Dokument absichtlich so abrupt auf?
+- Werden die WorkPackages aufgeteilt oder macht man die zusammen
+- Wer bezahlt die Cloud oder wo auch immer das Ding gehostet werden soll
+
+WP1:
+- Wat ist MSC?
+- Wat ist MCS?
+- Was genau wird hier von uns gemacht? wird die liste von treatments von uns aufgestellt/evaluated? oder von sonst wem
+
+WP2:
+1)
+Historische Daten anschauen, Muster feststellen, durch festgestellte Muster / Werte auf Ereignisse reagieren (???)
+2)
+Integrieren und Testen
+- Was ist GHG?
+- Was sollen die Gaskammern
+3)
+Testen anhand von historischen Daten von WWTP
+- Was ist WWTP (waste water treatment process)
+
+3.2
+- Müssen wir die sensoren erweitern??????!
+3.3
+unterschied zu vorher? 
+3.4
+was für train operators?
+3.5 
+Okay.
+

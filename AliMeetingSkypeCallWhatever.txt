@@ -1,0 +1,59 @@
+1. Was ist unsere Aufgabe (welcher Teil vom Dokument)
+	- Welche workitems sind für uns gedacht (anhand vom bild)
+	- wie werden die workpackages geteilt auf uns 2 (von uns selbst?)
+	- Welcher teil vom projekt existiert bereits oder welche vergleichbaren projekte
+	- was ist MSC und MCS
+	- warum hört das dokument mit ner überschrift auf
+	- sind die research questions alle für uns gedacht
+		- falls ja - von uns selbst verteilt/aufgeteilt?
+	- wie genau wird das wetter mit eingebracht
+2. Technologie
+	- cloud? (we are allowed to use 300 or 500 pounds -> do research)
+		-> research also on security
+		-> can also be done on open source if it fits the (security) requirements
+		-> compare weaknesses and strengths
+	- wer bezahlt die besagte cloud?
+	- webapp? (asp.net?)
+	- datenbank?
+3. Sensoren
+	- haben die sensoren ein bestimmtes universelles datenformat
+	- muss dieses format erweitert/geändert werden
+ 	- müssen daten abseits der von der sensordaten aufgenommen werden? (wetter oder so)
+		-> use something to get data which is not provided by the plant itself
+4. Kontakt
+	- arbeiten wir mit den indern zusammen ? 
+	- direkter kontakt mit indern?
+5. Erwartetes Ergebnis?
+	- ?
+	- Echte Daten? Proof of concept?
+
+
+-----------------------------
+
+für unser projekt ist nur das large network performance collider wichtig
+formats privilegues for data displaying / rights and roles system
+-> different bodies different informations 
+
+collect and assamble information for the audience
+
+bottom part of the system exists and can be accessed (for now simulate)
+
+harmonisation of all the sources (different sensor systems)
+-> how are we able to take information and use it for our own purpose
+-> how are big companies integrate data that comes in different formats? <<<---
+  -principles of data harmonisation (and challanges)
+
+- presentation of information to stackholders (2nd part)
+ > infos like: water is low - do not use washmashine
+ > water is dirty > asdf
+ technical ppl need more technical data
+ environment ppl need different data
+
+information levels:
+- strategic level   - requires some outside data (price should not go above x)
+- operational level - maybe requires some additional data
+- engineering level - lowest level - plant level
+
+
+
+
