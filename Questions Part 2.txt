@@ -1,0 +1,7 @@
+- Woher genau kommen die KPI Faktoren (im dokument steht von der plant.. aber wie genau)
+	- gehört das beschaffen der daten von der plant mit zum projekt
+	- geht man einfach davon aus die sind von irgendeinem magischen device gegeben
+	- wie ist das format in dem diese daten kommen
+	- sind alle datenformate über die pflanzen gleich oder unterscheiden die sich
+		- im fall dass sie gleich sind - wo bleibt dann die harmonisierung
+- Sind die 4 KPI Faktoren nur "Überschriften" für Daten
