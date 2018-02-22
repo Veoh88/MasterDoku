@@ -1,9 +1,30 @@
-Fragen für Ali:
+﻿Fragen für Ali:
 
-Was soll ich researchen? Sensorentechnologien machen ja eig. net so viel Sinn für mich
+Was soll ich researchen? 
+
+Please extend your research into state-of-the-art monitoring and control systems in water industry, 
+standardisation and regulations. Digit water systems is becoming a fashionable word you can conduct 
+research using these key words.
+
 Was soll die App alles können?
 Soll ich mir selbst ausdenken, was die App anzeigen soll? 
 Auf was soll man sich bei der Präsi fokussieren?
 Was ist der scientific part?
 Können wir beide auf einer Cloud-Umgebung sein?
-Sollen wir von den selben KPIs usw ausgehen?
+
+Valorization
+customize view ... key factors
+flexible software 
+more sophisticated if the operator type of user dropdown list
+coose user type -> choose what they want to display -> how to link it to the database, PLC
+create customer
+master admin
+operator, 3rd party
+consumers
+true cloud based service provider
+scientific based information theoretic
+utilization of information
+data integration -> design platofrm
+data aquistion, data modeling, data dissemination, data management
+big data
+enzotherm87
