@@ -1,0 +1,65 @@
+# Modify the code to update the DB schema diagram.
+# To reset the sample schema, replace everything with
+# two dots ('..' - without quotes).
+
+WaterPlant
+-
+WaterPlantId PK int
+Name string unique
+LocationId int FK >- Location.LocationId
+SupplierId int FK >- Supplier.SupplierId
+TreatmentStepId int FK >- TreatmentStep.TreatmentStepId
+
+TreatmentStep
+-
+TreatmentStepId PK int
+QualityIndicatorId FK >- QualityIndicator.QualityIndicatorId int
+TreatmentStepTypeId int FK >- TreatmentStepType.TreatmentStepTypeId
+
+TreatmentStepType as ol
+----
+TreatmentStepTypeId PK int
+Name string unique
+
+# Table documentation comment 1 (try the PDF/RTF export)
+QualityIndicator as p # Table documentation comment 2
+------------
+QualityIndicatorId PK int
+# Field documentation comment 1
+# Field documentation comment 2 
+UnitId FK >- Unit.UnitId int
+IndicatorTypeId int FK >- IndicatorType.IndicatorTypeId
+Value double
+TimeStamp datetime
+
+Unit as os
+----
+UnitId PK int
+Name string
+
+IndicatorType as os
+----
+IndicatorTypeId PK int
+IndicatorMappingId FK >- QualityIndicatorMapping.IndicatorMappingId int
+Name string
+
+QualityIndicatorMapping as os
+----
+IndicatorMappingId FK int
+Name string
+
+Location as os
+----
+LocationId PK int
+CountryId FK >- Country.CountryId int
+Town string
+
+Country as os
+----
+CountryId PK int
+Name string
+
+Supplier as os
+----
+SupplierId PK int
+Name string
