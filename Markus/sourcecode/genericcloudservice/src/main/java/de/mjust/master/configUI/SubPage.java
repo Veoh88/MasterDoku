@@ -80,6 +80,7 @@ public class SubPage extends VerticalLayout implements View {
             this.addButton = new Button("Add Table");
             this.addButton.setEnabled(!this.selectedFields.isEmpty());
             this.addButton.addClickListener(e -> {
+
                 Grid<DataObject> grid = new Grid<>();
                 grid.setDataProvider(new ListDataProvider<DataObject>(this.selectedFields));
                 grid.addColumn(DataObject::getDescription)
