@@ -19,3 +19,4 @@ D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\D
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\DataBaseAccessor\obj\Debug\DataBaseAccessor.csproj.CoreCompileInputs.cache
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\DataBaseAccessor\obj\Debug\DataBaseAccessor.dll
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\DataBaseAccessor\obj\Debug\DataBaseAccessor.pdb
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\DataBaseAccessor\obj\Debug\DataBaseAccessor.csprojResolveAssemblyReference.cache

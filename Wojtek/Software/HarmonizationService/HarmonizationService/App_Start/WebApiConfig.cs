@@ -14,7 +14,7 @@ namespace HarmonizationService
             
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/harmonization"
+                routeTemplate: "api"
             );
             
         }

@@ -270,11 +270,6 @@
             It does not write the BOM and also does not close the stream.
             </summary>
         </member>
-        <member name="F:Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter.DefaultBufferSize">
-            <summary>
-            Default buffer size.
-            </summary>
-        </member>
         <member name="P:Microsoft.AspNetCore.WebUtilities.MultipartReader.HeadersCountLimit">
             <summary>
             The limit for the number of headers to read.

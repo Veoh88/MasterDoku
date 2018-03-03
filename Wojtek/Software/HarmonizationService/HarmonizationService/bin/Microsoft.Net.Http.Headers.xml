@@ -4,13 +4,13 @@
         <name>Microsoft.Net.Http.Headers</name>
     </assembly>
     <members>
-        <member name="M:Microsoft.Net.Http.Headers.ContentDispositionHeaderValue.SetHttpFileName(System.String)">
+        <member name="M:Microsoft.Net.Http.Headers.ContentDispositionHeaderValue.SetHttpFileName(Microsoft.Extensions.Primitives.StringSegment)">
             <summary>
             Sets both FileName and FileNameStar using encodings appropriate for HTTP headers.
             </summary>
             <param name="fileName"></param>
         </member>
-        <member name="M:Microsoft.Net.Http.Headers.ContentDispositionHeaderValue.SetMimeFileName(System.String)">
+        <member name="M:Microsoft.Net.Http.Headers.ContentDispositionHeaderValue.SetMimeFileName(Microsoft.Extensions.Primitives.StringSegment)">
             <summary>
             Sets the FileName parameter using encodings appropriate for MIME headers.
             The FileNameStar paraemter is removed.
@@ -67,6 +67,88 @@
             <summary>
             Quality factor to indicate no match.
             </summary>
+        </member>
+        <member name="M:Microsoft.Net.Http.Headers.HeaderUtilities.TryParseSeconds(Microsoft.Extensions.Primitives.StringValues,System.String,System.Nullable{System.TimeSpan}@)">
+            <summary>
+            Try to find a target header value among the set of given header values and parse it as a
+            <see cref="T:System.TimeSpan"/>.
+            </summary>
+            <param name="headerValues">
+            The <see cref="T:Microsoft.Extensions.Primitives.StringValues"/> containing the set of header values to search.
+            </param>
+            <param name="targetValue">
+            The target header value to look for.
+            </param>
+            <param name="value">
+            When this method returns, contains the parsed <see cref="T:System.TimeSpan"/>, if the parsing succeeded, or
+            null if the parsing failed. The conversion fails if the <paramref name="targetValue"/> was not
+            found or could not be parsed as a <see cref="T:System.TimeSpan"/>. This parameter is passed uninitialized;
+            any value originally supplied in result will be overwritten.
+            </param>
+            <returns>
+            <code>true</code> if <paramref name="targetValue"/> is found and successfully parsed; otherwise,
+            <code>false</code>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Net.Http.Headers.HeaderUtilities.ContainsCacheDirective(Microsoft.Extensions.Primitives.StringValues,System.String)">
+            <summary>
+            Check if a target directive exists among the set of given cache control directives.
+            </summary>
+            <param name="cacheControlDirectives">
+            The <see cref="T:Microsoft.Extensions.Primitives.StringValues"/> containing the set of cache control directives.
+            </param>
+            <param name="targetDirectives">
+            The target cache control directives to look for.
+            </param>
+            <returns>
+            <code>true</code> if <paramref name="targetDirectives"/> is contained in <paramref name="cacheControlDirectives"/>;
+            otherwise, <code>false</code>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Net.Http.Headers.HeaderUtilities.TryParseNonNegativeInt32(Microsoft.Extensions.Primitives.StringSegment,System.Int32@)">
+            <summary>
+            Try to convert a string representation of a positive number to its 64-bit signed integer equivalent.
+            A return value indicates whether the conversion succeeded or failed.
+            </summary>
+            <param name="value">
+            A string containing a number to convert.
+            </param>
+            <param name="result">
+            When this method returns, contains the 64-bit signed integer value equivalent of the number contained
+            in the string, if the conversion succeeded, or zero if the conversion failed. The conversion fails if
+            the string is null or String.Empty, is not of the correct format, is negative, or represents a number
+            greater than Int64.MaxValue. This parameter is passed uninitialized; any value originally supplied in
+            result will be overwritten.
+            </param>
+            <returns><code>true</code> if parsing succeeded; otherwise, <code>false</code>.</returns>
+        </member>
+        <member name="M:Microsoft.Net.Http.Headers.HeaderUtilities.TryParseNonNegativeInt64(Microsoft.Extensions.Primitives.StringSegment,System.Int64@)">
+            <summary>
+            Try to convert a <see cref="T:Microsoft.Extensions.Primitives.StringSegment"/> representation of a positive number to its 64-bit signed
+            integer equivalent. A return value indicates whether the conversion succeeded or failed.
+            </summary>
+            <param name="value">
+            A <see cref="T:Microsoft.Extensions.Primitives.StringSegment"/> containing a number to convert.
+            </param>
+            <param name="result">
+            When this method returns, contains the 64-bit signed integer value equivalent of the number contained
+            in the string, if the conversion succeeded, or zero if the conversion failed. The conversion fails if
+            the <see cref="T:Microsoft.Extensions.Primitives.StringSegment"/> is null or String.Empty, is not of the correct format, is negative, or
+            represents a number greater than Int64.MaxValue. This parameter is passed uninitialized; any value
+            originally supplied in result will be overwritten.
+            </param>
+            <returns><code>true</code> if parsing succeeded; otherwise, <code>false</code>.</returns>
+        </member>
+        <member name="M:Microsoft.Net.Http.Headers.HeaderUtilities.FormatNonNegativeInt64(System.Int64)">
+            <summary>
+            Converts the non-negative 64-bit numeric value to its equivalent string representation.
+            </summary>
+            <param name="value">
+            The number to convert.
+            </param>
+            <returns>
+            The string representation of the value of this instance, consisting of a sequence of digits ranging from 0 to 9 with no leading zeroes.
+            </returns>
         </member>
         <member name="P:Microsoft.Net.Http.Headers.MediaTypeHeaderValue.MatchesAllTypes">
             <summary>

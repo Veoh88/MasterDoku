@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
+using System.Web.Http.Results;
 using DataBaseAccessor;
+using Library.HarmonizationApi;
 using Swashbuckle.Swagger.Annotations;
 
 namespace HarmonizationService.Controllers
@@ -9,26 +11,30 @@ namespace HarmonizationService.Controllers
     [RoutePrefix("harmonizer")]
     public class HarmController : ApiController
     {
-        [HttpGet]
-        [SwaggerResponseRemoveDefaults]
-        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(List<vWaterPlant>))]
-        public string Get()
-        {
+        #region Private Members
 
-            return "Everything is okay";
-        }
+        private BusinessLogic.BusinessLogic _businessLogic;
 
-        [HttpGet]
-        [Route("api/value/{id}")]
-        public string Get(int id)
+        #endregion
+        #region Constructors
+
+        public HarmController()
         {
-            return "value";
+            _businessLogic = new BusinessLogic.BusinessLogic();
         }
+        #endregion
+
+        #region HTTP Methods
 
         [HttpPost]
-        [Route("{value}")]
-        public void Post([FromBody]string value)
+        [Route("harmonize")]
+        [SwaggerResponseRemoveDefaults]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        public string HarmonizeData(HarmonizationRequest harmRequest)
         {
+            var result = _businessLogic.HarmonizeData(harmRequest);
+            return result;
         }
+        #endregion
     }
 }

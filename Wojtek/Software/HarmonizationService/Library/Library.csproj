@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,6 +49,7 @@
   <ItemGroup>
     <Compile Include="ConvertedObjects\TableFormattedObject.cs" />
     <Compile Include="ConvertedObjects\TreeFormattedObject.cs" />
+    <Compile Include="HarmonizationApi\HarmonizationRequest.cs" />
     <Compile Include="HarmonizedObjects\WasteWaterTreatmentPlant.cs" />
     <Compile Include="HarmonizedObjects\WaterQualityIndicator.cs" />
     <Compile Include="HarmonizedObjects\WaterTreatmentStep.cs" />
