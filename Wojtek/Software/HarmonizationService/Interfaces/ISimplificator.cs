@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Harmonizer
+namespace Interfaces
 {
-    public class Class1
+    public interface ISimplificator
     {
     }
 }

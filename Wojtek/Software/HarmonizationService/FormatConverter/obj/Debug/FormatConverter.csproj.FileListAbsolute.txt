@@ -4,3 +4,11 @@ D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\F
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\obj\Debug\FormatConverter.csproj.CoreCompileInputs.cache
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\obj\Debug\FormatConverter.dll
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\obj\Debug\FormatConverter.pdb
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\Interfaces.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\Library.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\Newtonsoft.Json.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\Newtonsoft.Json.Schema.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\Interfaces.pdb
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\Library.pdb
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\Newtonsoft.Json.xml
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\Newtonsoft.Json.Schema.xml

@@ -86,5 +86,11 @@ namespace DataBaseAccessor
             var result = _entityFrameworkAccessor.vCountry;
             return result;
         }
+
+        public IQueryable<vQualityIndicatorType> GetQualityIndicatorTypes()
+        {
+            var result = _entityFrameworkAccessor.vQualityIndicatorType;
+            return result;
+        }
     }
 }

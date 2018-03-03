@@ -130,5 +130,15 @@
     <FunctionImportMapping FunctionImportName="SetWaterPlant" FunctionName="HarmonizationServiceModel.Store.SetWaterPlant" />
     <FunctionImportMapping FunctionImportName="SetWaterPlantMapping" FunctionName="HarmonizationServiceModel.Store.SetWaterPlantMapping" />
     <FunctionImportMapping FunctionImportName="SetQualityIndicatorType" FunctionName="HarmonizationServiceModel.Store.SetQualityIndicatorType" />
+    <EntitySetMapping Name="vQualityIndicatorType">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vQualityIndicatorType">
+        <MappingFragment StoreEntitySet="vQualityIndicatorType">
+          <ScalarProperty Name="unitName" ColumnName="unitName" />
+          <ScalarProperty Name="defaultUnitId" ColumnName="defaultUnitId" />
+          <ScalarProperty Name="indicatorName" ColumnName="indicatorName" />
+          <ScalarProperty Name="indicatorTypeId" ColumnName="indicatorTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

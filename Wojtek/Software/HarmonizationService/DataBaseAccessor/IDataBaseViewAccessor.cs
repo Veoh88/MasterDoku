@@ -30,5 +30,7 @@ namespace DataBaseAccessor
          IQueryable<vLocation> GetLocatoins();
 
          IQueryable<vCountry> GetCountries();
+
+         IQueryable<vQualityIndicatorType> GetQualityIndicatorTypes();
     }
 }

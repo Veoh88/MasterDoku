@@ -58,6 +58,18 @@ warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicator' does n
     <Property Name="treatmentStepTypeId" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicatorType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vQualityIndicatorType">
+    <Key>
+      <PropertyRef Name="indicatorTypeId" />
+      <PropertyRef Name="indicatorName" />
+    </Key>
+    <Property Name="indicatorTypeId" Type="int" Nullable="false" />
+    <Property Name="indicatorName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="defaultUnitId" Type="int" />
+    <Property Name="unitName" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicatorTypeMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vQualityIndicatorTypeMapping">
     <Key>
@@ -244,6 +256,14 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
     [vQualityIndicator].[supplierId] AS [supplierId], 
     [vQualityIndicator].[treatmentStepTypeId] AS [treatmentStepTypeId]
     FROM [dbo].[vQualityIndicator] AS [vQualityIndicator]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vQualityIndicatorType" EntityType="Self.vQualityIndicatorType" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vQualityIndicatorType].[indicatorTypeId] AS [indicatorTypeId], 
+    [vQualityIndicatorType].[indicatorName] AS [indicatorName], 
+    [vQualityIndicatorType].[defaultUnitId] AS [defaultUnitId], 
+    [vQualityIndicatorType].[unitName] AS [unitName]
+    FROM [dbo].[vQualityIndicatorType] AS [vQualityIndicatorType]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vQualityIndicatorTypeMapping" EntityType="Self.vQualityIndicatorTypeMapping" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

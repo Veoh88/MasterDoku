@@ -4,3 +4,7 @@ D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\I
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Interfaces\obj\Debug\Interfaces.csproj.CoreCompileInputs.cache
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Interfaces\obj\Debug\Interfaces.dll
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Interfaces\obj\Debug\Interfaces.pdb
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Interfaces\bin\Debug\Library.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Interfaces\bin\Debug\Newtonsoft.Json.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Interfaces\bin\Debug\Library.pdb
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Interfaces\bin\Debug\Newtonsoft.Json.xml

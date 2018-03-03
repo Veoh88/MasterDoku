@@ -63,6 +63,18 @@ warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicator' does n
           <Property Name="treatmentStepTypeId" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicatorType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vQualityIndicatorType">
+          <Key>
+            <PropertyRef Name="indicatorTypeId" />
+            <PropertyRef Name="indicatorName" />
+          </Key>
+          <Property Name="indicatorTypeId" Type="int" Nullable="false" />
+          <Property Name="indicatorName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="defaultUnitId" Type="int" />
+          <Property Name="unitName" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicatorTypeMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vQualityIndicatorTypeMapping">
           <Key>
@@ -249,6 +261,14 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
     [vQualityIndicator].[supplierId] AS [supplierId], 
     [vQualityIndicator].[treatmentStepTypeId] AS [treatmentStepTypeId]
     FROM [dbo].[vQualityIndicator] AS [vQualityIndicator]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vQualityIndicatorType" EntityType="Self.vQualityIndicatorType" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vQualityIndicatorType].[indicatorTypeId] AS [indicatorTypeId], 
+    [vQualityIndicatorType].[indicatorName] AS [indicatorName], 
+    [vQualityIndicatorType].[defaultUnitId] AS [defaultUnitId], 
+    [vQualityIndicatorType].[unitName] AS [unitName]
+    FROM [dbo].[vQualityIndicatorType] AS [vQualityIndicatorType]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vQualityIndicatorTypeMapping" EntityType="Self.vQualityIndicatorTypeMapping" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -441,16 +461,16 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
           <Parameter Name="propertyName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SetCountry">
-          <Parameter Name="countryName" Mode="In" Type="String" />
+            <Parameter Name="countryName" Mode="In" Type="String" />
             <Parameter Name="countryId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SetLocation">
-          <Parameter Name="countryId" Mode="In" Type="Int32" />
+            <Parameter Name="countryId" Mode="In" Type="Int32" />
             <Parameter Name="locationId" Mode="In" Type="Int32" />
             <Parameter Name="locationName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SetQualityIndicator">
-          <Parameter Name="waterPlantId" Mode="In" Type="Int32" />
+            <Parameter Name="waterPlantId" Mode="In" Type="Int32" />
             <Parameter Name="treatmentStepId" Mode="In" Type="Int32" />
             <Parameter Name="indicatorTypeId" Mode="In" Type="Int32" />
             <Parameter Name="value" Mode="In" Type="Double" />
@@ -458,15 +478,15 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
             <Parameter Name="unitId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SetQualityIndicatorTypeMapping">
-          <Parameter Name="indicatorTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="indicatorTypeId" Mode="In" Type="Int32" />
             <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SetSupplier">
-          <Parameter Name="supplierId" Mode="In" Type="Int32" />
+            <Parameter Name="supplierId" Mode="In" Type="Int32" />
             <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SetTreatmentStep">
-          <Parameter Name="treatmentStepTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="treatmentStepTypeId" Mode="In" Type="Int32" />
             <Parameter Name="waterPlantId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SetTreatmentStepType">
@@ -476,19 +496,20 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
           <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SetWaterPlant">
-          <Parameter Name="waterPlantName" Mode="In" Type="String" />
+            <Parameter Name="waterPlantName" Mode="In" Type="String" />
             <Parameter Name="locationId" Mode="In" Type="Int32" />
             <Parameter Name="supplierId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SetWaterPlantMapping">
-          <Parameter Name="waterPlantId" Mode="In" Type="Int32" />
+            <Parameter Name="waterPlantId" Mode="In" Type="Int32" />
             <Parameter Name="waterPlantName" Mode="In" Type="String" />
             <Parameter Name="mappedName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SetQualityIndicatorType">
-          <Parameter Name="typeName" Mode="In" Type="String" />
+            <Parameter Name="typeName" Mode="In" Type="String" />
             <Parameter Name="defaultUnitId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="vQualityIndicatorType" EntityType="HarmonizationServiceModel.vQualityIndicatorType" />
         </EntityContainer>
         <EntityType Name="vCountry">
           <Key>
@@ -516,6 +537,16 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
           </Key>
           <Property Name="supplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vQualityIndicatorType">
+          <Key>
+            <PropertyRef Name="indicatorTypeId" />
+            <PropertyRef Name="indicatorName" />
+          </Key>
+          <Property Name="indicatorTypeId" Type="Int32" Nullable="false" />
+          <Property Name="indicatorName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="defaultUnitId" Type="Int32" />
+          <Property Name="unitName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -652,6 +683,16 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
           <FunctionImportMapping FunctionImportName="SetWaterPlant" FunctionName="HarmonizationServiceModel.Store.SetWaterPlant" />
           <FunctionImportMapping FunctionImportName="SetWaterPlantMapping" FunctionName="HarmonizationServiceModel.Store.SetWaterPlantMapping" />
           <FunctionImportMapping FunctionImportName="SetQualityIndicatorType" FunctionName="HarmonizationServiceModel.Store.SetQualityIndicatorType" />
+          <EntitySetMapping Name="vQualityIndicatorType">
+            <EntityTypeMapping TypeName="HarmonizationServiceModel.vQualityIndicatorType">
+              <MappingFragment StoreEntitySet="vQualityIndicatorType">
+                <ScalarProperty Name="unitName" ColumnName="unitName" />
+                <ScalarProperty Name="defaultUnitId" ColumnName="defaultUnitId" />
+                <ScalarProperty Name="indicatorName" ColumnName="indicatorName" />
+                <ScalarProperty Name="indicatorTypeId" ColumnName="indicatorTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

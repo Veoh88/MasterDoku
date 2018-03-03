@@ -38,6 +38,7 @@ namespace DataBaseAccessor
         public virtual DbSet<vCountry> vCountry { get; set; }
         public virtual DbSet<vLocation> vLocation { get; set; }
         public virtual DbSet<vSupplier> vSupplier { get; set; }
+        public virtual DbSet<vQualityIndicatorType> vQualityIndicatorType { get; set; }
     
         public virtual int SetBlackList(string propertyName)
         {
