@@ -1,0 +1,6 @@
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Standardizer\bin\Debug\Standardizer.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Standardizer\bin\Debug\Standardizer.pdb
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Standardizer\obj\Debug\Standardizer.csprojResolveAssemblyReference.cache
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Standardizer\obj\Debug\Standardizer.csproj.CoreCompileInputs.cache
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Standardizer\obj\Debug\Standardizer.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Standardizer\obj\Debug\Standardizer.pdb

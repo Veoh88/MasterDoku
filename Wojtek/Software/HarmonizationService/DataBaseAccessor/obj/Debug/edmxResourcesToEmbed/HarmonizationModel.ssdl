@@ -61,13 +61,15 @@ warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicator' does n
 warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicatorTypeMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vQualityIndicatorTypeMapping">
     <Key>
-      <PropertyRef Name="indicatorTypeId" />
+      <PropertyRef Name="IndicatorTypeId" />
       <PropertyRef Name="realIndicatorName" />
       <PropertyRef Name="indicatorAlias" />
     </Key>
-    <Property Name="indicatorTypeId" Type="int" Nullable="false" />
+    <Property Name="IndicatorTypeId" Type="int" Nullable="false" />
     <Property Name="realIndicatorName" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="indicatorAlias" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="unitName" Type="nchar" MaxLength="50" />
+    <Property Name="defaultUnitId" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'HarmonizationService.dbo.vSupplier' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -155,6 +157,58 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
     <Property Name="locationId" Type="int" Nullable="false" />
     <Property Name="supplierId" Type="int" Nullable="false" />
   </EntityType>
+  <Function Name="SetBlackList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="propertyName" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SetCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="countryName" Type="nchar" Mode="In" />
+    <Parameter Name="countryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SetLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="countryId" Type="int" Mode="In" />
+    <Parameter Name="locationId" Type="int" Mode="In" />
+    <Parameter Name="locationName" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SetQualityIndicator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="waterPlantId" Type="int" Mode="In" />
+    <Parameter Name="treatmentStepId" Type="int" Mode="In" />
+    <Parameter Name="indicatorTypeId" Type="int" Mode="In" />
+    <Parameter Name="value" Type="float" Mode="In" />
+    <Parameter Name="timeStamp" Type="datetime" Mode="In" />
+    <Parameter Name="unitId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SetQualityIndicatorType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="typeName" Type="nchar" Mode="In" />
+    <Parameter Name="defaultUnitId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SetQualityIndicatorTypeMapping" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="indicatorTypeId" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SetSupplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="supplierId" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SetTreatmentStep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="treatmentStepTypeId" Type="int" Mode="In" />
+    <Parameter Name="waterPlantId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SetTreatmentStepType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SetUnit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SetWaterPlant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="waterPlantName" Type="nchar" Mode="In" />
+    <Parameter Name="locationId" Type="int" Mode="In" />
+    <Parameter Name="supplierId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SetWaterPlantMapping" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="waterPlantId" Type="int" Mode="In" />
+    <Parameter Name="waterPlantName" Type="nchar" Mode="In" />
+    <Parameter Name="mappedName" Type="nchar" Mode="In" />
+  </Function>
   <EntityContainer Name="HarmonizationServiceModelStoreContainer">
     <EntitySet Name="vBlackList" EntityType="Self.vBlackList" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -193,9 +247,11 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
     </EntitySet>
     <EntitySet Name="vQualityIndicatorTypeMapping" EntityType="Self.vQualityIndicatorTypeMapping" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [vQualityIndicatorTypeMapping].[indicatorTypeId] AS [indicatorTypeId], 
+    [vQualityIndicatorTypeMapping].[IndicatorTypeId] AS [IndicatorTypeId], 
     [vQualityIndicatorTypeMapping].[realIndicatorName] AS [realIndicatorName], 
-    [vQualityIndicatorTypeMapping].[indicatorAlias] AS [indicatorAlias]
+    [vQualityIndicatorTypeMapping].[indicatorAlias] AS [indicatorAlias], 
+    [vQualityIndicatorTypeMapping].[unitName] AS [unitName], 
+    [vQualityIndicatorTypeMapping].[defaultUnitId] AS [defaultUnitId]
     FROM [dbo].[vQualityIndicatorTypeMapping] AS [vQualityIndicatorTypeMapping]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vSupplier" EntityType="Self.vSupplier" store:Type="Views" store:Schema="dbo">

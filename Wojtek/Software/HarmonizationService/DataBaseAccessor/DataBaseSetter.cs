@@ -93,6 +93,11 @@ namespace DataBaseAccessor
         {
             _entityFrameworkAccessor.SetWaterPlantMapping(waterPlantId, waterPlantAlias, realName);
         }
+
+        public void SetQualityIndicatorType(string typeName, int? defaultUnitId)
+        {
+            _entityFrameworkAccessor.SetQualityIndicatorType(typeName, defaultUnitId);
+        }
         #endregion
     }
 }

@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <setParameter name="IIS Web Application Name" value="Default Web Site/" />
-  <setParameter name="HarmonizationServiceEntities-Web.config Connection String" value="metadata=res://*/HarmonizationModel.csdl|res://*/HarmonizationModel.ssdl|res://*/HarmonizationModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=harmonizationinstance.c6bnvsjpp6n3.eu-west-2.rds.amazonaws.com,1433;initial catalog=HarmonizationService;persist security info=True;user id=wwtpAdmin;password=wwtpAdminPassword;MultipleActiveResultSets=True;App=EntityFramework&quot;" />
-</parameters>

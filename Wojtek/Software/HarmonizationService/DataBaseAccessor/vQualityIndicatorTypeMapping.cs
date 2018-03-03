@@ -17,5 +17,8 @@ namespace DataBaseAccessor
         public int indicatorTypeId { get; set; }
         public string realIndicatorName { get; set; }
         public string indicatorAlias { get; set; }
+        public int IndicatorTypeId { get; set; }
+        public string unitName { get; set; }
+        public Nullable<int> defaultUnitId { get; set; }
     }
 }

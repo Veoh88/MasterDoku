@@ -35,10 +35,14 @@
       <PropertyRef Name="indicatorTypeId" />
       <PropertyRef Name="realIndicatorName" />
       <PropertyRef Name="indicatorAlias" />
+      <PropertyRef Name="IndicatorTypeId" />
     </Key>
     <Property Name="indicatorTypeId" Type="Int32" Nullable="false" />
     <Property Name="realIndicatorName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="indicatorAlias" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="IndicatorTypeId" Type="Int32" Nullable="false" />
+    <Property Name="unitName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="defaultUnitId" Type="Int32" />
   </EntityType>
   <EntityType Name="vTreatmentStep">
     <Key>
@@ -118,6 +122,58 @@
     <EntitySet Name="vCountry" EntityType="HarmonizationServiceModel.vCountry" />
     <EntitySet Name="vLocation" EntityType="HarmonizationServiceModel.vLocation" />
     <EntitySet Name="vSupplier" EntityType="HarmonizationServiceModel.vSupplier" />
+    <FunctionImport Name="SetBlackList">
+      <Parameter Name="propertyName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SetCountry">
+      <Parameter Name="countryName" Mode="In" Type="String" />
+      <Parameter Name="countryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SetLocation">
+      <Parameter Name="countryId" Mode="In" Type="Int32" />
+      <Parameter Name="locationId" Mode="In" Type="Int32" />
+      <Parameter Name="locationName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SetQualityIndicator">
+      <Parameter Name="waterPlantId" Mode="In" Type="Int32" />
+      <Parameter Name="treatmentStepId" Mode="In" Type="Int32" />
+      <Parameter Name="indicatorTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="value" Mode="In" Type="Double" />
+      <Parameter Name="timeStamp" Mode="In" Type="DateTime" />
+      <Parameter Name="unitId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SetQualityIndicatorTypeMapping">
+      <Parameter Name="indicatorTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SetSupplier">
+      <Parameter Name="supplierId" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SetTreatmentStep">
+      <Parameter Name="treatmentStepTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="waterPlantId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SetTreatmentStepType">
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SetUnit">
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SetWaterPlant">
+      <Parameter Name="waterPlantName" Mode="In" Type="String" />
+      <Parameter Name="locationId" Mode="In" Type="Int32" />
+      <Parameter Name="supplierId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SetWaterPlantMapping">
+      <Parameter Name="waterPlantId" Mode="In" Type="Int32" />
+      <Parameter Name="waterPlantName" Mode="In" Type="String" />
+      <Parameter Name="mappedName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SetQualityIndicatorType">
+      <Parameter Name="typeName" Mode="In" Type="String" />
+      <Parameter Name="defaultUnitId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="vCountry">
     <Key>

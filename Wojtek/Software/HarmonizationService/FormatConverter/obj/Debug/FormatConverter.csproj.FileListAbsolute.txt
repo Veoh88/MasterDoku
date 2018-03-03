@@ -1,0 +1,6 @@
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\FormatConverter.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\bin\Debug\FormatConverter.pdb
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\obj\Debug\FormatConverter.csprojResolveAssemblyReference.cache
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\obj\Debug\FormatConverter.csproj.CoreCompileInputs.cache
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\obj\Debug\FormatConverter.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\FormatConverter\obj\Debug\FormatConverter.pdb

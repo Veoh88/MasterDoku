@@ -197,5 +197,18 @@ namespace DataBaseAccessor
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SetWaterPlantMapping", waterPlantIdParameter, waterPlantNameParameter, mappedNameParameter);
         }
+    
+        public virtual int SetQualityIndicatorType(string typeName, Nullable<int> defaultUnitId)
+        {
+            var typeNameParameter = typeName != null ?
+                new ObjectParameter("typeName", typeName) :
+                new ObjectParameter("typeName", typeof(string));
+    
+            var defaultUnitIdParameter = defaultUnitId.HasValue ?
+                new ObjectParameter("defaultUnitId", defaultUnitId) :
+                new ObjectParameter("defaultUnitId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SetQualityIndicatorType", typeNameParameter, defaultUnitIdParameter);
+        }
     }
 }

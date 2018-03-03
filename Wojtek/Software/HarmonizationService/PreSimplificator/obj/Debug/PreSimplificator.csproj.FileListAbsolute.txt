@@ -1,0 +1,6 @@
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\PreSimplificator\bin\Debug\PreSimplificator.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\PreSimplificator\bin\Debug\PreSimplificator.pdb
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\PreSimplificator\obj\Debug\PreSimplificator.csprojResolveAssemblyReference.cache
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\PreSimplificator\obj\Debug\PreSimplificator.csproj.CoreCompileInputs.cache
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\PreSimplificator\obj\Debug\PreSimplificator.dll
+D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\PreSimplificator\obj\Debug\PreSimplificator.pdb
