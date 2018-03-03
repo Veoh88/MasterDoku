@@ -35,7 +35,21 @@ namespace HarmonizationService.BusinessLogic
         #region Public Methods
         public string HarmonizeData(HarmonizationRequest harmRequest)
         {
-            throw new NotImplementedException();
+            //check type of binary data
+            var dataType = harmRequest.FileFormat;
+
+            if (dataType == FileFormat.CSV || dataType == FileFormat.XLS)
+            {
+                _converter.ConvertTableObject()
+            }
+            else if (dataType == FileFormat.JSON)
+            {
+
+            }
+            else
+            {
+                return "Error: DataType not Supported";
+            }
         }
 
         #endregion
