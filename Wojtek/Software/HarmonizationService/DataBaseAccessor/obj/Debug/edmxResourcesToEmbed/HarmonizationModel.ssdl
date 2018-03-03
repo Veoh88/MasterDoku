@@ -73,14 +73,14 @@ warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicatorType' do
 warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicatorTypeMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vQualityIndicatorTypeMapping">
     <Key>
-      <PropertyRef Name="IndicatorTypeId" />
-      <PropertyRef Name="realIndicatorName" />
       <PropertyRef Name="indicatorAlias" />
+      <PropertyRef Name="indicatorTypeId" />
+      <PropertyRef Name="indicatorName" />
     </Key>
-    <Property Name="IndicatorTypeId" Type="int" Nullable="false" />
-    <Property Name="realIndicatorName" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="indicatorAlias" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="unitName" Type="nchar" MaxLength="50" />
+    <Property Name="indicatorTypeId" Type="int" Nullable="false" />
+    <Property Name="indicatorName" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="defaultUnitId" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -267,10 +267,10 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
     </EntitySet>
     <EntitySet Name="vQualityIndicatorTypeMapping" EntityType="Self.vQualityIndicatorTypeMapping" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [vQualityIndicatorTypeMapping].[IndicatorTypeId] AS [IndicatorTypeId], 
-    [vQualityIndicatorTypeMapping].[realIndicatorName] AS [realIndicatorName], 
     [vQualityIndicatorTypeMapping].[indicatorAlias] AS [indicatorAlias], 
     [vQualityIndicatorTypeMapping].[unitName] AS [unitName], 
+    [vQualityIndicatorTypeMapping].[indicatorTypeId] AS [indicatorTypeId], 
+    [vQualityIndicatorTypeMapping].[indicatorName] AS [indicatorName], 
     [vQualityIndicatorTypeMapping].[defaultUnitId] AS [defaultUnitId]
     FROM [dbo].[vQualityIndicatorTypeMapping] AS [vQualityIndicatorTypeMapping]</DefiningQuery>
     </EntitySet>

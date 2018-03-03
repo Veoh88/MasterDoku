@@ -1,6 +1,5 @@
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Library\bin\Debug\Library.dll
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Library\bin\Debug\Library.pdb
-D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Library\obj\Debug\Library.dll
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Library\obj\Debug\Library.pdb

@@ -29,7 +29,6 @@ namespace DataBaseAccessor
     
         public virtual DbSet<vBlackList> vBlackList { get; set; }
         public virtual DbSet<vQualityIndicator> vQualityIndicator { get; set; }
-        public virtual DbSet<vQualityIndicatorTypeMapping> vQualityIndicatorTypeMapping { get; set; }
         public virtual DbSet<vTreatmentStep> vTreatmentStep { get; set; }
         public virtual DbSet<vTreatmentStepType> vTreatmentStepType { get; set; }
         public virtual DbSet<vUnit> vUnit { get; set; }
@@ -39,6 +38,7 @@ namespace DataBaseAccessor
         public virtual DbSet<vLocation> vLocation { get; set; }
         public virtual DbSet<vSupplier> vSupplier { get; set; }
         public virtual DbSet<vQualityIndicatorType> vQualityIndicatorType { get; set; }
+        public virtual DbSet<vQualityIndicatorTypeMapping> vQualityIndicatorTypeMapping { get; set; }
     
         public virtual int SetBlackList(string propertyName)
         {

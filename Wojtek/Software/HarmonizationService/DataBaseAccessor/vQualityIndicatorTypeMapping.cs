@@ -14,11 +14,10 @@ namespace DataBaseAccessor
     
     public partial class vQualityIndicatorTypeMapping
     {
-        public int indicatorTypeId { get; set; }
-        public string realIndicatorName { get; set; }
         public string indicatorAlias { get; set; }
-        public int IndicatorTypeId { get; set; }
         public string unitName { get; set; }
+        public int indicatorTypeId { get; set; }
+        public string indicatorName { get; set; }
         public Nullable<int> defaultUnitId { get; set; }
     }
 }

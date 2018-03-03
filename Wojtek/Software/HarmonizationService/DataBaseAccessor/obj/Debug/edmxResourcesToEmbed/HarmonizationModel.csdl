@@ -30,20 +30,6 @@
     <Property Name="supplierId" Type="Int32" Nullable="false" />
     <Property Name="treatmentStepTypeId" Type="Int32" Nullable="false" />
   </EntityType>
-  <EntityType Name="vQualityIndicatorTypeMapping">
-    <Key>
-      <PropertyRef Name="indicatorTypeId" />
-      <PropertyRef Name="realIndicatorName" />
-      <PropertyRef Name="indicatorAlias" />
-      <PropertyRef Name="IndicatorTypeId" />
-    </Key>
-    <Property Name="indicatorTypeId" Type="Int32" Nullable="false" />
-    <Property Name="realIndicatorName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="indicatorAlias" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="IndicatorTypeId" Type="Int32" Nullable="false" />
-    <Property Name="unitName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="defaultUnitId" Type="Int32" />
-  </EntityType>
   <EntityType Name="vTreatmentStep">
     <Key>
       <PropertyRef Name="treatmentStepId" />
@@ -113,7 +99,6 @@
   <EntityContainer Name="HarmonizationServiceEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="vBlackList" EntityType="Self.vBlackList" />
     <EntitySet Name="vQualityIndicator" EntityType="Self.vQualityIndicator" />
-    <EntitySet Name="vQualityIndicatorTypeMapping" EntityType="Self.vQualityIndicatorTypeMapping" />
     <EntitySet Name="vTreatmentStep" EntityType="Self.vTreatmentStep" />
     <EntitySet Name="vTreatmentStepType" EntityType="Self.vTreatmentStepType" />
     <EntitySet Name="vUnit" EntityType="Self.vUnit" />
@@ -175,6 +160,7 @@
       <Parameter Name="defaultUnitId" Mode="In" Type="Int32" />
     </FunctionImport>
     <EntitySet Name="vQualityIndicatorType" EntityType="HarmonizationServiceModel.vQualityIndicatorType" />
+    <EntitySet Name="vQualityIndicatorTypeMapping" EntityType="HarmonizationServiceModel.vQualityIndicatorTypeMapping" />
   </EntityContainer>
   <EntityType Name="vCountry">
     <Key>
@@ -212,5 +198,17 @@
     <Property Name="indicatorName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="defaultUnitId" Type="Int32" />
     <Property Name="unitName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vQualityIndicatorTypeMapping">
+    <Key>
+      <PropertyRef Name="indicatorAlias" />
+      <PropertyRef Name="indicatorTypeId" />
+      <PropertyRef Name="indicatorName" />
+    </Key>
+    <Property Name="indicatorAlias" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="unitName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="indicatorTypeId" Type="Int32" Nullable="false" />
+    <Property Name="indicatorName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="defaultUnitId" Type="Int32" />
   </EntityType>
 </Schema>

@@ -26,17 +26,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vQualityIndicatorTypeMapping">
-      <EntityTypeMapping TypeName="HarmonizationServiceModel.vQualityIndicatorTypeMapping">
-        <MappingFragment StoreEntitySet="vQualityIndicatorTypeMapping">
-          <ScalarProperty Name="defaultUnitId" ColumnName="defaultUnitId" />
-          <ScalarProperty Name="unitName" ColumnName="unitName" />
-          <ScalarProperty Name="IndicatorTypeId" ColumnName="IndicatorTypeId" />
-          <ScalarProperty Name="realIndicatorName" ColumnName="realIndicatorName" />
-          <ScalarProperty Name="indicatorAlias" ColumnName="indicatorAlias" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="vTreatmentStep">
       <EntityTypeMapping TypeName="HarmonizationServiceModel.vTreatmentStep">
         <MappingFragment StoreEntitySet="vTreatmentStep">
@@ -137,6 +126,17 @@
           <ScalarProperty Name="defaultUnitId" ColumnName="defaultUnitId" />
           <ScalarProperty Name="indicatorName" ColumnName="indicatorName" />
           <ScalarProperty Name="indicatorTypeId" ColumnName="indicatorTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vQualityIndicatorTypeMapping">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vQualityIndicatorTypeMapping">
+        <MappingFragment StoreEntitySet="vQualityIndicatorTypeMapping">
+          <ScalarProperty Name="defaultUnitId" ColumnName="defaultUnitId" />
+          <ScalarProperty Name="indicatorName" ColumnName="indicatorName" />
+          <ScalarProperty Name="indicatorTypeId" ColumnName="indicatorTypeId" />
+          <ScalarProperty Name="unitName" ColumnName="unitName" />
+          <ScalarProperty Name="indicatorAlias" ColumnName="indicatorAlias" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

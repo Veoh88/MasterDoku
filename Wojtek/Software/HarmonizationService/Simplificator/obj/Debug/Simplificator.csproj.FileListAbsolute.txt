@@ -1,6 +1,5 @@
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Simplificator\bin\Debug\Simplificator.dll
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Simplificator\bin\Debug\Simplificator.pdb
-D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Simplificator\obj\Debug\Simplificator.csprojResolveAssemblyReference.cache
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Simplificator\obj\Debug\Simplificator.csproj.CoreCompileInputs.cache
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Simplificator\obj\Debug\Simplificator.dll
 D:\Master\Masterarbeit\DokumentationsRepo\Wojtek\Software\HarmonizationService\Simplificator\obj\Debug\Simplificator.pdb

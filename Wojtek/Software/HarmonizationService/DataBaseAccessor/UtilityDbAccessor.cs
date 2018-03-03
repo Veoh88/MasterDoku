@@ -29,7 +29,7 @@ namespace DataBaseAccessor
 
         public string GetIndicatorForAlias(string alias)
         {
-            return _dbViewAccessor.GetQualityIndicatorTypeMappings().FirstOrDefault(x => x.indicatorAlias == alias).realIndicatorName;
+            return _dbViewAccessor.GetQualityIndicatorTypeMappings().FirstOrDefault(x => x.indicatorAlias == alias).indicatorName;
         }
     }
 }
