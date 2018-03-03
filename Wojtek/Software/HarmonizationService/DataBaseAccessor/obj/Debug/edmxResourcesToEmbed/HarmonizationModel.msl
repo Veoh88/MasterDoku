@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HarmonizationServiceModelStoreContainer" CdmEntityContainer="HarmonizationServiceEntities">
+    <EntitySetMapping Name="vBlackList">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vBlackList">
+        <MappingFragment StoreEntitySet="vBlackList">
+          <ScalarProperty Name="propertyName" ColumnName="propertyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vQualityIndicator">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vQualityIndicator">
+        <MappingFragment StoreEntitySet="vQualityIndicator">
+          <ScalarProperty Name="qualityIndicatorId" ColumnName="qualityIndicatorId" />
+          <ScalarProperty Name="waterPlantId" ColumnName="waterPlantId" />
+          <ScalarProperty Name="treatmentStepId" ColumnName="treatmentStepId" />
+          <ScalarProperty Name="indicatorTypeId" ColumnName="indicatorTypeId" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+          <ScalarProperty Name="unitId" ColumnName="unitId" />
+          <ScalarProperty Name="unitName" ColumnName="unitName" />
+          <ScalarProperty Name="waterPlantName" ColumnName="waterPlantName" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+          <ScalarProperty Name="treatmentStepTypeId" ColumnName="treatmentStepTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vQualityIndicatorTypeMapping">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vQualityIndicatorTypeMapping">
+        <MappingFragment StoreEntitySet="vQualityIndicatorTypeMapping">
+          <ScalarProperty Name="indicatorTypeId" ColumnName="indicatorTypeId" />
+          <ScalarProperty Name="realIndicatorName" ColumnName="realIndicatorName" />
+          <ScalarProperty Name="indicatorAlias" ColumnName="indicatorAlias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vTreatmentStep">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vTreatmentStep">
+        <MappingFragment StoreEntitySet="vTreatmentStep">
+          <ScalarProperty Name="treatmentStepId" ColumnName="treatmentStepId" />
+          <ScalarProperty Name="waterPlantId" ColumnName="waterPlantId" />
+          <ScalarProperty Name="treatmentStepTypeId" ColumnName="treatmentStepTypeId" />
+          <ScalarProperty Name="waterPlantName" ColumnName="waterPlantName" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+          <ScalarProperty Name="treatmentStepTypeName" ColumnName="treatmentStepTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vTreatmentStepType">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vTreatmentStepType">
+        <MappingFragment StoreEntitySet="vTreatmentStepType">
+          <ScalarProperty Name="treatmentStepId" ColumnName="treatmentStepId" />
+          <ScalarProperty Name="treatmentStepTypeName" ColumnName="treatmentStepTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vUnit">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vUnit">
+        <MappingFragment StoreEntitySet="vUnit">
+          <ScalarProperty Name="unitId" ColumnName="unitId" />
+          <ScalarProperty Name="unitName" ColumnName="unitName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vWaterPlant">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vWaterPlant">
+        <MappingFragment StoreEntitySet="vWaterPlant">
+          <ScalarProperty Name="waterPlantId" ColumnName="waterPlantId" />
+          <ScalarProperty Name="waterPlantName" ColumnName="waterPlantName" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+          <ScalarProperty Name="supplierName" ColumnName="supplierName" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="countryName" ColumnName="countryName" />
+          <ScalarProperty Name="townName" ColumnName="townName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vWaterPlantPropertyMapper">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vWaterPlantPropertyMapper">
+        <MappingFragment StoreEntitySet="vWaterPlantPropertyMapper">
+          <ScalarProperty Name="waterPlantId" ColumnName="waterPlantId" />
+          <ScalarProperty Name="nameOnWaterplant" ColumnName="nameOnWaterplant" />
+          <ScalarProperty Name="realName" ColumnName="realName" />
+          <ScalarProperty Name="waterPlantName" ColumnName="waterPlantName" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vCountry">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vCountry">
+        <MappingFragment StoreEntitySet="vCountry">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vLocation">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vLocation">
+        <MappingFragment StoreEntitySet="vLocation">
+          <ScalarProperty Name="countryName" ColumnName="countryName" />
+          <ScalarProperty Name="town" ColumnName="town" />
+          <ScalarProperty Name="countryId" ColumnName="countryId" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vSupplier">
+      <EntityTypeMapping TypeName="HarmonizationServiceModel.vSupplier">
+        <MappingFragment StoreEntitySet="vSupplier">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,11 @@
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\bin\Debug\DataBaseAccessor.dll.config
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\bin\Debug\DataBaseAccessor.dll
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\bin\Debug\DataBaseAccessor.pdb
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\bin\Debug\EntityFramework.dll
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\bin\Debug\EntityFramework.SqlServer.dll
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\bin\Debug\EntityFramework.xml
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\bin\Debug\EntityFramework.SqlServer.xml
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\obj\Debug\DataBaseAccessor.csprojResolveAssemblyReference.cache
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\obj\Debug\DataBaseAccessor.csproj.CoreCompileInputs.cache
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\obj\Debug\DataBaseAccessor.dll
+D:\Master\Masterarbeit\SoftwareRepo\Amazon\HarmonizationService\DataBaseAccessor\obj\Debug\DataBaseAccessor.pdb
