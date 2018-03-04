@@ -15,9 +15,10 @@ namespace HarmonizationService.Controllers
     {
         #region Private Members
 
-        private BusinessLogic.BusinessLogic _businessLogic;
+        private readonly BusinessLogic.BusinessLogic _businessLogic;
 
         #endregion
+
         #region Constructors
 
         public HarmController()
