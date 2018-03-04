@@ -46,8 +46,8 @@ namespace HarmonizationService.BusinessLogic
 
         public string HarmonizeData(Stream dataBaseStream, FileFormat fileFormat, string waterPlant, string treatmentStep)
         {
-            //
-            DataSet tableDataSet;
+            // 1. Read DataSet from Stream
+            DataSet tableDataSet = null;
             if (fileFormat == FileFormat.XLS)
             {
                 using (var reader = ExcelReaderFactory.CreateReader(dataBaseStream))
@@ -62,6 +62,22 @@ namespace HarmonizationService.BusinessLogic
                     tableDataSet = reader.AsDataSet();
                 }
             }
+
+            // 2. Convert DataSet
+            var conversionResult = _converter.ConvertTableObject(tableDataSet);
+
+            // 3. Presimplify Table
+            var presimplifiedResult = _preSimplificator.PreSimplyfyTableObject(conversionResult);
+
+            // 4. Harmonize Table
+            var harmonizedResult = _harmonizer.HarmonizeTableObject(presimplifiedResult, waterPlant, treatmentStep);
+
+            // 5. Simplify 
+            var simplifiedResult = _simplificator;
+            
+            // 6. Standardize and store
+            _standardizer.StandardizeAndStore(harmonizedResult);
+           
 
             return "harmonization was successful";
         }

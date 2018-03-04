@@ -18,6 +18,7 @@ namespace Harmonizer
         public TableHarmonizer()
         {
             _dataBaseAccessor = new DbViewAccessor();
+            _utilityDataBaseAccessor = new UtilityDbAccessor();
         }
         public WasteWaterTreatmentPlant HarmonizeTable(TableFormattedObject tableObject)
         {

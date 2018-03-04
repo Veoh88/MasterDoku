@@ -10,8 +10,8 @@ namespace Interfaces
 {
     public interface IHarmonizer
     {
-        WasteWaterTreatmentPlant HarmonizeTableObject(TableFormattedObject tableObject);
-        WasteWaterTreatmentPlant HarmonizeJsonObject(TreeFormattedObject treeObject);
+        WasteWaterTreatmentPlant HarmonizeTableObject(TableFormattedObject tableObject, string waterPlant, string treatmentStep);
+        WasteWaterTreatmentPlant HarmonizeJsonObject(TreeFormattedObject treeObject, string waterPlant, string treatmentStep);
 
     }
 }

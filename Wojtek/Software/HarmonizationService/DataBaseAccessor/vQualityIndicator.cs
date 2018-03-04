@@ -19,12 +19,9 @@ namespace DataBaseAccessor
         public Nullable<int> treatmentStepId { get; set; }
         public int indicatorTypeId { get; set; }
         public double value { get; set; }
-        public byte[] timeStamp { get; set; }
+        public System.DateTime timeStamp { get; set; }
         public Nullable<int> unitId { get; set; }
         public string unitName { get; set; }
-        public string waterPlantName { get; set; }
-        public int locationId { get; set; }
-        public int supplierId { get; set; }
-        public int treatmentStepTypeId { get; set; }
+        public string indicatorName { get; set; }
     }
 }

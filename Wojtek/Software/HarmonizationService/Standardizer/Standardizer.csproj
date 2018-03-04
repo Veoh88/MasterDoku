@@ -44,6 +44,10 @@
     <Compile Include="Standardizer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataBaseAccessor\DataBaseAccessor.csproj">
+      <Project>{af66c2f8-bf92-4255-8a7f-3b2a4b8dc82a}</Project>
+      <Name>DataBaseAccessor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{5dd4e540-c3b1-467a-b9fc-c5b4e868cdb6}</Project>
       <Name>Interfaces</Name>

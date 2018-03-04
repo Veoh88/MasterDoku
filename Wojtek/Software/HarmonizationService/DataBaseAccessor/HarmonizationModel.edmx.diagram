@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="234478cbe2b54892b6b7c2867994c404" Name="Diagram1">
         <EntityTypeShape EntityType="HarmonizationServiceModel.vBlackList" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HarmonizationServiceModel.vQualityIndicator" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HarmonizationServiceModel.vTreatmentStep" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HarmonizationServiceModel.vTreatmentStepType" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HarmonizationServiceModel.vUnit" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
@@ -17,6 +16,7 @@
         <EntityTypeShape EntityType="HarmonizationServiceModel.vSupplier" Width="1.5" PointX="6.75" PointY="7.75" />
         <EntityTypeShape EntityType="HarmonizationServiceModel.vQualityIndicatorType" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="HarmonizationServiceModel.vQualityIndicatorTypeMapping" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="HarmonizationServiceModel.vQualityIndicator" Width="1.5" PointX="9.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

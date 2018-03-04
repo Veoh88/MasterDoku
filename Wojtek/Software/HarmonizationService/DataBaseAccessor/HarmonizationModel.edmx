@@ -44,23 +44,17 @@ warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicator' does n
             <PropertyRef Name="indicatorTypeId" />
             <PropertyRef Name="value" />
             <PropertyRef Name="timeStamp" />
-            <PropertyRef Name="waterPlantName" />
-            <PropertyRef Name="locationId" />
-            <PropertyRef Name="supplierId" />
-            <PropertyRef Name="treatmentStepTypeId" />
+            <PropertyRef Name="indicatorName" />
           </Key>
           <Property Name="qualityIndicatorId" Type="int" Nullable="false" />
           <Property Name="waterPlantId" Type="int" />
           <Property Name="treatmentStepId" Type="int" />
           <Property Name="indicatorTypeId" Type="int" Nullable="false" />
           <Property Name="value" Type="float" Nullable="false" />
-          <Property Name="timeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="timeStamp" Type="datetime" Nullable="false" />
           <Property Name="unitId" Type="int" />
-          <Property Name="unitName" Type="nchar" MaxLength="50" />
-          <Property Name="waterPlantName" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="locationId" Type="int" Nullable="false" />
-          <Property Name="supplierId" Type="int" Nullable="false" />
-          <Property Name="treatmentStepTypeId" Type="int" Nullable="false" />
+          <Property Name="unitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="indicatorName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicatorType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -256,10 +250,7 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
     [vQualityIndicator].[timeStamp] AS [timeStamp], 
     [vQualityIndicator].[unitId] AS [unitId], 
     [vQualityIndicator].[unitName] AS [unitName], 
-    [vQualityIndicator].[waterPlantName] AS [waterPlantName], 
-    [vQualityIndicator].[locationId] AS [locationId], 
-    [vQualityIndicator].[supplierId] AS [supplierId], 
-    [vQualityIndicator].[treatmentStepTypeId] AS [treatmentStepTypeId]
+    [vQualityIndicator].[indicatorName] AS [indicatorName]
     FROM [dbo].[vQualityIndicator] AS [vQualityIndicator]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vQualityIndicatorType" EntityType="Self.vQualityIndicatorType" store:Type="Views" store:Schema="dbo">
@@ -341,30 +332,6 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
           </Key>
           <Property Name="propertyName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="vQualityIndicator">
-          <Key>
-            <PropertyRef Name="qualityIndicatorId" />
-            <PropertyRef Name="indicatorTypeId" />
-            <PropertyRef Name="value" />
-            <PropertyRef Name="timeStamp" />
-            <PropertyRef Name="waterPlantName" />
-            <PropertyRef Name="locationId" />
-            <PropertyRef Name="supplierId" />
-            <PropertyRef Name="treatmentStepTypeId" />
-          </Key>
-          <Property Name="qualityIndicatorId" Type="Int32" Nullable="false" />
-          <Property Name="waterPlantId" Type="Int32" />
-          <Property Name="treatmentStepId" Type="Int32" />
-          <Property Name="indicatorTypeId" Type="Int32" Nullable="false" />
-          <Property Name="value" Type="Double" Nullable="false" />
-          <Property Name="timeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="unitId" Type="Int32" />
-          <Property Name="unitName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="waterPlantName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="locationId" Type="Int32" Nullable="false" />
-          <Property Name="supplierId" Type="Int32" Nullable="false" />
-          <Property Name="treatmentStepTypeId" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="vTreatmentStep">
           <Key>
             <PropertyRef Name="treatmentStepId" />
@@ -433,7 +400,6 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
         </EntityType>
         <EntityContainer Name="HarmonizationServiceEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="vBlackList" EntityType="Self.vBlackList" />
-          <EntitySet Name="vQualityIndicator" EntityType="Self.vQualityIndicator" />
           <EntitySet Name="vTreatmentStep" EntityType="Self.vTreatmentStep" />
           <EntitySet Name="vTreatmentStepType" EntityType="Self.vTreatmentStepType" />
           <EntitySet Name="vUnit" EntityType="Self.vUnit" />
@@ -496,6 +462,7 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
           </FunctionImport>
           <EntitySet Name="vQualityIndicatorType" EntityType="HarmonizationServiceModel.vQualityIndicatorType" />
           <EntitySet Name="vQualityIndicatorTypeMapping" EntityType="HarmonizationServiceModel.vQualityIndicatorTypeMapping" />
+          <EntitySet Name="vQualityIndicator" EntityType="HarmonizationServiceModel.vQualityIndicator" />
         </EntityContainer>
         <EntityType Name="vCountry">
           <Key>
@@ -546,6 +513,24 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
           <Property Name="indicatorName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="defaultUnitId" Type="Int32" />
         </EntityType>
+        <EntityType Name="vQualityIndicator">
+          <Key>
+            <PropertyRef Name="qualityIndicatorId" />
+            <PropertyRef Name="indicatorTypeId" />
+            <PropertyRef Name="value" />
+            <PropertyRef Name="timeStamp" />
+            <PropertyRef Name="indicatorName" />
+          </Key>
+          <Property Name="qualityIndicatorId" Type="Int32" Nullable="false" />
+          <Property Name="waterPlantId" Type="Int32" />
+          <Property Name="treatmentStepId" Type="Int32" />
+          <Property Name="indicatorTypeId" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Double" Nullable="false" />
+          <Property Name="timeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="unitId" Type="Int32" />
+          <Property Name="unitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="indicatorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -556,24 +541,6 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
             <EntityTypeMapping TypeName="HarmonizationServiceModel.vBlackList">
               <MappingFragment StoreEntitySet="vBlackList">
                 <ScalarProperty Name="propertyName" ColumnName="propertyName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vQualityIndicator">
-            <EntityTypeMapping TypeName="HarmonizationServiceModel.vQualityIndicator">
-              <MappingFragment StoreEntitySet="vQualityIndicator">
-                <ScalarProperty Name="qualityIndicatorId" ColumnName="qualityIndicatorId" />
-                <ScalarProperty Name="waterPlantId" ColumnName="waterPlantId" />
-                <ScalarProperty Name="treatmentStepId" ColumnName="treatmentStepId" />
-                <ScalarProperty Name="indicatorTypeId" ColumnName="indicatorTypeId" />
-                <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
-                <ScalarProperty Name="unitId" ColumnName="unitId" />
-                <ScalarProperty Name="unitName" ColumnName="unitName" />
-                <ScalarProperty Name="waterPlantName" ColumnName="waterPlantName" />
-                <ScalarProperty Name="locationId" ColumnName="locationId" />
-                <ScalarProperty Name="supplierId" ColumnName="supplierId" />
-                <ScalarProperty Name="treatmentStepTypeId" ColumnName="treatmentStepTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -688,6 +655,21 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
                 <ScalarProperty Name="indicatorTypeId" ColumnName="indicatorTypeId" />
                 <ScalarProperty Name="unitName" ColumnName="unitName" />
                 <ScalarProperty Name="indicatorAlias" ColumnName="indicatorAlias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vQualityIndicator">
+            <EntityTypeMapping TypeName="HarmonizationServiceModel.vQualityIndicator">
+              <MappingFragment StoreEntitySet="vQualityIndicator">
+                <ScalarProperty Name="indicatorName" ColumnName="indicatorName" />
+                <ScalarProperty Name="unitName" ColumnName="unitName" />
+                <ScalarProperty Name="unitId" ColumnName="unitId" />
+                <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="indicatorTypeId" ColumnName="indicatorTypeId" />
+                <ScalarProperty Name="treatmentStepId" ColumnName="treatmentStepId" />
+                <ScalarProperty Name="waterPlantId" ColumnName="waterPlantId" />
+                <ScalarProperty Name="qualityIndicatorId" ColumnName="qualityIndicatorId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

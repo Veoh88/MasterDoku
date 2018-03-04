@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseAccessor
 {
-    public class DataBaseSetter
+    public class DataBaseSetter : IDbSetter
     {
         #region Private Members
 
@@ -45,9 +45,7 @@ namespace DataBaseAccessor
             _entityFrameworkAccessor.SetQualityIndicator(waterPlantId, treatmentStepId, indicatorTypeId, value,
                 dateTime, unitId);
             return _entityFrameworkAccessor.vQualityIndicator.FirstOrDefault
-                (x => dateTime == DateTime.FromBinary(BitConverter.ToInt64(x.timeStamp, 0)) && 
-                      x.indicatorTypeId == indicatorTypeId)
-                .qualityIndicatorId;
+                (x => dateTime == x.timeStamp &&  x.indicatorTypeId == indicatorTypeId).qualityIndicatorId;
         }
 
         public void SetQualityIndicatorTypeMapping(int indicatorTypeId, string name)
