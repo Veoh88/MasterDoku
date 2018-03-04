@@ -15,7 +15,7 @@ namespace FormatConverter
 {
     public class Converter : IConverter
     {
-        public TreeFormattedObject ConvertTreeObject(string treeStringObject)
+        public TreeFormattedObject ConvertTreeObject(string treeStringObject, string waterPlant, string treatmentStep)
         {
             if (IsJson(treeStringObject))
             {

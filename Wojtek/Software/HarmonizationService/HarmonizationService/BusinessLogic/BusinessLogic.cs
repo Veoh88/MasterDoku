@@ -1,10 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
+using Amazon;
+using Amazon.S3;
+using Amazon.S3.Model;
+using ExcelDataReader;
 using FormatConverter;
 using Interfaces;
 using Library.HarmonizationApi;
+
+
 
 namespace HarmonizationService.BusinessLogic
 {
@@ -17,6 +26,7 @@ namespace HarmonizationService.BusinessLogic
         private IHarmonizer _harmonizer;
         private ISimplificator _simplificator;
         private IStandardizer _standardizer;
+
         #endregion
 
         #region Constructors
@@ -33,23 +43,33 @@ namespace HarmonizationService.BusinessLogic
         #endregion
 
         #region Public Methods
-        public string HarmonizeData(HarmonizationRequest harmRequest)
+
+        public string HarmonizeData(Stream dataBaseStream, FileFormat fileFormat, string waterPlant, string treatmentStep)
         {
-            //check type of binary data
-            var dataType = harmRequest.FileFormat;
+            //
+            DataSet tableDataSet;
+            if (fileFormat == FileFormat.XLS)
+            {
+                using (var reader = ExcelReaderFactory.CreateReader(dataBaseStream))
+                {
+                    tableDataSet = reader.AsDataSet();
+                }
+            }
+            else if (fileFormat == FileFormat.CSV)
+            {
+                using (var reader = ExcelReaderFactory.CreateCsvReader(dataBaseStream))
+                {
+                    tableDataSet = reader.AsDataSet();
+                }
+            }
 
-            if (dataType == FileFormat.CSV || dataType == FileFormat.XLS)
-            {
-                _converter.ConvertTableObject()
-            }
-            else if (dataType == FileFormat.JSON)
-            {
+            return "harmonization was successful";
+        }
 
-            }
-            else
-            {
-                return "Error: DataType not Supported";
-            }
+        public string HarmonizeData(string jsonObject, string waterPlant = null, string treatmentStep = null)
+        {
+            _converter.ConvertTreeObject(jsonObject, waterPlant, treatmentStep);
+            return null; //TODO return something useful
         }
 
         #endregion

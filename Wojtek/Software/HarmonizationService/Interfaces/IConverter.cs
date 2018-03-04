@@ -10,7 +10,7 @@ namespace Interfaces
 {
     public interface IConverter
     {
-        TreeFormattedObject ConvertTreeObject(string treeStringObject);
+        TreeFormattedObject ConvertTreeObject(string treeStringObject, string waterPlant, string treatmentStep);
         TableFormattedObject ConvertTableObject(DataSet tableObject);
 
     }

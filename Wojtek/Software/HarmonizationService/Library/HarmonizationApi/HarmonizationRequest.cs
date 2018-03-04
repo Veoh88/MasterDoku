@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -32,7 +33,7 @@ namespace Library.HarmonizationApi
         public string TreatmentStepName { get; set; }
 
         [DataMember(Name = "payload")]
-        public string Payload { get; set; }
+        public Byte[] Payload { get; set; }
     }
 
     [JsonConverter(typeof(StringEnumConverter))]
