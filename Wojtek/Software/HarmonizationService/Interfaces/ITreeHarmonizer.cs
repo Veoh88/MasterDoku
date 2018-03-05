@@ -10,7 +10,7 @@ namespace Interfaces
 {
     public interface ITreeHarmonizer
     {
-        WasteWaterTreatmentPlant HarmonizeTree(TreeFormattedObject treeObject, int? waterPlantId, int? treatmentStepType);
+        WasteWaterTreatmentPlant HarmonizeTree(TreeFormattedObject treeObject, int? waterPlantId = null, int? treatmentStepTypeId = null);
 
     }
 }
