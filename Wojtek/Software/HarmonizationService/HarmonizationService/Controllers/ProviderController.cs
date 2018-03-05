@@ -23,6 +23,10 @@ namespace HarmonizationService.Controllers
         }
         #endregion
 
+        /// <summary>
+        /// Returns all waterplants stored by the system
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("waterPlants")]
         [SwaggerResponseRemoveDefaults]
@@ -33,8 +37,13 @@ namespace HarmonizationService.Controllers
             return result.ToList();
         }
 
+        /// <summary>
+        /// Returns all treatment types which have stored indicators for a specific waterplant
+        /// </summary>
+        /// <param name="waterPlantId"></param>
+        /// <returns></returns>
         [HttpGet]
-        [Route("waterPlants/{waterplantId}/treatmentSteps")]
+        [Route("waterPlants/{waterplantId}/treatmentStepTypes")]
         [SwaggerResponseRemoveDefaults]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(List<vTreatmentStep>))]
         public List<vTreatmentStep> GetTreatmentSteps([FromUri] int waterPlantId)
@@ -43,13 +52,35 @@ namespace HarmonizationService.Controllers
             return result.ToList();
         }
 
+        /// <summary>
+        /// Returns all qualityindicators for a specific step in a specific water treatment plant
+        /// </summary>
+        /// <param name="waterPlantId">specific waterplant the indicator is returned for</param>
+        /// <param name="treatmentStepTypeId">specific treatment step the indicator is returned for</param>
+        /// <returns></returns>
         [HttpGet]
-        [Route("waterPlants/{waterplantId}/treatmentSteps/{treatmentStepId}/qualityIndicators")]
+        [Route("waterPlants/{waterplantId}/treatmentStepTypes/{treatmentStepTypeId}/qualityIndicators")]
         [SwaggerResponseRemoveDefaults]
         [SwaggerResponse(HttpStatusCode.OK, Type = typeof(List<vQualityIndicator>))]
-        public List<vQualityIndicator> GetQualityIndicators([FromUri] int waterPlantId, [FromUri] int treatmentStepId)
+        public List<vQualityIndicator> GetQualityIndicators([FromUri] int waterPlantId, [FromUri] int treatmentStepTypeId)
         {
-            var result = _dbAccessor.GetQualityIndicators().Where(x => x.waterPlantId == waterPlantId && x.treatmentStepId == treatmentStepId);
+            var treatmentStepTypesForWwtp = _dbAccessor.GetTreatmentSteps().Where(x => x.waterPlantId == waterPlantId).Select(x=>x.treatmentStepId).ToList();
+            var result = _dbAccessor.GetQualityIndicators().Where(x=>x.treatmentStepId != null && treatmentStepTypesForWwtp.Contains((int)x.treatmentStepId));
+            return result.ToList();
+        }
+
+        /// <summary>
+        /// Returns all qualityindicators assigned directly to a specific waterplant
+        /// </summary>
+        /// <param name="waterPlantId">specific waterplant the indicator is returned for</param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("waterPlants/{waterplantId}/qualityIndicators")]
+        [SwaggerResponseRemoveDefaults]
+        [SwaggerResponse(HttpStatusCode.OK, Type = typeof(List<vQualityIndicator>))]
+        public List<vQualityIndicator> GetQualityIndicatorsForWaterPlant([FromUri] int waterPlantId)
+        {
+            var result = _dbAccessor.GetQualityIndicators().Where(x => x.waterPlantId != null && x.waterPlantId == waterPlantId);
             return result.ToList();
         }
     }
