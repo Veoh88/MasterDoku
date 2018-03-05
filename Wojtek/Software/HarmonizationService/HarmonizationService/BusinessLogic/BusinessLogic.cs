@@ -21,11 +21,11 @@ namespace HarmonizationService.BusinessLogic
     {
         #region Private Members
 
-        private IConverter _converter;
-        private IPreSimplificator _preSimplificator;
-        private IHarmonizer _harmonizer;
-        private ISimplificator _simplificator;
-        private IStandardizer _standardizer;
+        private readonly IConverter _converter;
+        private readonly IPreSimplificator _preSimplificator;
+        private readonly IHarmonizer _harmonizer;
+        private readonly ISimplificator _simplificator;
+        private readonly IStandardizer _standardizer;
 
         #endregion
 
