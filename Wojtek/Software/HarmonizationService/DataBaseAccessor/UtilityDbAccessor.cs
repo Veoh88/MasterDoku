@@ -91,5 +91,13 @@ namespace DataBaseAccessor
                 x.timeStamp == dateTime && x.indicatorName == indicatorType && x.waterPlantId == waterPlantId);
 
         }
+
+        public Dictionary<string, string> GetAliasToRealNameOnWwtpDict(int waterPlantId)
+        {
+            var queryResult = _dbViewAccessor.GetWaterPlantPropertyMapper().Where(x => x.waterPlantId == waterPlantId);
+            var resultDict = queryResult.ToDictionary(x => x.nameOnWaterplant, x => x.realName);
+
+            return resultDict;
+        }
     }
 }

@@ -17,6 +17,8 @@ namespace Harmonizer
         private readonly ITableHarmonizer _tableHarmonizer;
 
         private readonly IUtilityDbAccessor _dbUtilAccessor;
+
+        private readonly Dictionary<string, string> _aliasToRealNameDict;
         #endregion
 
         #region Constructors

@@ -20,6 +20,7 @@ namespace DataBaseAccessor
         int GetTreatmentStepIdForTypeAndWwtp(string treatmentType, string wwtpName);
         bool QualityIndicatorEntryExists(DateTime dateTime, string indicatorType, int treatmentStepId);
         bool WwtpQualityIndicatorEntryExists(DateTime dateTime, string indicatorType, int waterPlantNameId);
+        Dictionary<string, string> GetAliasToRealNameOnWwtpDict(int waterPlantId);
 
     }
 }
