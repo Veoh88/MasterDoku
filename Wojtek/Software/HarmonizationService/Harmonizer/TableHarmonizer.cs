@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,8 @@ namespace Harmonizer
 {
     public class TableHarmonizer : ITableHarmonizer
     {
-        private IDataBaseViewAccessor _dataBaseAccessor;
-        private IUtilityDbAccessor _utilityDataBaseAccessor;
+        private readonly IDataBaseViewAccessor _dataBaseAccessor;
+        private readonly IUtilityDbAccessor _utilityDataBaseAccessor;
 
         public TableHarmonizer()
         {
@@ -83,7 +84,7 @@ namespace Harmonizer
                 }
             }
 
-            Console.WriteLine("Creation of Harmonized WasteWaterTreatmentPlant Object successful!");
+            Debug.WriteLine("Creation of Harmonized WasteWaterTreatmentPlant Object successful!");
 
             return wwtp;
         }
@@ -95,7 +96,7 @@ namespace Harmonizer
             for (var i = 0; i < indexesOfNumericColumns.Count; i++)
             {
                 associations.Add(indexesOfNumericColumns[i], indicatorNames.Keys.ElementAt(i));
-                Console.WriteLine($"Associated Indicator [{indicatorNames.Keys.ElementAt(i)}] with ColumnIndex [{indexesOfNumericColumns[i]}]");
+                Debug.WriteLine($"Associated Indicator [{indicatorNames.Keys.ElementAt(i)}] with ColumnIndex [{indexesOfNumericColumns[i]}]");
             }
 
             return associations;
@@ -117,14 +118,14 @@ namespace Harmonizer
             }
             Console.Write("Found numeric columns at indexes: ");
             indexesOfNumericColumns.ForEach(x => Console.Write(x + "; "));
-            Console.WriteLine();
+            Debug.WriteLine("");
 
             return indexesOfNumericColumns;
         }
 
         private Tuple<int, int> FindFirstCellWithDateTime(TableFormattedObject tableObject)
         {
-            Console.WriteLine("Trying to find the first cell with a datetime again because table was modified...");
+            Debug.WriteLine("Trying to find the first cell with a datetime again because table was modified...");
             Tuple<int, int> firstDateTimeCell = null;
             for (int i = 0; i < tableObject.Cells.Count; i++)
             {
@@ -145,7 +146,7 @@ namespace Harmonizer
 
             if (firstDateTimeCell == null) throw new Exception("no datetime was found");
 
-            Console.WriteLine($"First dateTime cell found at cell:[{firstDateTimeCell.Item1},{firstDateTimeCell.Item2}]");
+            Debug.WriteLine($"First dateTime cell found at cell:[{firstDateTimeCell.Item1},{firstDateTimeCell.Item2}]");
             return firstDateTimeCell;
         }
 
@@ -154,7 +155,7 @@ namespace Harmonizer
         /// </summary>
         private Dictionary<string, Tuple<int, int>> FindIndicatorNames(TableFormattedObject tableObject)
         {
-            Console.WriteLine("Searching for IndicatorNames and Aliases in the title...");
+            Debug.WriteLine("Searching for IndicatorNames and Aliases in the title...");
 
             var indicatorNamesWithCells = new Dictionary<string, Tuple<int, int>>();
             var indicatorNamesFromDb = _dataBaseAccessor.GetQualityIndicatorTypes().Select(x=>x.indicatorName).ToList();
@@ -169,19 +170,19 @@ namespace Harmonizer
                     if (indicatorNamesWithCells.ContainsKey(currentCell)) continue;
                     if (indicatorNamesFromDb.Contains(currentCell))
                     {
-                        Console.WriteLine($"Indicator [{currentCell}] found at ({i},{j})");
+                        Debug.WriteLine($"Indicator [{currentCell}] found at ({i},{j})");
                         indicatorNamesWithCells.Add(currentCell, new Tuple<int, int>(i, j));
                     }
                     else if (indicatorAliasesFromDb.Contains(currentCell))
                     {
                         var indicatorName = _utilityDataBaseAccessor.GetIndicatorForAlias(currentCell);
-                        Console.WriteLine($"[{currentCell}] found at ({i},{j}) is an alias for [{indicatorName}]");
+                        Debug.WriteLine($"[{currentCell}] found at ({i},{j}) is an alias for [{indicatorName}]");
                         indicatorNamesWithCells.Add(indicatorName, new Tuple<int, int>(i, j));
                     }
                 }
             }
 
-            Console.WriteLine("Searching for IndicatorNames and Aliases in the rows...");
+            Debug.WriteLine("Searching for IndicatorNames and Aliases in the rows...");
 
             //iterate through all rows of title on the search for indicator names
             for (var i = 0; i < tableObject.Cells[tableObject.NumberOfTitleRows].Count; i++)
@@ -190,13 +191,13 @@ namespace Harmonizer
                 if (indicatorNamesWithCells.ContainsKey(currentCell)) continue;
                 if (indicatorNamesFromDb.Contains(currentCell))
                 {
-                    Console.WriteLine($"Indicator [{currentCell}] found at ({tableObject.NumberOfTitleRows},{i})");
+                    Debug.WriteLine($"Indicator [{currentCell}] found at ({tableObject.NumberOfTitleRows},{i})");
                     indicatorNamesWithCells.Add(currentCell, new Tuple<int, int>(tableObject.NumberOfTitleRows, i));
                 }
                 else if (indicatorAliasesFromDb.Contains(currentCell))
                 {
                     var indicatorName = _utilityDataBaseAccessor.GetIndicatorForAlias(currentCell);
-                    Console.WriteLine($"[{currentCell}] found at ({tableObject.NumberOfTitleRows},{i}) is an alias for [{indicatorName}]");
+                    Debug.WriteLine($"[{currentCell}] found at ({tableObject.NumberOfTitleRows},{i}) is an alias for [{indicatorName}]");
                     indicatorNamesWithCells.Add(indicatorName, new Tuple<int, int>(tableObject.NumberOfTitleRows, i));
                 }
             }

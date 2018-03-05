@@ -13,10 +13,10 @@ namespace Harmonizer
     public class Harmonizer : IHarmonizer
     {
         #region Private Members
-        private ITreeHarmonizer _treeHarmonizer;
-        private ITableHarmonizer _tableHarmonizer;
+        private readonly ITreeHarmonizer _treeHarmonizer;
+        private readonly ITableHarmonizer _tableHarmonizer;
 
-        private IUtilityDbAccessor _dbUtilAccessor;
+        private readonly IUtilityDbAccessor _dbUtilAccessor;
         #endregion
 
         #region Constructors

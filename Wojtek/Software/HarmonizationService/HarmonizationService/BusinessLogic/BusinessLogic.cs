@@ -84,7 +84,22 @@ namespace HarmonizationService.BusinessLogic
 
         public string HarmonizeData(string jsonObject, string waterPlant = null, string treatmentStep = null)
         {
-            _converter.ConvertTreeObject(jsonObject, waterPlant, treatmentStep);
+            // 1. not required
+            // 2. Convert Tree
+            var conversionResult = _converter.ConvertTreeObject(jsonObject);
+
+            // 3. Presimplify Tree
+            var presimplifiedResult = _preSimplificator.PreSimplyfyJsonObject(conversionResult);
+
+            // 4. Harmonize Tree
+            var harmonizedResult = _harmonizer.HarmonizeJsonObject(presimplifiedResult, waterPlant, treatmentStep);
+
+            // 5.Simplify
+            var simplifiedResult = _simplificator;
+
+            // 6. Standardize and store
+            _standardizer.StandardizeAndStore(harmonizedResult);
+
             return null; //TODO return something useful
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,15 +16,15 @@ namespace FormatConverter
 {
     public class Converter : IConverter
     {
-        public TreeFormattedObject ConvertTreeObject(string treeStringObject, string waterPlant, string treatmentStep)
+        public TreeFormattedObject ConvertTreeObject(string treeStringObject)
         {
             if (IsJson(treeStringObject))
             {
-                Console.WriteLine("The object is a valid Json");
+                Debug.WriteLine("The object is a valid Json");
                 //first check if the json object is in the predefined format
                 if (IsCommonSchemaJson(treeStringObject))
                 {
-                    Console.WriteLine("Perfect! The object is in the predefined schema");
+                    Debug.WriteLine("Perfect! The object is in the predefined schema");
                     var jsonObject = JsonConvert.DeserializeObject<WasteWaterTreatmentPlant>(treeStringObject);
                     var treeFormattedObject = new TreeFormattedObject()
                     {
@@ -35,7 +36,7 @@ namespace FormatConverter
                 }
                 else
                 {
-                    Console.WriteLine("The Json format does not equal the predefined format");
+                    Debug.WriteLine("The Json format does not equal the predefined format");
                     var jsonObject = JsonConvert.DeserializeObject<dynamic>(treeStringObject);
                     var treeFormattedObject = new TreeFormattedObject()
                     {
@@ -63,11 +64,11 @@ namespace FormatConverter
             //set the number of title rows
             var titleRowNumbres = isHorizontal ? firstDateTimeCellTuple.Item2 : firstDateTimeCellTuple.Item1;
 
-            Console.WriteLine($"Rows and columns before converting: [{tableObject.Tables[0].Rows.Count},{tableObject.Tables[0].Columns.Count}]");
+            Debug.WriteLine($"Rows and columns before converting: [{tableObject.Tables[0].Rows.Count},{tableObject.Tables[0].Columns.Count}]");
             //convert dataset to a list<list<string>> invert if vertical
             var cellList = DataSetToHorizontalList(tableObject.Tables[0].DataSet);
 
-            Console.WriteLine($"Rows and columns after converting: [{cellList.Count},{cellList.First().Count}]");
+            Debug.WriteLine($"Rows and columns after converting: [{cellList.Count},{cellList.First().Count}]");
 
             var convertionResult = new TableFormattedObject()
             {
@@ -119,12 +120,12 @@ namespace FormatConverter
                 catch (JsonReaderException jex)
                 {
                     //Exception in parsing json
-                    Console.WriteLine(jex.Message);
+                    Debug.WriteLine(jex.Message);
                     return false;
                 }
                 catch (Exception ex) //some other exception
                 {
-                    Console.WriteLine(ex.ToString());
+                    Debug.WriteLine(ex.ToString());
                     return false;
                 }
             }
@@ -179,7 +180,7 @@ namespace FormatConverter
             //find first cell which contains a datetime
             var currentTable = tableObject.Tables[0];
 
-            Console.WriteLine("Trying to find the first cell with a datetime...");
+            Debug.WriteLine("Trying to find the first cell with a datetime...");
             for (int i = 0; i < currentTable.Rows.Count; i++)
             {
                 for (int j = 0; j < currentTable.Columns.Count; j++)
@@ -199,7 +200,7 @@ namespace FormatConverter
 
             if (firstDateTimeCell == null) throw new Exception("no datetime was found");
 
-            Console.WriteLine($"First dateTime cell found at cell:[{firstDateTimeCell.Item1},{firstDateTimeCell.Item2}]");
+            Debug.WriteLine($"First dateTime cell found at cell:[{firstDateTimeCell.Item1},{firstDateTimeCell.Item2}]");
             firstDateTimeCellTuple = firstDateTimeCell;
             //determine if datetime flow is downwards or sidewards
             //check sidewards
@@ -222,13 +223,13 @@ namespace FormatConverter
 
             if (dateTimesInRow < dateTimesInColumn)
             {
-                Console.WriteLine("Table Orientation: Vertical");
+                Debug.WriteLine("Table Orientation: Vertical");
                 return true;
             }
 
             if (dateTimesInColumn < dateTimesInRow)
             {
-                Console.WriteLine("Table Orientation: Horizontal");
+                Debug.WriteLine("Table Orientation: Horizontal");
                 return false;
             }
 

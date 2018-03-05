@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using DataBaseAccessor;
 using Interfaces;
 using Library.ConvertedObjects;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace PreSimplificator
 {
@@ -36,10 +38,10 @@ namespace PreSimplificator
                 }
             }
 
-            Console.WriteLine($"Removed  {listWithEmptyColumns.Count} empty columns from the dataset");
+            Debug.WriteLine($"Removed  {listWithEmptyColumns.Count} empty columns from the dataset");
             Console.Write("The removed column indexes: ");
             listWithEmptyColumns.ForEach(x => Console.Write(x + "; "));
-            Console.WriteLine();
+            Debug.WriteLine("");
 
             return tableObject;
         }
@@ -48,20 +50,69 @@ namespace PreSimplificator
         {
             if (treeObject.IsPredefinedSchema)
             {
-                Console.WriteLine("The object is already in the recommended common schema and does no require any simplification");
+                Debug.WriteLine("The object is already in the recommended common schema and does no require any simplification");
                 return treeObject;
             }
 
-            Dictionary<string, dynamic> d = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(treeObject.Object.ToString());
-            foreach (var key in d.Keys)
+            Dictionary<string, dynamic> dynamicObject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(treeObject.Object.ToString());
+
+            RemoveBlacklistedKeys(dynamicObject);
+
+            return treeObject;
+        }
+
+        #region Private Methods
+
+        private Dictionary<string, dynamic> RemoveBlacklistedKeys(Dictionary<string, dynamic> dynamicObject)
+        {
+            var cleanedResult = new Dictionary<string, dynamic>();
+
+            foreach (var key in dynamicObject.Keys)
             {
-                //TODO iterate and match keys with blacklist ( this probably has to be done recursivly )
-                Console.WriteLine(key);
+                //remove every keyvalue where the key is blacklisted
+                if (_blackList.Contains(key)) continue;
+
+                //if the value is another json also check that json
+                if (dynamicObject[key] is string && IsJson(dynamicObject[key]))
+                {
+                    var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(dynamicObject[key]);
+                    var subResult = RemoveBlacklistedKeys(jsonObject);
+                    cleanedResult.Add(key, subResult);
+                    continue;
+                }
+                cleanedResult.Add(key, dynamicObject[key]);
             }
 
-
-
-            return null;
+            return cleanedResult;
         }
+
+        #endregion
+
+        #region Helpers
+        private bool IsJson(string treeStringObject)
+        {
+            treeStringObject = treeStringObject.Trim();
+            if (treeStringObject.StartsWith("{") && treeStringObject.EndsWith("}"))
+            {
+                try
+                {
+                    var obj = JToken.Parse(treeStringObject);
+                    return true;
+                }
+                catch (JsonReaderException jex)
+                {
+                    //Exception in parsing json
+                    Debug.WriteLine(jex.Message);
+                    return false;
+                }
+                catch (Exception ex) //some other exception
+                {
+                    Debug.WriteLine(ex.ToString());
+                    return false;
+                }
+            }
+            return false;
+        }
+        #endregion
     }
 }
