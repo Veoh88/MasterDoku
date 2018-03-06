@@ -42,10 +42,13 @@ namespace DataBaseAccessor
 
         public int SetQualityIndicator(int indicatorTypeId, double value, DateTime dateTime, int unitId, int? waterPlantId = null, int? treatmentStepId = null)
         {
+            // only store the timestamp up until seconds
+            DateTime.TryParse(dateTime.ToString("G"), out var dateTimeShort);
+
             _entityFrameworkAccessor.SetQualityIndicator(waterPlantId, treatmentStepId, indicatorTypeId, value,
-                dateTime, unitId);
-            return _entityFrameworkAccessor.vQualityIndicator.FirstOrDefault
-                (x => dateTime == x.timeStamp &&  x.indicatorTypeId == indicatorTypeId).qualityIndicatorId;
+                dateTimeShort, unitId);
+            var qualityIndicatorId = _entityFrameworkAccessor.vQualityIndicator.Where(x => x.timeStamp == dateTimeShort && x.indicatorTypeId == indicatorTypeId).FirstOrDefault().qualityIndicatorId;
+            return qualityIndicatorId;
         }
 
         public void SetQualityIndicatorTypeMapping(int indicatorTypeId, string name)

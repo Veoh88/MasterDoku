@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using DataBaseAccessor;
 using Interfaces;
 using Library.ConvertedObjects;
 using Library.HarmonizedObjects;
+using Library.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -35,7 +37,8 @@ namespace Harmonizer
             // if the object was conform to the predefined schema all along, just convert and return it
             if (treeObject.IsPredefinedSchema)
             {
-                return JsonConvert.DeserializeObject<WasteWaterTreatmentPlant>(treeObject.Object);
+                var wwtpObject = treeObject.Object as WasteWaterTreatmentPlant;
+                return wwtpObject;
             }
             // ... otherwise first replace the single valeus by waterplant aliases and then try to convert it
             // if that does not work, the object is not valid
@@ -45,27 +48,39 @@ namespace Harmonizer
                 _aliasNameToRealNameDict = _utilityDbAccessor.GetAliasToRealNameOnWwtpDict((int)waterPlantId);
             else
             {
-                var attemptedWaterPlantName = ((WasteWaterTreatmentPlant)JsonConvert.DeserializeObject<WasteWaterTreatmentPlant>(treeObject.Object)).Name;
-                if (!string.IsNullOrEmpty(attemptedWaterPlantName))
+                try
                 {
-                    waterPlantId = _utilityDbAccessor.GetIdForWwtpName(attemptedWaterPlantName);
-                    _aliasNameToRealNameDict = _utilityDbAccessor.GetAliasToRealNameOnWwtpDict((int)waterPlantId);
+                    var wwtpAsObject = ((JObject)treeObject.Object).ToObject<WasteWaterTreatmentPlant>();
+                    var name = wwtpAsObject.Name;
+                    if (!string.IsNullOrEmpty(name))
+                    {
+                        waterPlantId = _utilityDbAccessor.GetIdForWwtpName(name);
+                        _aliasNameToRealNameDict = _utilityDbAccessor.GetAliasToRealNameOnWwtpDict((int)waterPlantId);
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Name & Id of Wwtp missing");
                 }
             }
 
             // map the dynamic object
             dynamic mappingResult = null;
-            if (_aliasNameToRealNameDict != null)
+            if (_aliasNameToRealNameDict != null && _aliasNameToRealNameDict.Any())
             {
-                 mappingResult = MapWaterPlantAliases(treeObject.Object);
+                var dynamicJsonDict = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(treeObject.Object.ToString());
+                mappingResult = MapWaterPlantAliases(dynamicJsonDict);
+
+                // convert mapping result back into the correct format
+                ExpandoObject expandoObject = ((Dictionary<string, dynamic>)mappingResult).ToExpando();
+                var serializedExpandoObject = JsonConvert.SerializeObject(expandoObject);
+                mappingResult = JsonConvert.DeserializeObject<dynamic>(serializedExpandoObject);
             }
 
             // even if the mapping wasnt successful, we still might have a valid waterplant object
             // last try to deserialize it and checks if everything is correct afterwars
             //TODO vllt sind nur qualityindicators übergeben oder nur die treatmentsteps ohne pflanze drüber
-            var dynamicDict = mappingResult == null ?
-                JsonConvert.DeserializeObject<Dictionary<dynamic, string>>(treeObject.Object) :
-                JsonConvert.DeserializeObject<Dictionary<dynamic, string>>(mappingResult);
+            var dynamicDict = mappingResult == null ? treeObject.Object : mappingResult;
 
             //<<DESERIALIZATION CHECKS>>
             //try to deserialuze the wwtp as a whole first
@@ -91,8 +106,7 @@ namespace Harmonizer
             }
 
             //if nothing worked so far - last try is to check if its a qualityindicatorlist that is directly assigned to the waterplant
-            // -> which might actually lead to inconsistent data
-            if (waterPlantId != null && IsQualityIndicators(dynamicDict, out wwtp))
+            if (waterPlantId != null && IsQualityIndicators(dynamicDict, out wwtp, true))
             {
                 wwtp.Name = _utilityDbAccessor.GetWwtpNameForId((int)waterPlantId);
                 return wwtp;
@@ -106,20 +120,28 @@ namespace Harmonizer
 
         private bool IsWholeWwtp(dynamic dynamicObject, out WasteWaterTreatmentPlant wwtp)
         {
-            var isCorrect = true;
-            wwtp = (WasteWaterTreatmentPlant)JsonConvert.DeserializeObject<WasteWaterTreatmentPlant>(dynamicObject);
-
-            // checks if the wwtp is correct
-            if (wwtp == null)
-                isCorrect = false;
-
-            else if (wwtp.GeneralIndicators == null && 
-                (wwtp.TreatmentSteps == null  || (wwtp.TreatmentSteps.Any() && wwtp.TreatmentSteps.First().QualityIndicators == null)))
+            try
             {
-                isCorrect = false;
-            }
+                var isCorrect = true;
+                wwtp = JsonConvert.DeserializeObject<WasteWaterTreatmentPlant>(dynamicObject.ToString());
 
-            return isCorrect;
+                // checks if the wwtp is correct
+                if (wwtp == null)
+                    isCorrect = false;
+
+                else if (wwtp.GeneralIndicators == null && 
+                         (wwtp.TreatmentSteps == null  || (wwtp.TreatmentSteps.Any() && wwtp.TreatmentSteps.First().QualityIndicators == null)))
+                {
+                    isCorrect = false;
+                }
+
+                return isCorrect;
+            }
+            catch (Exception e)
+            {
+                wwtp = null;
+                return false;
+            }
         }
 
         private bool IsTreatmentSteps(dynamic dynamicObject, out WasteWaterTreatmentPlant wwtp)
@@ -127,50 +149,152 @@ namespace Harmonizer
             var isCorrect = true;
             wwtp = new WasteWaterTreatmentPlant();
 
-            var treatmentStepList = (List<WaterTreatmentStep>)JsonConvert.DeserializeObject<List<WaterTreatmentStep>>(dynamicObject);
-
-            // checks if list is correct
-            if (treatmentStepList == null || !treatmentStepList.Any())
-                isCorrect = false;
-
-            else if (treatmentStepList.FirstOrDefault().QualityIndicators == null ||
-                !treatmentStepList.FirstOrDefault().QualityIndicators.Any())
+            try
             {
-                isCorrect = false;
+                var treatmentStepList = (List<WaterTreatmentStep>)JsonConvert.DeserializeObject<List<WaterTreatmentStep>>(dynamicObject.ToString());
+
+                // checks if list is correct
+                if (treatmentStepList == null || !treatmentStepList.Any())
+                    isCorrect = false;
+
+                else if (treatmentStepList.FirstOrDefault().QualityIndicators == null ||
+                         !treatmentStepList.FirstOrDefault().QualityIndicators.Any())
+                {
+                    isCorrect = false;
+                }
+
+                wwtp.TreatmentSteps = treatmentStepList;
+
+                if (isCorrect)
+                    return true;
+                
+            }
+            catch (Exception e)
+            {
+                
             }
 
-            wwtp.TreatmentSteps = treatmentStepList;
+            try
+            {
+                var treatmentStep = (WaterTreatmentStep)JsonConvert.DeserializeObject<WaterTreatmentStep>(dynamicObject.ToString());
 
-            return isCorrect;
+                // checks if treatmentstep is correct
+                if (treatmentStep.QualityIndicators == null ||
+                    !treatmentStep.QualityIndicators.Any())
+                {
+                    throw new Exception("invalid treatmentStep");
+                }
+
+                if (wwtp == null)
+                {
+                    wwtp = new WasteWaterTreatmentPlant()
+                    {
+                        TreatmentSteps = new List<WaterTreatmentStep>()
+                    };
+                }
+                else if (wwtp.TreatmentSteps == null || !wwtp.TreatmentSteps.Any())
+                {
+                    wwtp.TreatmentSteps = new List<WaterTreatmentStep>();
+                }
+                wwtp.TreatmentSteps.Add(treatmentStep);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                wwtp = null;
+                return false;
+            }
+
         }
 
-        private bool IsQualityIndicators(dynamic dynamicObject, out WasteWaterTreatmentPlant wwtp)
+        private bool IsQualityIndicators(dynamic dynamicObject, out WasteWaterTreatmentPlant wwtp, bool assignToWwtp = false)
         {
             var isCorrect = true;
-
             wwtp = new WasteWaterTreatmentPlant();
 
-            var qualityIndicatorList =
-                (List<WaterQualityIndicator>) JsonConvert.DeserializeObject<List<WaterQualityIndicator>>(dynamicObject);
-
-            // checks if list is correct
-            if (qualityIndicatorList == null || !qualityIndicatorList.Any())
-                isCorrect = false;
-
-            wwtp.TreatmentSteps = new List<WaterTreatmentStep>
+            try
             {
-                new WaterTreatmentStep()
-                {
-                    QualityIndicators = qualityIndicatorList
-                }
-            };
+                var qualityIndicatorList =
+                    (List<WaterQualityIndicator>) JsonConvert.DeserializeObject<List<WaterQualityIndicator>>(dynamicObject.ToString());
 
-            return isCorrect;
+                // checks if list is correct
+                if (qualityIndicatorList == null || !qualityIndicatorList.Any())
+                    isCorrect = false;
+
+                if (assignToWwtp)
+                {
+                    wwtp.GeneralIndicators = qualityIndicatorList;
+                }
+                else
+                {
+                    wwtp.TreatmentSteps = new List<WaterTreatmentStep>
+                    {
+                        new WaterTreatmentStep()
+                        {
+                            QualityIndicators = qualityIndicatorList
+                        }
+                    };
+                }
+                
+                if (isCorrect)
+                    return true;
+            }
+            catch (Exception e)
+            {
+                
+            }
+
+            try
+            {
+                var qualityIndicator =
+                    (WaterQualityIndicator)JsonConvert.DeserializeObject<WaterQualityIndicator>(dynamicObject.ToString());
+
+                if (string.IsNullOrEmpty(qualityIndicator.Name) ||
+                    qualityIndicator.TimeStamp == default(DateTime) ||
+                    string.IsNullOrEmpty(qualityIndicator.Unit))
+                {
+                    throw new Exception("not valid qualityindentifier");
+                }
+
+                if (assignToWwtp)
+                {
+                    if (wwtp.GeneralIndicators == null)
+                    {
+                        wwtp.GeneralIndicators = new List<WaterQualityIndicator>();
+                    }
+                    wwtp.GeneralIndicators.Add(qualityIndicator);
+                }
+                else
+                {
+                    if (wwtp.TreatmentSteps == null)
+                    {
+                        wwtp.TreatmentSteps = new List<WaterTreatmentStep>
+                        {
+                            new WaterTreatmentStep()
+                        };
+                    }
+
+                    if (wwtp.TreatmentSteps.First().QualityIndicators == null)
+                    {
+                        wwtp.TreatmentSteps.First().QualityIndicators = new List<WaterQualityIndicator>();
+                    }
+
+                    wwtp.TreatmentSteps.First().QualityIndicators.Add(qualityIndicator);
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                wwtp = null;
+                return false;
+            }
         }
 
-        private Dictionary<string, dynamic> MapWaterPlantAliases(Dictionary<string, dynamic> dynamicObject)
+        private dynamic MapWaterPlantAliases(Dictionary<string, dynamic> dynamicObject)
         {
-            var mappedResult = new Dictionary<string, dynamic>();
+            var mappedResult = new Dictionary<string, object>();
 
             foreach (var key in dynamicObject.Keys)
             {
@@ -178,17 +302,17 @@ namespace Harmonizer
                 //if the value is another json also check that json
                 if (dynamicObject[key] is string && IsJson(dynamicObject[key]))
                 {
-                    var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(dynamicObject[key]);
+                    var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(dynamicObject[key].ToString());
                     currentValue = MapWaterPlantAliases(jsonObject);
                 }
                 //map values
                 if (_aliasNameToRealNameDict.Keys.Contains(key))
                 {
-                    mappedResult.Add(_aliasNameToRealNameDict[key], currentValue[key]);
+                    mappedResult.Add(_aliasNameToRealNameDict[key], currentValue);
                 }
                 else
                 {
-                    mappedResult.Add(key, currentValue[key]);
+                    mappedResult.Add(key, currentValue);
                 }
             }
 

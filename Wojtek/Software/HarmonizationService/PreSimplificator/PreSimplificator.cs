@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataBaseAccessor;
 using Interfaces;
 using Library.ConvertedObjects;
+using Library.HarmonizedObjects;
+using Library.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -54,18 +58,23 @@ namespace PreSimplificator
                 return treeObject;
             }
 
-            Dictionary<string, dynamic> dynamicObject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(treeObject.Object.ToString());
+            Dictionary<string, dynamic> dynamicDict = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(treeObject.Object.ToString());
 
-            RemoveBlacklistedKeys(dynamicObject);
+            var preSimplificationResult = RemoveBlacklistedKeys(dynamicDict);
 
+            //convert the dynamic object back into the correct format
+            ExpandoObject expandoObject = ((Dictionary<string, dynamic>)preSimplificationResult).ToExpando();
+            var serializedExpandoObject = JsonConvert.SerializeObject(expandoObject);
+            var dynamicObject = JsonConvert.DeserializeObject<dynamic>(serializedExpandoObject);
+            treeObject.Object = dynamicObject;
             return treeObject;
         }
 
         #region Private Methods
 
-        private Dictionary<string, dynamic> RemoveBlacklistedKeys(Dictionary<string, dynamic> dynamicObject)
+        private dynamic RemoveBlacklistedKeys(Dictionary<string, dynamic> dynamicObject)
         {
-            var cleanedResult = new Dictionary<string, dynamic>();
+            var cleanedResult = new Dictionary<string, object>();
 
             foreach (var key in dynamicObject.Keys)
             {
@@ -73,9 +82,9 @@ namespace PreSimplificator
                 if (_blackList.Contains(key)) continue;
 
                 //if the value is another json also check that json
-                if (dynamicObject[key] is string && IsJson(dynamicObject[key]))
+                if (IsJson(dynamicObject[key].ToString()))
                 {
-                    var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(dynamicObject[key]);
+                    var jsonObject = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(dynamicObject[key].ToString());
                     var subResult = RemoveBlacklistedKeys(jsonObject);
                     cleanedResult.Add(key, subResult);
                     continue;
@@ -92,7 +101,7 @@ namespace PreSimplificator
         private bool IsJson(string treeStringObject)
         {
             treeStringObject = treeStringObject.Trim();
-            if (treeStringObject.StartsWith("{") && treeStringObject.EndsWith("}"))
+            if (   treeStringObject.StartsWith("{") && treeStringObject.EndsWith("}"))
             {
                 try
                 {
@@ -113,6 +122,8 @@ namespace PreSimplificator
             }
             return false;
         }
+
+       
         #endregion
     }
 }

@@ -9,10 +9,10 @@ namespace Library.HarmonizedObjects
 {
     public class WaterTreatmentStep
     {
-        [JsonProperty(PropertyName = "name", Required = Required.Always)]
+        [JsonProperty(PropertyName = "name", Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "qualityIndicators", Required = Required.Always)]
+        [JsonProperty(PropertyName = "qualityIndicators", Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public List<WaterQualityIndicator> QualityIndicators;
     }
 }

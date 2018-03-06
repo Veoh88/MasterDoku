@@ -58,21 +58,40 @@ namespace Harmonizer
 
         public WasteWaterTreatmentPlant HarmonizeJsonObject(TreeFormattedObject treeObject, string waterPlant, string treatmentStep)
         {
-            var wwtp = _treeHarmonizer.HarmonizeTree(treeObject);
+            int? retreivedWaterPlantId = null, retreivedTreatmentStepTypeId = null;
 
-            //fill remaining objects
-            if (int.TryParse(treatmentStep, out var treatmentTypeId))
+            //check if waterPlantId can be found
+            if (!string.IsNullOrEmpty(waterPlant))
             {
-                treatmentStep = _dbUtilAccessor.GetTreatmentTypeForId(treatmentTypeId);
+                //check if its numeric
+                if (int.TryParse(waterPlant, out var waterPlantId))
+                {
+                    retreivedWaterPlantId = waterPlantId;
+                    waterPlant = _dbUtilAccessor.GetWwtpNameForId(waterPlantId);
+                }
+                else
+                    retreivedWaterPlantId = _dbUtilAccessor.GetIdForWwtpName(waterPlant);
             }
 
-            if (int.TryParse(waterPlant, out var wwtpId))
+            //check if treatmentStepTypeId can be found
+            if (!string.IsNullOrEmpty(treatmentStep))
             {
-                waterPlant = _dbUtilAccessor.GetWwtpNameForId(wwtpId);
+                //check if its numeric
+                if (int.TryParse(treatmentStep, out var treatmentStepTypeId))
+                {
+                    retreivedTreatmentStepTypeId = treatmentStepTypeId;
+                    treatmentStep = _dbUtilAccessor.GetTreatmentTypeForId(treatmentStepTypeId);
+                }
+                    
+                else
+                    retreivedTreatmentStepTypeId = _dbUtilAccessor.GetIdForWwtpName(waterPlant);
             }
 
-            wwtp.TreatmentSteps[0].Name = treatmentStep;
-            wwtp.Name = waterPlant;
+            var wwtp = _treeHarmonizer.HarmonizeTree(treeObject, retreivedWaterPlantId, retreivedTreatmentStepTypeId);
+            if (string.IsNullOrEmpty(wwtp.Name)) wwtp.Name = waterPlant;
+            if (wwtp.TreatmentSteps != null && !wwtp.TreatmentSteps.Any() &&
+                string.IsNullOrEmpty(wwtp.TreatmentSteps.First().Name))
+                wwtp.TreatmentSteps.First().Name = treatmentStep;
 
             return wwtp;
         }

@@ -53,6 +53,7 @@
     <Compile Include="HarmonizedObjects\WasteWaterTreatmentPlant.cs" />
     <Compile Include="HarmonizedObjects\WaterQualityIndicator.cs" />
     <Compile Include="HarmonizedObjects\WaterTreatmentStep.cs" />
+    <Compile Include="Helpers\DictExtension.cs" />
     <Compile Include="Mocks\WwtpMockCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

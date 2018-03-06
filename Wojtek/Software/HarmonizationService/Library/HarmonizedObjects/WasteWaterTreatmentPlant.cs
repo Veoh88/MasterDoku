@@ -10,7 +10,7 @@ namespace Library.HarmonizedObjects
     [JsonObject(Title = "waterTreatmentPlant")]
     public class WasteWaterTreatmentPlant
     {
-        [JsonProperty(PropertyName = "name", Required = Required.Always)]
+        [JsonProperty(PropertyName = "name", Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Name { get; set; }
 
         [JsonProperty(PropertyName = "location", Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]

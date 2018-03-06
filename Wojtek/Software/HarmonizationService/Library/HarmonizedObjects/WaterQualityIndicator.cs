@@ -9,16 +9,16 @@ namespace Library.HarmonizedObjects
 {
     public class WaterQualityIndicator
     {
-        [JsonProperty(PropertyName = "name", Required = Required.Always)]
+        [JsonProperty(PropertyName = "name", Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "timestamp", Required = Required.Always)]
+        [JsonProperty(PropertyName = "timestamp", Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public DateTime TimeStamp { get; set; }
 
         [JsonProperty(PropertyName = "unit", Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Unit { get; set; }
 
-        [JsonProperty(PropertyName = "value", Required = Required.Always)]
+        [JsonProperty(PropertyName = "value", Required = Required.Default, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public double Value { get; set; }
     }
 }

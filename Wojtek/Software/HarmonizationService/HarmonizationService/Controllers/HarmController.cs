@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using DataBaseAccessor;
 using Library.HarmonizationApi;
+using Library.HarmonizedObjects;
 using Swashbuckle.Swagger.Annotations;
 
 namespace HarmonizationService.Controllers
@@ -109,6 +110,39 @@ namespace HarmonizationService.Controllers
 
             return null;
         }
+        #endregion
+
+        #region Helper HTTP Methods
+
+        [HttpGet]
+        [Route("testJson")]
+        public WasteWaterTreatmentPlant GetValidWaterPlant()
+        {
+            var wwtp = new WasteWaterTreatmentPlant()
+            {
+                Name = "Dummy WaterPlant",
+                TreatmentSteps = new List<WaterTreatmentStep>()
+                {
+                    new WaterTreatmentStep()
+                    {
+                        Name = "Screening",
+                        QualityIndicators = new List<WaterQualityIndicator>()
+                        {
+                            new WaterQualityIndicator()
+                            {
+                                Name = "Nitrogen Dioxide",
+                                Unit = "1",
+                                TimeStamp = DateTime.Now,
+                                Value = 123
+                            }
+                        }
+                    }
+                }
+            };
+
+            return wwtp;
+        }
+
         #endregion
     }
 }
