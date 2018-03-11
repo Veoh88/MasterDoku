@@ -18,6 +18,7 @@ namespace DataBaseAccessor
         public DbViewAccessor()
         {
             _entityFrameworkAccessor = new HarmonizationServiceEntities();
+            //_entityFrameworkAccessor.Database.Connection.Open();
         }
         #endregion
 

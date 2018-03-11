@@ -24,53 +24,123 @@ namespace DataBaseAccessor
         #endregion
         public string GetDefaultUnitForIndicator(string indicator)
         {
-            return _dbViewAccessor.GetQualityIndicatorTypes().FirstOrDefault(x => x.indicatorName == indicator)
-                .unitName;
+            try
+            {
+                return _dbViewAccessor.GetQualityIndicatorTypes().FirstOrDefault(x => x.indicatorName == indicator)
+                    .unitName;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not retreive the default unit for indicator [{indicator}]");
+            }
         }
 
         public int GetUnitIdForName(string unitName)
         {
-            return _dbViewAccessor.GetUnit().FirstOrDefault(x => x.unitName == unitName).unitId;
+            try
+            {
+                return _dbViewAccessor.GetUnit().FirstOrDefault(x => x.unitName == unitName).unitId;
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not retreive the unitId for the unit [{unitName}]");
+            }
         }
 
         public string GetIndicatorForAlias(string alias)
         {
-            return _dbViewAccessor.GetQualityIndicatorTypeMappings().FirstOrDefault(x => x.indicatorAlias == alias).indicatorName;
+            try
+            {
+                return _dbViewAccessor.GetQualityIndicatorTypeMappings().FirstOrDefault(x => x.indicatorAlias == alias).indicatorName;
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not retreive the real name for the alias [{alias}]");
+
+            }
         }
 
         public int GetIndicatorTypeIdForName(string indicatorTypeName)
         {
-            return _dbViewAccessor.GetQualityIndicatorTypes().FirstOrDefault(x => x.indicatorName == indicatorTypeName)
-                .indicatorTypeId;
+            try
+            {
+                return _dbViewAccessor.GetQualityIndicatorTypes().FirstOrDefault(x => x.indicatorName == indicatorTypeName)
+                    .indicatorTypeId;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not retreive the indicatorTypeId for the indicatorTypeName [{indicatorTypeName}]");
+            }
         }
 
         public string GetWwtpNameForId(int id)
         {
-            return _dbViewAccessor.GetWaterPlants().FirstOrDefault(x => x.waterPlantId == id).waterPlantName;
+            try
+            {
+                return _dbViewAccessor.GetWaterPlants().FirstOrDefault(x => x.waterPlantId == id).waterPlantName;
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not retreive the wastewater treatment plant name for the id [{id}]");
+            }
         }
 
         public int GetIdForWwtpName(string wwtpName)
         {
-            return _dbViewAccessor.GetWaterPlants().FirstOrDefault(x => x.waterPlantName == wwtpName).waterPlantId;
+            try
+            {
+                return _dbViewAccessor.GetWaterPlants().FirstOrDefault(x => x.waterPlantName == wwtpName).waterPlantId;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not retreive the wastewater treatment plant id for the name [{wwtpName}]");
+
+            }
         }
 
         public string GetTreatmentTypeForId(int id)
         {
-            return _dbViewAccessor.GetTreatmentStepTypes().FirstOrDefault(x => x.treatmentStepId == id)
-                .treatmentStepTypeName;
+            try
+            {
+                return _dbViewAccessor.GetTreatmentStepTypes().FirstOrDefault(x => x.treatmentStepId == id)
+                    .treatmentStepTypeName;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not retreive the treatment step type name for the id [{id}]");
+            }
         }
 
         public int GetIdForTreatmentType(string treatmentType)
         {
-            return _dbViewAccessor.GetTreatmentStepTypes().FirstOrDefault(x => x.treatmentStepTypeName == treatmentType)
-                .treatmentStepId;
+            try
+            {
+                return _dbViewAccessor.GetTreatmentStepTypes().FirstOrDefault(x => x.treatmentStepTypeName == treatmentType)
+                    .treatmentStepId;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not retreive the treatment type id for the name [{treatmentType}]");
+
+            }
         }
 
         public bool TreatmentStepTypeForWwtpExists(string treatmentType, string wwtpName)
         {
-            var result = _dbViewAccessor.GetTreatmentSteps().FirstOrDefault(x =>
-                x.treatmentStepTypeName == treatmentType && x.waterPlantName == wwtpName);
-            return result != null;
+            try
+            {
+                var result = _dbViewAccessor.GetTreatmentSteps().FirstOrDefault(x =>
+                    x.treatmentStepTypeName == treatmentType && x.waterPlantName == wwtpName);
+                return result != null;
+            }
+            catch (Exception e)
+            {
+                throw new Exception($"Could not check if treatment step type [{treatmentType}] exists for the waterplant with name [{wwtpName}]");
+
+            }
         }
 
         public int GetTreatmentStepIdForTypeAndWwtp(string treatmentType, string wwtpName)
