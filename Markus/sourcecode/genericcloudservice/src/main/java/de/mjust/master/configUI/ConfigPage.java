@@ -3,29 +3,33 @@ package de.mjust.master.configUI;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.data.HasValue;
-import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.navigator.View;
 import com.vaadin.ui.*;
+import de.mjust.master.configUI.manager.ViewConfigManager;
 import de.mjust.master.model.DataObject;
-import de.mjust.master.model.DataSource;
+import de.mjust.master.model.DataSourceMock;
 import de.mjust.master.model.IDataSource;
+import de.mjust.master.model.RestDataSource;
+import de.mjust.master.provider.IDataSourceProvider;
+import de.mjust.master.provider.MockDataSourcesProvider;
 
 import java.util.*;
 
 @Theme("mytheme")
-public class SubPage extends VerticalLayout implements View {
+public class ConfigPage extends VerticalLayout implements View {
 
     private Button addButton;
-    private Set<DataObject> selectedFields = new HashSet<>();
+
+    private ViewConfigManager viewConfigManager;
+
+    private IDataSourceProvider dataSourceProvider;
 
 
-    public SubPage() {
+    public ConfigPage(ViewConfigManager viewConfigManager) {
+        this.viewConfigManager = viewConfigManager;
+        this.dataSourceProvider = new MockDataSourcesProvider();
 
-        List<IDataSource> sampleDataSources = new ArrayList<>();
-        sampleDataSources.add(new DataSource("Source1"));
-        sampleDataSources.add(new DataSource("Source2"));
-
-        ComboBox<IDataSource> comboBox = new ComboBox<>("Select Data Source", sampleDataSources);
+        ComboBox<IDataSource> comboBox = new ComboBox<>("Select Data Source", dataSourceProvider.getDataSources());
         comboBox.setPlaceholder("Choose data source");
         comboBox.setItemCaptionGenerator(IDataSource::getSourceName);
         Button addButton = new Button("Add Source");
@@ -34,24 +38,29 @@ public class SubPage extends VerticalLayout implements View {
                 performDataSearch(comboBox.getSelectedItem());
             }
         });
+        setWidth("500px");
         addComponents(comboBox, addButton);
     }
 
     private void performDataSearch(Optional<IDataSource> selectedItem) {
 
         VerticalLayout verticalLayout = new VerticalLayout();
+        verticalLayout.setWidth("100%");
         HorizontalLayout horizontalLayout = new HorizontalLayout();
+        horizontalLayout.setWidth("100%");
+        horizontalLayout.setSpacing(true);
         Button removeButton = new Button("remove Source");
 
         Collection<DataObject> dataObjects = selectedItem.get().getDataObjects();
         CheckBoxGroup<DataObject> checkBoxGroup = new CheckBoxGroup<DataObject>(selectedItem.get().getSourceName(), dataObjects);
-        checkBoxGroup.setItemCaptionGenerator(item -> item.getDescriptionWithType());
+        checkBoxGroup.setItemCaptionGenerator(item -> item.getKeyWithType());
         checkBoxGroup.addValueChangeListener(e -> {
             computeCheckboxEvent(e, dataObjects);
         });
             removeButton.addClickListener(e -> {
-                this.selectedFields.removeAll(checkBoxGroup.getValue());
-                this.addButton.setEnabled(!this.selectedFields.isEmpty());
+                this.viewConfigManager.removeAllFromSelectedFields(
+                        checkBoxGroup.getValue());
+                this.addButton.setEnabled(!viewConfigManager.getSelectedFields().isEmpty());
                 removeComponent(horizontalLayout);
             });
             horizontalLayout.addComponents(checkBoxGroup, removeButton);
@@ -67,27 +76,23 @@ public class SubPage extends VerticalLayout implements View {
     private void computeCheckboxEvent(HasValue.ValueChangeEvent<Set<DataObject>> e, Collection<DataObject> dataObjects) {
         for(DataObject object : dataObjects){
             if(e.getValue().contains(object)){
-                this.selectedFields.add(object);
+                this.viewConfigManager.addSelectedField(object);
             }
             else{
-                this.selectedFields.remove(object);
+                this.viewConfigManager.removeSelectedField(object);
             }
         };
-        this.addButton.setEnabled(!this.selectedFields.isEmpty());
+        this.addButton.setEnabled(!this.viewConfigManager.getSelectedFields().isEmpty());
     }
 
     private void initAddTableButton (HorizontalLayout horizontalLayout){
             this.addButton = new Button("Add Table");
-            this.addButton.setEnabled(!this.selectedFields.isEmpty());
+            this.addButton.setEnabled(!this.viewConfigManager.getSelectedFields().isEmpty());
             this.addButton.addClickListener(e -> {
 
-                Grid<DataObject> grid = new Grid<>();
-                grid.setDataProvider(new ListDataProvider<DataObject>(this.selectedFields));
-                grid.addColumn(DataObject::getDescription)
-                        .setId("DataFieldDescription")
-                        .setCaption("DataField");
-                addComponent(grid);
+
             });
             addComponents(horizontalLayout, this.addButton);
         }
+
     }

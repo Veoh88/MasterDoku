@@ -1,32 +1,39 @@
 package de.mjust.master.model;
 
+import java.util.ArrayList;
+
 public class DataObject {
 
     public DataObject() {
     }
 
     public DataObject(String description, int value) {
-        this.setDescription(description);
+        this.setKey(description);
         this.setValue(value);
     }
 
     public DataObject(String description, long value) {
-        this.setDescription(description);
+        this.setKey(description);
         this.setValue(value);
     }
 
     public DataObject(String description, double value) {
-        this.setDescription(description);
+        this.setKey(description);
         this.setValue(value);
     }
 
     public DataObject(String description, String value) {
-        this.setDescription(description);
+        this.setKey(description);
+        this.setValue(value);
+    }
+
+    public DataObject(String description, Object value) {
+        this.setKey(description);
         this.setValue(value);
     }
 
     private final int IDENTITYHASHCODE = System.identityHashCode(this);
-    private String description;
+    private String key;
     private Object value;
     private boolean isSelected = false;
 
@@ -34,16 +41,35 @@ public class DataObject {
         this.isSelected = !this.isSelected;
     }
 
-    public String getDescription() {
-        return description;
+    public String getKey() {
+        return key;
     }
 
-    public String getDescriptionWithType() {
-        return description + " (" + value.getClass().getSimpleName() + ")";
+    public String getKeyWithType() {
+        if(value instanceof ArrayList){
+            if((((ArrayList) value).get(0) instanceof Integer)){
+                return key + " (Integer[])";
+            }
+            if((((ArrayList) value).get(0) instanceof String)){
+                return key + " (String[])";
+            }
+            if((((ArrayList) value).get(0) instanceof Long)){
+                return key + " (Long[])";
+            }
+            if((((ArrayList) value).get(0) instanceof Double)){
+                return key + " (Double[])";
+            }
+            else {
+                return key + " (null)";
+            }
+        }
+        else {
+            return key + " (" + value.getClass().getSimpleName() + ")";
+        }
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setKey(String description) {
+        this.key = description;
     }
 
     public Object getValue() {
