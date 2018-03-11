@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Results;
 using DataBaseAccessor;
+using HarmonizationService.BusinessLogic;
 using Library.HarmonizationApi;
 using Library.HarmonizedObjects;
 using Swashbuckle.Swagger.Annotations;
@@ -17,7 +18,7 @@ namespace HarmonizationService.Controllers
     {
         #region Private Members
 
-        private readonly BusinessLogic.BusinessLogic _businessLogic;
+        private readonly IBusinessLogic _businessLogic;
 
         #endregion
 
@@ -43,20 +44,23 @@ namespace HarmonizationService.Controllers
         [Route("harmonize/fileFormat/{fileFormat}/waterPlant/{waterPlant}/treatmentStepType/{treatmentStepType}")]
         [SwaggerResponseRemoveDefaults]
         [SwaggerResponse(HttpStatusCode.OK)]
-        public void HarmonizeData([FromUri] FileFormat fileFormat, [FromUri] string waterPlant, [FromUri] string treatmentStepType)
+        public WasteWaterTreatmentPlant HarmonizeData([FromUri] FileFormat fileFormat, [FromUri] string waterPlant, [FromUri] string treatmentStepType)
         {
             try
             {
+                WasteWaterTreatmentPlant wwtp = null;
                 if (fileFormat == FileFormat.CSV || fileFormat == FileFormat.XLS)
                 {
                     var stream = Request.Content.ReadAsStreamAsync().Result;
-                    var result = _businessLogic.HarmonizeData(stream, fileFormat, waterPlant, treatmentStepType);
+                    wwtp = _businessLogic.HarmonizeData(stream, fileFormat, waterPlant, treatmentStepType);
                 }
                 else if (fileFormat == FileFormat.JSON)
                 {
                     var json = Request.Content.ReadAsStringAsync().Result;
-                    _businessLogic.HarmonizeData(json, waterPlant, treatmentStepType);
+                    wwtp = _businessLogic.HarmonizeData(json, waterPlant, treatmentStepType);
                 }
+
+                return wwtp;
             }
             catch (Exception e)
             {
@@ -76,11 +80,12 @@ namespace HarmonizationService.Controllers
         [Route("harmonize/fileFormat/{fileFormat}/waterPlant/{waterPlant}")]
         [SwaggerResponseRemoveDefaults]
         [SwaggerResponse(HttpStatusCode.OK)]
-        public void HarmonizeData([FromUri] FileFormat fileFormat, [FromUri] string waterPlant)
+        public WasteWaterTreatmentPlant HarmonizeData([FromUri] FileFormat fileFormat, [FromUri] string waterPlant)
         {
 
             try
             {
+                WasteWaterTreatmentPlant wwtp = null;
                 if (fileFormat == FileFormat.CSV || fileFormat == FileFormat.XLS)
                 {
                     throw new Exception("This fileFormat is not supported on this endpoint. Please use: [endpoint]/harmonize/fileFormat/{fileFormat}/waterPlant/{waterPlant}/treatmentStepType/{treatmentStepType}");
@@ -88,8 +93,11 @@ namespace HarmonizationService.Controllers
                 else if (fileFormat == FileFormat.JSON)
                 {
                     var json = Request.Content.ReadAsStringAsync().Result;
-                    _businessLogic.HarmonizeData(json, waterPlant);
+                    wwtp = _businessLogic.HarmonizeData(json, waterPlant);
                 }
+
+
+                return wwtp;
             }
             catch (Exception e)
             {
@@ -107,11 +115,12 @@ namespace HarmonizationService.Controllers
         [Route("harmonize/fileFormat/{fileFormat}")]
         [SwaggerResponseRemoveDefaults]
         [SwaggerResponse(HttpStatusCode.OK)]
-        public void HarmonizeData([FromUri] FileFormat fileFormat)
+        public WasteWaterTreatmentPlant HarmonizeData([FromUri] FileFormat fileFormat)
         {
 
             try
             {
+                WasteWaterTreatmentPlant wwtp = null;
                 if (fileFormat == FileFormat.CSV || fileFormat == FileFormat.XLS)
                 {
                     throw new Exception("This fileFormat is not supported on this endpoint. Please use: [endpoint]/harmonize/fileFormat/{fileFormat}/waterPlant/{waterPlant}/treatmentStepType/{treatmentStepType}");
@@ -119,8 +128,10 @@ namespace HarmonizationService.Controllers
                 else if (fileFormat == FileFormat.JSON)
                 {
                     var json = Request.Content.ReadAsStringAsync().Result;
-                    _businessLogic.HarmonizeData(json);
+                    wwtp = _businessLogic.HarmonizeData(json);
                 }
+
+                return wwtp;
             }
             catch (Exception e)
             {

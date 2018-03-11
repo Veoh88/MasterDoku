@@ -32,7 +32,7 @@ namespace Standardizer
 
         #region Public Methods
 
-        public void StandardizeAndStore(WasteWaterTreatmentPlant wwtp)
+        public WasteWaterTreatmentPlant StandardizeAndStore(WasteWaterTreatmentPlant wwtp)
         {
             var waterPlantId = _dbUtilityAccessor.GetIdForWwtpName(wwtp.Name);
 
@@ -61,6 +61,7 @@ namespace Standardizer
                 InsertQualityIndicators(waterPlantId, null, wwtp.GeneralIndicators);
             }
 
+            return wwtp;
         }
         #endregion
 

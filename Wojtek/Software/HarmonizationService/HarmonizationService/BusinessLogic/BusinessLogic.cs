@@ -12,7 +12,7 @@ using ExcelDataReader;
 using FormatConverter;
 using Interfaces;
 using Library.HarmonizationApi;
-
+using Library.HarmonizedObjects;
 
 
 namespace HarmonizationService.BusinessLogic
@@ -44,7 +44,7 @@ namespace HarmonizationService.BusinessLogic
 
         #region Public Methods
 
-        public string HarmonizeData(Stream dataBaseStream, FileFormat fileFormat, string waterPlant, string treatmentStep)
+        public WasteWaterTreatmentPlant HarmonizeData(Stream dataBaseStream, FileFormat fileFormat, string waterPlant, string treatmentStep)
         {
             // 1. Read DataSet from Stream
             DataSet tableDataSet = null;
@@ -73,16 +73,15 @@ namespace HarmonizationService.BusinessLogic
             var harmonizedResult = _harmonizer.HarmonizeTableObject(presimplifiedResult, waterPlant, treatmentStep);
 
             // 5. Simplify 
-            var simplifiedResult = _simplificator;
+            var simplifiedResult = _simplificator.Simplify(harmonizedResult);
             
             // 6. Standardize and store
-            _standardizer.StandardizeAndStore(harmonizedResult);
+            var standardizedResult = _standardizer.StandardizeAndStore(simplifiedResult);
            
-
-            return "harmonization was successful";
+            return standardizedResult;
         }
 
-        public string HarmonizeData(string jsonObject, string waterPlant = null, string treatmentStep = null)
+        public WasteWaterTreatmentPlant HarmonizeData(string jsonObject, string waterPlant = null, string treatmentStep = null)
         {
             // 1. not required
             // 2. Convert Tree
@@ -95,12 +94,12 @@ namespace HarmonizationService.BusinessLogic
             var harmonizedResult = _harmonizer.HarmonizeJsonObject(presimplifiedResult, waterPlant, treatmentStep);
 
             // 5.Simplify
-            var simplifiedResult = _simplificator;
+            var simplifiedResult = _simplificator.Simplify(harmonizedResult);
 
             // 6. Standardize and store
-            _standardizer.StandardizeAndStore(harmonizedResult);
+            var standardizedResult = _standardizer.StandardizeAndStore(simplifiedResult);
 
-            return null; //TODO return something useful
+            return standardizedResult;
         }
 
         #endregion

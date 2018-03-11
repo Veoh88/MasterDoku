@@ -80,6 +80,10 @@ namespace Harmonizer
 
                     waterQualityIndicator.Unit = _utilityDataBaseAccessor.GetDefaultUnitForIndicator(waterQualityIndicator.Name);
 
+                    if(string.IsNullOrEmpty(waterQualityIndicator.Name) ||
+                       waterQualityIndicator.TimeStamp == null || waterQualityIndicator.TimeStamp == default(DateTime) ||
+                       string.IsNullOrEmpty(waterQualityIndicator.Unit))  continue; // this indicator is not valid
+
                     wwtp.TreatmentSteps[0].QualityIndicators.Add(waterQualityIndicator);
                 }
             }

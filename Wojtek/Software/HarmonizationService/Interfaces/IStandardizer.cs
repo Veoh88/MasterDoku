@@ -9,7 +9,7 @@ namespace Interfaces
 {
     public interface IStandardizer
     {
-        void StandardizeAndStore(WasteWaterTreatmentPlant wwtp);
+        WasteWaterTreatmentPlant StandardizeAndStore(WasteWaterTreatmentPlant wwtp);
 
     }
 }
