@@ -1,0 +1,98 @@
+WaterTreatmentPlant
+-------------------
+{
+  "title": "WaterTreatmentPlant",
+  "type": "object",
+  "properties": {
+    "name": {
+      "required": true,
+      "type": "string"
+    },
+    "location": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "treatmentSteps": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "qualityIndicators": {
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "name": {
+                  "required": true,
+                  "type": "string"
+                },
+                "timestamp": {
+                  "required": true,
+                  "type": "string"
+                },
+                "unit": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "value": {
+                  "required": true,
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "name": {
+            "required": true,
+            "type": "string"
+          }
+        }
+      }
+    },
+    "generalIndicators": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "name": {
+            "required": true,
+            "type": "string"
+          },
+          "timestamp": {
+            "required": true,
+            "type": "string"
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "required": true,
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
