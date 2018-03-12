@@ -5,7 +5,7 @@ import de.mjust.master.provider.IDataProvider;
 import java.util.Arrays;
 import java.util.Collection;
 
-public class DataSource implements IDataSource {
+public class DataSourceMock implements IDataSource {
 
     private String sourceName;
 
@@ -13,12 +13,17 @@ public class DataSource implements IDataSource {
 
     private IDataProvider dataProvider;
 
-    public DataSource(String name){
+    public DataSourceMock(String name){
         this.sourceName = name;
     }
 
     public String getSourceName() {
         return sourceName;
+    }
+
+    @Override
+    public String getSourceOrigin() {
+        return "Mock";
     }
 
     public void setDataProvider(IDataProvider dataProvider) {

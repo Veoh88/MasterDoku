@@ -7,7 +7,8 @@ import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
-import de.mjust.master.configUI.SubPage;
+import de.mjust.master.configUI.ConfigGrid;
+import de.mjust.master.configUI.DataSourceConfigPage;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -15,6 +16,7 @@ public class NavigatorUI extends UI {
 
     private final String STARTVIEW = "";
     private final String CONFIGVIEW = "config";
+    private final String DATASOURCECONFIG = "datasources";
 
     Navigator navigator;
 
@@ -22,7 +24,8 @@ public class NavigatorUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
         navigator = new Navigator(this, this);
         navigator.addView(STARTVIEW, new StartPage());
-        navigator.addView(CONFIGVIEW, new SubPage());
+        navigator.addView(CONFIGVIEW, new ConfigGrid());
+        navigator.addView(DATASOURCECONFIG, new DataSourceConfigPage());
     }
 
     @Theme("mytheme")
@@ -30,12 +33,16 @@ public class NavigatorUI extends UI {
 
         public StartPage(){
 
-            Button button = new Button("Configure View");
-            button.addClickListener(e -> {
+            Button userViewButton = new Button("Configure UserViews");
+            Button dataSourcesButton = new Button("Configure DataSources");
+            userViewButton.addClickListener(e -> {
                 navigator.navigateTo(CONFIGVIEW);
             });
+            dataSourcesButton.addClickListener(e -> {
+                navigator.navigateTo(DATASOURCECONFIG);
+            });
 
-            addComponents(button);
+            addComponents(userViewButton,dataSourcesButton);
 
             setContent(this);
         }

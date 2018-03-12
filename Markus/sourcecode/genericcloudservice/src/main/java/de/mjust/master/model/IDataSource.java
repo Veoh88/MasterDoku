@@ -7,6 +7,7 @@ import java.util.Collection;
 public interface IDataSource {
 
     String getSourceName();
+    String getSourceOrigin();
     void setDataProvider(IDataProvider provider);
     Collection<DataObject> getDataObjects();
 }
