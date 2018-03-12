@@ -6,13 +6,16 @@ import com.vaadin.ui.Alignment;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
 import de.mjust.master.configUI.manager.ViewConfigManager;
+import de.mjust.master.provider.IDataSourceProvider;
 
 public class ConfigGrid extends GridLayout implements View{
 
     private ViewConfigManager viewConfigManager;
+    private IDataSourceProvider dataSourceProvider;
 
-    public ConfigGrid(){
+    public ConfigGrid(IDataSourceProvider dataSourceProvider){
         super(2,4);
+        this.dataSourceProvider = dataSourceProvider;
         this.viewConfigManager = new ViewConfigManager();
         setSizeFull();
         initGridContent();
@@ -26,7 +29,7 @@ public class ConfigGrid extends GridLayout implements View{
     }
 
     private void initGridContent() {
-        ConfigPage configPage = new ConfigPage(viewConfigManager);
+        ConfigPage configPage = new ConfigPage(viewConfigManager, dataSourceProvider);
         addComponent(configPage, 0,0,0,3);
         Label titleLabel = new Label("<h1>Configuration Page</h1>", ContentMode.HTML);
         titleLabel.setHeight("100px");

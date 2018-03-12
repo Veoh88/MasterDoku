@@ -34,6 +34,11 @@ public class RestDataSource implements IDataSource {
     }
 
     @Override
+    public void setSourceOrigin(String sourceOrigin) {
+        this.sourceUri = sourceOrigin;
+    }
+
+    @Override
     public void setDataProvider(IDataProvider provider) {
 
     }

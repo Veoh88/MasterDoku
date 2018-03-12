@@ -26,6 +26,11 @@ public class DataSourceMock implements IDataSource {
         return "Mock";
     }
 
+    @Override
+    public void setSourceOrigin(String sourceOrigin) {
+
+    }
+
     public void setDataProvider(IDataProvider dataProvider) {
         this.dataProvider = dataProvider;
     }

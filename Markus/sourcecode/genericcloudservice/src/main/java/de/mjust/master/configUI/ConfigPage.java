@@ -7,11 +7,9 @@ import com.vaadin.navigator.View;
 import com.vaadin.ui.*;
 import de.mjust.master.configUI.manager.ViewConfigManager;
 import de.mjust.master.model.DataObject;
-import de.mjust.master.model.DataSourceMock;
 import de.mjust.master.model.IDataSource;
-import de.mjust.master.model.RestDataSource;
 import de.mjust.master.provider.IDataSourceProvider;
-import de.mjust.master.provider.MockDataSourcesProvider;
+import de.mjust.master.provider.DataSourcesProvider;
 
 import java.util.*;
 
@@ -25,11 +23,11 @@ public class ConfigPage extends VerticalLayout implements View {
     private IDataSourceProvider dataSourceProvider;
 
 
-    public ConfigPage(ViewConfigManager viewConfigManager) {
+    public ConfigPage(ViewConfigManager viewConfigManager, IDataSourceProvider dataSourceProvider) {
         this.viewConfigManager = viewConfigManager;
-        this.dataSourceProvider = new MockDataSourcesProvider();
+        this.dataSourceProvider = dataSourceProvider;
 
-        ComboBox<IDataSource> comboBox = new ComboBox<>("Select Data Source", dataSourceProvider.getDataSources());
+        ComboBox<IDataSource> comboBox = new ComboBox<>("Select Data Source", this.dataSourceProvider.getDataSources());
         comboBox.setPlaceholder("Choose data source");
         comboBox.setItemCaptionGenerator(IDataSource::getSourceName);
         Button addButton = new Button("Add Source");
