@@ -80,6 +80,9 @@
     <Compile Include="vLocation.cs">
       <DependentUpon>HarmonizationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="vPullSource.cs">
+      <DependentUpon>HarmonizationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="vQualityIndicator.cs">
       <DependentUpon>HarmonizationModel.tt</DependentUpon>
     </Compile>

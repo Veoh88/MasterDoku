@@ -17,6 +17,7 @@
         <EntityTypeShape EntityType="HarmonizationServiceModel.vQualityIndicatorType" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="HarmonizationServiceModel.vQualityIndicatorTypeMapping" Width="1.5" PointX="8.75" PointY="3.75" />
         <EntityTypeShape EntityType="HarmonizationServiceModel.vQualityIndicator" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="HarmonizationServiceModel.vPullSource" Width="1.5" PointX="0.75" PointY="2.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -93,5 +93,11 @@ namespace DataBaseAccessor
             var result = _entityFrameworkAccessor.vQualityIndicatorType;
             return result;
         }
+
+        public IQueryable<vPullSource> GetPullSources()
+        {
+            var result = _entityFrameworkAccessor.vPullSource;
+            return result;
+        }
     }
 }
