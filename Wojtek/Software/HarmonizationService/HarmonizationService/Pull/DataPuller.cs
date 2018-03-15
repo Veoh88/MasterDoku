@@ -85,7 +85,7 @@ namespace HarmonizationService.Pull
                         var directory = Path.GetDirectoryName(pullSource.sourcePath);
                         File.Move(Path.Combine(directory, fileName), Path.Combine(directory, $"_{fileName}"));
 
-                        Debug.WriteLine("-- WaterPlant Just Got Harmonized: \n" + wwtp);
+                        Debug.WriteLine("-- WaterPlant just got harmonized!: \n" + wwtp);
                     }
                     catch (Exception e)
                     {
