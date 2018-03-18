@@ -64,7 +64,7 @@ namespace Harmonizer
                     var name = wwtpAsObject.Name;
                     if (!string.IsNullOrEmpty(name))
                     {
-                        waterPlantId = _utilityDbAccessor.GetIdForWwtpName(name);
+                        waterPlantId = waterPlantId ?? _utilityDbAccessor.GetIdForWwtpName(name);
                         _aliasNameToRealNameDict = _utilityDbAccessor.GetAliasToRealNameOnWwtpDict((int)waterPlantId);
                     }
                 }
@@ -96,6 +96,10 @@ namespace Harmonizer
             //try to deserialuze the wwtp as a whole first
             if (IsWholeWwtp(dynamicDict, out wwtp))
             {
+                foreach (var treatmentStep in wwtp.TreatmentSteps)
+                {
+                    treatmentStep.QualityIndicators = MapWaterPlantAliases(treatmentStep.QualityIndicators);
+                }
                 return wwtp;
             }
 
@@ -104,6 +108,10 @@ namespace Harmonizer
             if (waterPlantId != null && IsTreatmentSteps(dynamicDict, out wwtp))
             {
                 wwtp.Name = _utilityDbAccessor.GetWwtpNameForId((int)waterPlantId);
+                foreach (var treatmentStep in wwtp.TreatmentSteps)
+                {
+                    treatmentStep.QualityIndicators = MapWaterPlantAliases(treatmentStep.QualityIndicators);
+                }
                 return wwtp;
             }
 
@@ -112,6 +120,10 @@ namespace Harmonizer
             {
                 wwtp.Name = _utilityDbAccessor.GetWwtpNameForId((int)waterPlantId);
                 wwtp.TreatmentSteps.FirstOrDefault().Name = _utilityDbAccessor.GetTreatmentTypeForId((int)treatmentStepTypeId);
+                foreach (var treatmentStep in wwtp.TreatmentSteps)
+                {
+                    treatmentStep.QualityIndicators = MapWaterPlantAliases(treatmentStep.QualityIndicators);
+                }
                 return wwtp;
             }
 
@@ -119,6 +131,10 @@ namespace Harmonizer
             if (waterPlantId != null && IsQualityIndicators(dynamicDict, out wwtp, true))
             {
                 wwtp.Name = _utilityDbAccessor.GetWwtpNameForId((int)waterPlantId);
+                foreach (var treatmentStep in wwtp.TreatmentSteps)
+                {
+                    treatmentStep.QualityIndicators = MapWaterPlantAliases(treatmentStep.QualityIndicators);
+                }
                 return wwtp;
             }
 
@@ -351,6 +367,7 @@ namespace Harmonizer
 
             return mappedResult;
         }
+
         #endregion
 
         #region Helpers
