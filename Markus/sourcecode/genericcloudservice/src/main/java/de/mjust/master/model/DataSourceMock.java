@@ -37,7 +37,7 @@ public class DataSourceMock implements IDataSource {
 
     public Collection<DataObject> getDataObjects() {
         if(this.dataObjects == null){
-            this.dataObjects = Arrays.asList(new DataObject("energyConsumption", 10), new DataObject("ph-value", 0.03), new DataObject("plantName", "plantB"));
+            this.dataObjects = Arrays.asList(new DataObject("energyConsumption", 10), new DataObject("ph-value", 0.03), new DataObject("plantName", "plantB"), new DataObject("energyConsumption2", 15), new DataObject("energyConsumption3", 20));
         }
         return dataObjects;
     }

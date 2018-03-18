@@ -7,9 +7,9 @@
 //$v-font-weight: 300;
 //$v-font-family: "Open Sans", sans-serif;
 
-// Defines the border used by all components.
-//$v-border: 1px solid (v-shade 0.7);
-//$v-border-radius: 4px;
+ //Defines the border used by all components.
+$v-border: 1px solid (v-shade 0.7);
+$v-border-radius: 4px;
 
 // Affects the color of some component elements, e.g Button, Panel title, etc
 //$v-background-color: hsl(210, 0%, 98%);
@@ -34,5 +34,22 @@
 @mixin mytheme {
   @include valo;
 
-  // Insert your own theme rules here
+  .layout-with-border {
+    border: 1px solid black;
+  }
+
+  .backColorGrey{
+       background-color:lightgray;
+     }
+
+  .backColorRed{
+    background-color:red;
+  }
+
+  .v-gridlayout-gridexample div{
+    background-color: red;
+  }
+  .v-gridlayout-gridexample div div div {
+    background-color: white;
+  }
 }

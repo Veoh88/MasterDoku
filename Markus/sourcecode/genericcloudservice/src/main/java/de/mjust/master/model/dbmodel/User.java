@@ -17,6 +17,16 @@ public class User extends UserRole {
     private String name;
     private String password;
 
+    public User(){
+        this.name = "admin";
+        this.password = "admin";
+    }
+
+    public User(String name, String password){
+        this.name = name;
+        this.password = password;
+    }
+
     @ManyToMany
     private Set<UserRole> userRoles = new HashSet<UserRole>();
 
@@ -42,5 +52,12 @@ public class User extends UserRole {
 
     public boolean addUserRole(UserRole userRole) {
         return this.userRoles.add(userRole);
+    }
+
+    public Boolean authenticate(String username, String password){
+        if(username.equals(getName()) && password.equals(getPassword())){
+            return true;
+        }
+        return false;
     }
 }

@@ -1,6 +1,6 @@
 package de.mjust.master.configUI;
 
-import com.vaadin.data.provider.ListDataProvider;
+import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.shared.ui.dnd.DropEffect;
 import com.vaadin.ui.*;
 import com.vaadin.ui.dnd.DropTargetExtension;
@@ -8,37 +8,44 @@ import com.vaadin.ui.themes.ValoTheme;
 import de.mjust.master.configUI.components.ComponentBuilder;
 import de.mjust.master.configUI.components.ComponentType;
 import de.mjust.master.configUI.manager.ViewConfigManager;
-import de.mjust.master.model.DataObject;
 
 import java.util.Optional;
 
-public class UserView extends HorizontalLayout {
+public class UserView extends GridLayout {
 
     private ViewConfigManager viewConfigManager;
     private ComponentBuilder componentBuilder;
 
-    public UserView(ViewConfigManager viewConfigManager) {
+    public UserView(ViewConfigManager viewConfigManager, ComponentBuilder componentBuilder) {
+        super(3,2);
         this.viewConfigManager = viewConfigManager;
-        this.componentBuilder = new ComponentBuilder();
-        this.viewConfigManager.registerObserver(componentBuilder);
+        this.componentBuilder = componentBuilder;
+        this.viewConfigManager.registerObserver(this.componentBuilder);
+        initDropTarget();
+        setStyleName("backColorGrey");
         setSizeFull();
+    }
+
+    private void initDropTarget() {
         VerticalLayout dropTargetLayout = new VerticalLayout();
-        dropTargetLayout.setCaption("Drop things inside me");
+        Label dropLabel = new Label("<h2>Drop new component here</h2>", ContentMode.HTML);
+        dropTargetLayout.addComponent(dropLabel);
+        dropTargetLayout.setComponentAlignment(dropLabel, Alignment.MIDDLE_CENTER);
         dropTargetLayout.addStyleName(ValoTheme.LAYOUT_CARD);
+        dropTargetLayout.setWidth("500px");
+        dropTargetLayout.setHeight("400px");
 
 // make the layout accept drops
         DropTargetExtension<VerticalLayout> dropTarget = new DropTargetExtension<>(dropTargetLayout);
 
 // the drop effect must match the allowed effect in the drag source for a successful drop
-        dropTarget.setDropEffect(DropEffect.MOVE);
-        addComponent(dropTargetLayout);
+        dropTarget.setDropEffect(DropEffect.COPY);
+        addComponent(dropTargetLayout, 0,0);
 
         dropTarget.addDropListener(event -> {
             // if the drag source is in the same UI as the target
             Optional<AbstractComponent> dragSource = event.getDragSourceComponent();
             if (dragSource.isPresent() && dragSource.get() instanceof Label) {
-                // move the label to the layout
-                dropTargetLayout.addComponent(dragSource.get());
 
                 // get possible transfer data
                 Optional<String> optionalMessage = event.getDataTransferData("text/html");
@@ -63,6 +70,10 @@ public class UserView extends HorizontalLayout {
                 break;
             case BARCHART:
                 addComponent(componentBuilder.buildBarChart(this.viewConfigManager.getSelectedFields()));
+                break;
+            case PIECHART:
+                addComponent(componentBuilder.buildPieChart(this.viewConfigManager.getSelectedFields()));
+                break;
             default:
                 break;
         }
