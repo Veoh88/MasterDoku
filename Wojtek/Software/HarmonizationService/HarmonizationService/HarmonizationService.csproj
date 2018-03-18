@@ -335,6 +335,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pull\DataPuller.cs" />
+    <Compile Include="Pull\IDataPuller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -345,10 +347,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DataBaseAccessor\DataBaseAccessor.csproj">
       <Project>{af66c2f8-bf92-4255-8a7f-3b2a4b8dc82a}</Project>

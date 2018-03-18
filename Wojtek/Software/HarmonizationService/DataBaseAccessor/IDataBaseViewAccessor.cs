@@ -8,29 +8,31 @@ namespace DataBaseAccessor
 {
     public interface IDataBaseViewAccessor
     {
-         IQueryable<vWaterPlant> GetWaterPlants();
+        IQueryable<vWaterPlant> GetWaterPlants();
 
-         IQueryable<vBlackList> GetBlackList();
+        IQueryable<vBlackList> GetBlackList();
 
-         IQueryable<vQualityIndicator> GetQualityIndicators();
+        IQueryable<vQualityIndicator> GetQualityIndicators();
 
-         IQueryable<vQualityIndicatorTypeMapping> GetQualityIndicatorTypeMappings();
+        IQueryable<vQualityIndicatorTypeMapping> GetQualityIndicatorTypeMappings();
 
-         IQueryable<vTreatmentStep> GetTreatmentSteps();
-        
+        IQueryable<vTreatmentStep> GetTreatmentSteps();
 
-         IQueryable<vTreatmentStepType> GetTreatmentStepTypes();
 
-         IQueryable<vUnit> GetUnit();
+        IQueryable<vTreatmentStepType> GetTreatmentStepTypes();
 
-         IQueryable<vWaterPlantPropertyMapper> GetWaterPlantPropertyMapper();
+        IQueryable<vUnit> GetUnit();
 
-         IQueryable<vSupplier> GetSuppliers();
+        IQueryable<vWaterPlantPropertyMapper> GetWaterPlantPropertyMapper();
 
-         IQueryable<vLocation> GetLocatoins();
+        IQueryable<vSupplier> GetSuppliers();
 
-         IQueryable<vCountry> GetCountries();
+        IQueryable<vLocation> GetLocatoins();
 
-         IQueryable<vQualityIndicatorType> GetQualityIndicatorTypes();
+        IQueryable<vCountry> GetCountries();
+
+        IQueryable<vQualityIndicatorType> GetQualityIndicatorTypes();
+
+        IQueryable<vPullSource> GetPullSources();
     }
 }

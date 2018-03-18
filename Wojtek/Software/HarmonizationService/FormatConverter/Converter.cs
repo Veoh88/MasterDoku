@@ -62,11 +62,12 @@ namespace FormatConverter
             var isHorizontal = IsHorizontalOrientation(tableObject, out var firstDateTimeCellTuple);
 
             //set the number of title rows
-            var titleRowNumbres = isHorizontal ? firstDateTimeCellTuple.Item2 : firstDateTimeCellTuple.Item1;
+            var titleRowNumbres = isHorizontal ? firstDateTimeCellTuple.Item1 : firstDateTimeCellTuple.Item2;
 
             Debug.WriteLine($"Rows and columns before converting: [{tableObject.Tables[0].Rows.Count},{tableObject.Tables[0].Columns.Count}]");
             //convert dataset to a list<list<string>> invert if vertical
-            var cellList = DataSetToHorizontalList(tableObject.Tables[0].DataSet);
+            var cellList = isHorizontal ? DataSetToHorizontalList(tableObject.Tables[0].DataSet) :
+                                          DataSetToHorizontalList(tableObject.Tables[0].DataSet, true);
 
             Debug.WriteLine($"Rows and columns after converting: [{cellList.Count},{cellList.First().Count}]");
 
@@ -110,7 +111,7 @@ namespace FormatConverter
         private bool IsJson(string treeStringObject)
         {
             treeStringObject = treeStringObject.Trim();
-            if (treeStringObject.StartsWith("{") && treeStringObject.EndsWith("}"))
+            if (treeStringObject.StartsWith("{") && treeStringObject.EndsWith("}") || treeStringObject.StartsWith("[") && treeStringObject.EndsWith("]"))
             {
                 try
                 {
@@ -152,6 +153,7 @@ namespace FormatConverter
             }
             else
             {
+                var cellsToRemove = new List<int>();
                 for (var i = 0; i < currentTable.Columns.Count; i++)
                 {
                     cellList.Add(new List<string>());
@@ -159,6 +161,20 @@ namespace FormatConverter
                     {
                         cellList[i].Add(currentTable.Rows[j][i].ToString());
                     }
+
+                    var removeCell = true;
+                    foreach (var cellInterior in cellList[i])
+                    {
+                        if (string.IsNullOrEmpty(cellInterior)) continue;
+                        removeCell = false;
+                        break;
+                    }
+                    if (removeCell) cellsToRemove.Add(i);
+                }
+
+                for (var i = cellsToRemove.Count-1; i >= 0; i--)
+                {
+                    cellList.RemoveAt(cellsToRemove[i]);
                 }
             }
 
@@ -218,18 +234,18 @@ namespace FormatConverter
                 if (currentTable.Rows[i][firstDateTimeCell.Item2] == null) continue;
 
                 DateTime.TryParse(currentTable.Rows[i][firstDateTimeCell.Item2].ToString(), out var dateTime);
-                if (dateTime != default(DateTime)) dateTimesInRow++;
+                if (dateTime != default(DateTime)) dateTimesInColumn++;
             }
 
             if (dateTimesInRow < dateTimesInColumn)
             {
-                Debug.WriteLine("Table Orientation: Vertical");
+                Debug.WriteLine("Table Orientation: Horizontal");
                 return true;
             }
 
             if (dateTimesInColumn < dateTimesInRow)
             {
-                Debug.WriteLine("Table Orientation: Horizontal");
+                Debug.WriteLine("Table Orientation: Vertical");
                 return false;
             }
 

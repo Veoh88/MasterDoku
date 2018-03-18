@@ -20,31 +20,41 @@ namespace Harmonizer
         #region Private Members
 
         private IUtilityDbAccessor _utilityDbAccessor;
+        private IDataBaseViewAccessor _dbAccessor;
         private Dictionary<string, string> _aliasNameToRealNameDict = null;
 
         #endregion
 
-        #region
+        #region Constructors
 
         public TreeHarmonizer()
         {
             _utilityDbAccessor = new UtilityDbAccessor();
+            _dbAccessor = new DbViewAccessor();
         }
+
         #endregion
         public WasteWaterTreatmentPlant HarmonizeTree(TreeFormattedObject treeObject, int? waterPlantId = null, int? treatmentStepTypeId = null)
         {
             WasteWaterTreatmentPlant wwtp;
-            // if the object was conform to the predefined schema all along, just convert and return it
+            // if the object was conform to the predefined schema all along, just convert, map and return it
             if (treeObject.IsPredefinedSchema)
             {
                 var wwtpObject = treeObject.Object as WasteWaterTreatmentPlant;
+                _aliasNameToRealNameDict = waterPlantId != null ? 
+                    _utilityDbAccessor.GetAliasToRealNameOnWwtpDict((int)waterPlantId):
+                    _utilityDbAccessor.GetAliasToRealNameOnWwtpDict(_utilityDbAccessor.GetIdForWwtpName(wwtpObject?.Name));
+                foreach (var treatmentStep in wwtpObject.TreatmentSteps)
+                {
+                    treatmentStep.QualityIndicators = MapWaterPlantAliases(treatmentStep.QualityIndicators);
+                }
                 return wwtpObject;
             }
             // ... otherwise first replace the single valeus by waterplant aliases and then try to convert it
             // if that does not work, the object is not valid
 
             // we can only map if waterPlantId is passed as parameter or can be read from the treeobject
-            if (waterPlantId != null)
+            if (waterPlantId != null && _aliasNameToRealNameDict != null)
                 _aliasNameToRealNameDict = _utilityDbAccessor.GetAliasToRealNameOnWwtpDict((int)waterPlantId);
             else
             {
@@ -54,7 +64,7 @@ namespace Harmonizer
                     var name = wwtpAsObject.Name;
                     if (!string.IsNullOrEmpty(name))
                     {
-                        waterPlantId = _utilityDbAccessor.GetIdForWwtpName(name);
+                        waterPlantId = waterPlantId ?? _utilityDbAccessor.GetIdForWwtpName(name);
                         _aliasNameToRealNameDict = _utilityDbAccessor.GetAliasToRealNameOnWwtpDict((int)waterPlantId);
                     }
                 }
@@ -86,6 +96,10 @@ namespace Harmonizer
             //try to deserialuze the wwtp as a whole first
             if (IsWholeWwtp(dynamicDict, out wwtp))
             {
+                foreach (var treatmentStep in wwtp.TreatmentSteps)
+                {
+                    treatmentStep.QualityIndicators = MapWaterPlantAliases(treatmentStep.QualityIndicators);
+                }
                 return wwtp;
             }
 
@@ -94,6 +108,10 @@ namespace Harmonizer
             if (waterPlantId != null && IsTreatmentSteps(dynamicDict, out wwtp))
             {
                 wwtp.Name = _utilityDbAccessor.GetWwtpNameForId((int)waterPlantId);
+                foreach (var treatmentStep in wwtp.TreatmentSteps)
+                {
+                    treatmentStep.QualityIndicators = MapWaterPlantAliases(treatmentStep.QualityIndicators);
+                }
                 return wwtp;
             }
 
@@ -102,6 +120,10 @@ namespace Harmonizer
             {
                 wwtp.Name = _utilityDbAccessor.GetWwtpNameForId((int)waterPlantId);
                 wwtp.TreatmentSteps.FirstOrDefault().Name = _utilityDbAccessor.GetTreatmentTypeForId((int)treatmentStepTypeId);
+                foreach (var treatmentStep in wwtp.TreatmentSteps)
+                {
+                    treatmentStep.QualityIndicators = MapWaterPlantAliases(treatmentStep.QualityIndicators);
+                }
                 return wwtp;
             }
 
@@ -109,6 +131,10 @@ namespace Harmonizer
             if (waterPlantId != null && IsQualityIndicators(dynamicDict, out wwtp, true))
             {
                 wwtp.Name = _utilityDbAccessor.GetWwtpNameForId((int)waterPlantId);
+                foreach (var treatmentStep in wwtp.TreatmentSteps)
+                {
+                    treatmentStep.QualityIndicators = MapWaterPlantAliases(treatmentStep.QualityIndicators);
+                }
                 return wwtp;
             }
 
@@ -292,6 +318,29 @@ namespace Harmonizer
             }
         }
 
+        private List<WaterQualityIndicator> MapWaterPlantAliases(List<WaterQualityIndicator> qualityIndicators)
+        {
+            var mappedList = new List<WaterQualityIndicator>();
+            var indicatorAliasesFromDb = _dbAccessor.GetQualityIndicatorTypeMappings().Select(x => x.indicatorAlias).ToList();
+
+            foreach (var qualityIndicator in qualityIndicators)
+            {
+                var mappedQualityIndicator = qualityIndicator;
+
+                if (_aliasNameToRealNameDict.Keys.Contains(qualityIndicator.Name))
+                {
+                    mappedQualityIndicator.Name = _aliasNameToRealNameDict[qualityIndicator.Name];
+                }
+                else if (indicatorAliasesFromDb.Contains(qualityIndicator.Name))
+                {
+                    mappedQualityIndicator.Name = _utilityDbAccessor.GetIndicatorForAlias(qualityIndicator.Name);
+                }
+
+                mappedList.Add(mappedQualityIndicator);
+            }
+
+            return mappedList;
+        }
         private dynamic MapWaterPlantAliases(Dictionary<string, dynamic> dynamicObject)
         {
             var mappedResult = new Dictionary<string, object>();
@@ -318,6 +367,7 @@ namespace Harmonizer
 
             return mappedResult;
         }
+
         #endregion
 
         #region Helpers

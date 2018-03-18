@@ -27,6 +27,7 @@ namespace HarmonizationService.Controllers
         public HarmController()
         {
             _businessLogic = new BusinessLogic.BusinessLogic();
+            
         }
         #endregion
 
@@ -139,6 +140,39 @@ namespace HarmonizationService.Controllers
 
             }
         }
+        #endregion
+
+        #region Helper HTTP Methods
+
+        [HttpGet]
+        [Route("testJson")]
+        public WasteWaterTreatmentPlant GetValidWaterPlant()
+        {
+            var wwtp = new WasteWaterTreatmentPlant()
+            {
+                Name = "Dummy WaterPlant",
+                TreatmentSteps = new List<WaterTreatmentStep>()
+                {
+                    new WaterTreatmentStep()
+                    {
+                        Name = "Screening",
+                        QualityIndicators = new List<WaterQualityIndicator>()
+                        {
+                            new WaterQualityIndicator()
+                            {
+                                Name = "Nitrogen Dioxide",
+                                Unit = "1",
+                                TimeStamp = DateTime.Now,
+                                Value = 123
+                            }
+                        }
+                    }
+                }
+            };
+
+            return wwtp;
+        }
+
         #endregion
     }
 }

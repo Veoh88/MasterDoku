@@ -37,6 +37,21 @@ warning 6002: The table/view 'HarmonizationService.dbo.vLocation' does not have 
           <Property Name="countryName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'HarmonizationService.dbo.vPullSource' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vPullSource">
+          <Key>
+            <PropertyRef Name="pullSourceId" />
+            <PropertyRef Name="sourcePath" />
+            <PropertyRef Name="dataType" />
+          </Key>
+          <Property Name="pullSourceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sourcePath" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="waterPlantId" Type="int" />
+          <Property Name="treatmentStepTypeId" Type="int" />
+          <Property Name="qualityIndicatortypeId" Type="int" />
+          <Property Name="dataType" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'HarmonizationService.dbo.vQualityIndicator' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vQualityIndicator">
           <Key>
@@ -239,6 +254,16 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
     [vLocation].[town] AS [town], 
     [vLocation].[countryName] AS [countryName]
     FROM [dbo].[vLocation] AS [vLocation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vPullSource" EntityType="Self.vPullSource" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vPullSource].[pullSourceId] AS [pullSourceId], 
+    [vPullSource].[sourcePath] AS [sourcePath], 
+    [vPullSource].[waterPlantId] AS [waterPlantId], 
+    [vPullSource].[treatmentStepTypeId] AS [treatmentStepTypeId], 
+    [vPullSource].[qualityIndicatortypeId] AS [qualityIndicatortypeId], 
+    [vPullSource].[dataType] AS [dataType]
+    FROM [dbo].[vPullSource] AS [vPullSource]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vQualityIndicator" EntityType="Self.vQualityIndicator" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -463,6 +488,7 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
           <EntitySet Name="vQualityIndicatorType" EntityType="HarmonizationServiceModel.vQualityIndicatorType" />
           <EntitySet Name="vQualityIndicatorTypeMapping" EntityType="HarmonizationServiceModel.vQualityIndicatorTypeMapping" />
           <EntitySet Name="vQualityIndicator" EntityType="HarmonizationServiceModel.vQualityIndicator" />
+          <EntitySet Name="vPullSource" EntityType="HarmonizationServiceModel.vPullSource" />
         </EntityContainer>
         <EntityType Name="vCountry">
           <Key>
@@ -530,6 +556,19 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
           <Property Name="unitId" Type="Int32" />
           <Property Name="unitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="indicatorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vPullSource">
+          <Key>
+            <PropertyRef Name="pullSourceId" />
+            <PropertyRef Name="sourcePath" />
+            <PropertyRef Name="dataType" />
+          </Key>
+          <Property Name="pullSourceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sourcePath" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="waterPlantId" Type="Int32" />
+          <Property Name="treatmentStepTypeId" Type="Int32" />
+          <Property Name="qualityIndicatortypeId" Type="Int32" />
+          <Property Name="dataType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -670,6 +709,18 @@ warning 6002: The table/view 'HarmonizationService.dbo.vWaterPlantPropertyMapper
                 <ScalarProperty Name="treatmentStepId" ColumnName="treatmentStepId" />
                 <ScalarProperty Name="waterPlantId" ColumnName="waterPlantId" />
                 <ScalarProperty Name="qualityIndicatorId" ColumnName="qualityIndicatorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vPullSource">
+            <EntityTypeMapping TypeName="HarmonizationServiceModel.vPullSource">
+              <MappingFragment StoreEntitySet="vPullSource">
+                <ScalarProperty Name="dataType" ColumnName="dataType" />
+                <ScalarProperty Name="qualityIndicatortypeId" ColumnName="qualityIndicatortypeId" />
+                <ScalarProperty Name="treatmentStepTypeId" ColumnName="treatmentStepTypeId" />
+                <ScalarProperty Name="waterPlantId" ColumnName="waterPlantId" />
+                <ScalarProperty Name="sourcePath" ColumnName="sourcePath" />
+                <ScalarProperty Name="pullSourceId" ColumnName="pullSourceId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -39,6 +39,7 @@ namespace DataBaseAccessor
         public virtual DbSet<vQualityIndicatorType> vQualityIndicatorType { get; set; }
         public virtual DbSet<vQualityIndicatorTypeMapping> vQualityIndicatorTypeMapping { get; set; }
         public virtual DbSet<vQualityIndicator> vQualityIndicator { get; set; }
+        public virtual DbSet<vPullSource> vPullSource { get; set; }
     
         public virtual int SetBlackList(string propertyName)
         {
