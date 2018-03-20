@@ -40,6 +40,7 @@ namespace Library.HarmonizationApi
     public enum FileFormat
     {
         XLS,
+        XLSX,
         CSV,
         JSON
     }

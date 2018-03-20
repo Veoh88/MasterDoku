@@ -51,7 +51,7 @@ namespace HarmonizationService.Pull
                     try
                     {
                         WasteWaterTreatmentPlant wwtp = null;
-                        if (pullSource.dataType.ToLower() == FileFormat.CSV.ToString().ToLower() || pullSource.dataType == FileFormat.XLS.ToString().ToLower())
+                        if (pullSource.dataType.ToLower() == FileFormat.CSV.ToString().ToLower() || pullSource.dataType == FileFormat.XLS.ToString().ToLower() || pullSource.dataType == FileFormat.XLSX.ToString().ToLower())
                         {
                             var waterPlant = _utilityDbAccessor.GetWwtpNameForId((int)pullSource.waterPlantId);
                             var treatmentStepType = _utilityDbAccessor.GetWwtpNameForId((int)pullSource.treatmentStepTypeId);
