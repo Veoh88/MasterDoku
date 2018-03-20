@@ -12,6 +12,14 @@ public class UserRole {
     private long id;
     private String name;
 
+    public UserRole(){
+        this.name = "default";
+    }
+
+    public UserRole(String name){
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }

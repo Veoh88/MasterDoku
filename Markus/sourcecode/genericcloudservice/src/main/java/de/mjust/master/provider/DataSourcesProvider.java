@@ -15,11 +15,16 @@ public class DataSourcesProvider implements IDataSourceProvider{
 
     public DataSourcesProvider(){
       this.dataSources = new ArrayList<>();
-        dataSources.add(new RestDataSource("WaterPlant 1", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/1/treatmentStepTypes"));
-        dataSources.add(new RestDataSource("WaterPlant 2", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/2/treatmentStepTypes"));
-        dataSources.add(new RestDataSource("WaterPlant 3", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/3/treatmentStepTypes"));
-        dataSources.add(new RestDataSource("RestSource", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/1/treatmentsteptypes/1/qualityindicatortypes/10/data"));
-        dataSources.add(new DataSourceMock("MockPlant"));
+        dataSources.add(new RestDataSource("WPSteps1", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/1/treatmentStepTypes"));
+        dataSources.add(new RestDataSource("WPSteps2", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/2/treatmentStepTypes"));
+        dataSources.add(new RestDataSource("WPSteps3", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/3/treatmentStepTypes"));
+        dataSources.add(new RestDataSource("WPSteps4", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/4/treatmentStepTypes"));
+        dataSources.add(new RestDataSource("WPQuality1", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/1/treatmentsteptypes/1/qualityindicatortypes/10/data"));
+        dataSources.add(new RestDataSource("WPQuality2", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/2/treatmentsteptypes/1/qualityindicatortypes/10/data"));
+        dataSources.add(new RestDataSource("WPQuality3", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/3/treatmentsteptypes/1/qualityindicatortypes/10/data"));
+        dataSources.add(new RestDataSource("WPQuality4", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/4/treatmentsteptypes/1/qualityindicatortypes/10/data"));
+        dataSources.add(new DataSourceMock("TestSource1"));
+        dataSources.add(new DataSourceMock("TestSource2"));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package de.mjust.master.navigator;
 
+import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
@@ -9,47 +10,51 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
 import de.mjust.master.configUI.ConfigGrid;
 import de.mjust.master.configUI.DataSourceConfigPage;
+import de.mjust.master.login.LoginPage;
+import de.mjust.master.model.dbmodel.User;
 import de.mjust.master.provider.DataSourcesProvider;
 import de.mjust.master.provider.IDataSourceProvider;
 
 import javax.servlet.annotation.WebServlet;
 
+@PreserveOnRefresh
+@Theme("mytheme")
 public class NavigatorUI extends UI {
 
-    private final String STARTVIEW = "";
-    private final String CONFIGVIEW = "config";
-    private final String DATASOURCECONFIG = "datasources";
+    private static final String STARTVIEW = "";
+    private static final String CONFIGVIEW = "config";
+    private static final String DATASOURCECONFIG = "datasources";
 
     private IDataSourceProvider dataSourceProvider;
+
+    public static User AUTH;
 
     Navigator navigator;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+        AUTH = new User();
         this.dataSourceProvider = new DataSourcesProvider();
         navigator = new Navigator(this, this);
-        navigator.addView(STARTVIEW, new StartPage());
+        navigator.addView(STARTVIEW, new LoginPage());
         navigator.addView(CONFIGVIEW, new ConfigGrid(dataSourceProvider));
         navigator.addView(DATASOURCECONFIG, new DataSourceConfigPage(dataSourceProvider));
     }
 
-    @Theme("mytheme")
-    public class StartPage extends VerticalLayout implements View {
+    public static class StartPage extends VerticalLayout implements View {
 
         public StartPage(){
 
             Button userViewButton = new Button("Configure UserViews");
             Button dataSourcesButton = new Button("Configure DataSources");
             userViewButton.addClickListener(e -> {
-                navigator.navigateTo(CONFIGVIEW);
+                getUI().getNavigator().navigateTo(CONFIGVIEW);
             });
             dataSourcesButton.addClickListener(e -> {
-                navigator.navigateTo(DATASOURCECONFIG);
+                getUI().getNavigator().navigateTo(DATASOURCECONFIG);
             });
 
             addComponents(userViewButton,dataSourcesButton);
-
-            setContent(this);
         }
 
 }

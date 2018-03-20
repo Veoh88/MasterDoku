@@ -3,6 +3,7 @@ package de.mjust.master.configUI;
 import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ThemeResource;
+import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.*;
 import de.mjust.master.model.IDataSource;
 import de.mjust.master.model.RestDataSource;
@@ -18,7 +19,6 @@ public class DataSourceConfigPage extends VerticalLayout implements View {
     private ListDataProvider<IDataSource> sourceListDataProvider;
     private TextField sourceNameField;
     private TextField sourcesUriField;
-    private TextField queryParamsField;
 
     public DataSourceConfigPage(IDataSourceProvider dataSourceProvider) {
         this.dataSourceProvider = dataSourceProvider;
@@ -26,6 +26,8 @@ public class DataSourceConfigPage extends VerticalLayout implements View {
         createDataSourceOverview();
         createDataSourcesInput();
     }
+
+    public DataSourceConfigPage(){}
 
     private void createDataSourcesInput() {
         HorizontalLayout newSourcesLayout = new HorizontalLayout();
@@ -62,8 +64,9 @@ public class DataSourceConfigPage extends VerticalLayout implements View {
     }
 
     private void createDataSourceOverview() {
-        Label dsLabel = new Label("Configured DataSources: ");
+        Label dsLabel = new Label("<h1>Configured DataSources: </h1>", ContentMode.HTML);
         addComponent(dsLabel);
+        setComponentAlignment(dsLabel, Alignment.TOP_CENTER);
         createGrid();
     }
 
