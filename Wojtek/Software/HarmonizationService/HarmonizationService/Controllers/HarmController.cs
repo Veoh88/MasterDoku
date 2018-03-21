@@ -37,7 +37,7 @@ namespace HarmonizationService.Controllers
         /// Harmonizes the provided file. 
         /// If provided as JSON, must contain the qualityindicators
         /// </summary>
-        /// <param name="fileFormat">CSV / XLS / JSON</param>
+        /// <param name="fileFormat">CSV / XLS / XLSX / JSON</param>
         /// <param name="waterPlant">id or name of the waterPlant</param>
         /// <param name="treatmentStepType">can be either the name or the id of a treatment type step</param>
         /// <returns>Error message what failed in case of failure</returns>
@@ -50,7 +50,7 @@ namespace HarmonizationService.Controllers
             try
             {
                 WasteWaterTreatmentPlant wwtp = null;
-                if (fileFormat == FileFormat.CSV || fileFormat == FileFormat.XLS)
+                if (fileFormat == FileFormat.CSV || fileFormat == FileFormat.XLS || fileFormat == FileFormat.XLSX)
                 {
                     var stream = Request.Content.ReadAsStreamAsync().Result;
                     wwtp = _businessLogic.HarmonizeData(stream, fileFormat, waterPlant, treatmentStepType);
@@ -87,7 +87,7 @@ namespace HarmonizationService.Controllers
             try
             {
                 WasteWaterTreatmentPlant wwtp = null;
-                if (fileFormat == FileFormat.CSV || fileFormat == FileFormat.XLS)
+                if (fileFormat == FileFormat.CSV || fileFormat == FileFormat.XLS || fileFormat == FileFormat.XLSX)
                 {
                     throw new Exception("This fileFormat is not supported on this endpoint. Please use: [endpoint]/harmonize/fileFormat/{fileFormat}/waterPlant/{waterPlant}/treatmentStepType/{treatmentStepType}");
                 }
@@ -122,7 +122,7 @@ namespace HarmonizationService.Controllers
             try
             {
                 WasteWaterTreatmentPlant wwtp = null;
-                if (fileFormat == FileFormat.CSV || fileFormat == FileFormat.XLS)
+                if (fileFormat == FileFormat.CSV || fileFormat == FileFormat.XLS || fileFormat == FileFormat.XLSX)
                 {
                     throw new Exception("This fileFormat is not supported on this endpoint. Please use: [endpoint]/harmonize/fileFormat/{fileFormat}/waterPlant/{waterPlant}/treatmentStepType/{treatmentStepType}");
                 }

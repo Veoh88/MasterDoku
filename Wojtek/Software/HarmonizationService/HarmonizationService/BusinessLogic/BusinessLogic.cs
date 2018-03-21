@@ -48,7 +48,7 @@ namespace HarmonizationService.BusinessLogic
         {
             // 1. Read DataSet from Stream
             DataSet tableDataSet = null;
-            if (fileFormat == FileFormat.XLS)
+            if (fileFormat == FileFormat.XLS || fileFormat == FileFormat.XLSX)
             {
                 using (var reader = ExcelReaderFactory.CreateReader(dataBaseStream))
                 {
