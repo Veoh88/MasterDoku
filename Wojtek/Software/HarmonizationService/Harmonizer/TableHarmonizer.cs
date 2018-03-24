@@ -32,8 +32,6 @@ namespace Harmonizer
             //step 3 : find indicatorNames (one per column) -> at least as many as value columns
             var indicatorNames = FindIndicatorNames(tableObject);
 
-            //TODO wenn indicator names fehlen patterns benutzen um die indicators woanders herzuholen
-            //TODO Units vllt?
             if (indexesOfNumericColumns.Count != indicatorNames.Keys.Count) throw new Exception("The number of numeric columns doesn't match the number of indicator names");
 
             //step 4 : associate indicator names with numeric columns
@@ -52,12 +50,13 @@ namespace Harmonizer
             Tuple<int, int> firstDateTimeCellAt,
             Dictionary<int, string> columnIndexToName)
         {
-            var wwtp = new WasteWaterTreatmentPlant() //TODO add properties
+            var wwtp = new WasteWaterTreatmentPlant
             {
-
+                TreatmentSteps = new List<WaterTreatmentStep>
+                {
+                    new WaterTreatmentStep()
+                }
             };
-            wwtp.TreatmentSteps = new List<WaterTreatmentStep>();
-            wwtp.TreatmentSteps.Add(new WaterTreatmentStep()); //TODO add treatment step name
 
             //Setting QualityIndicators
             wwtp.TreatmentSteps[0].QualityIndicators = new List<WaterQualityIndicator>();
@@ -72,12 +71,9 @@ namespace Harmonizer
                     DateTime.TryParse(tableObject.Cells[j][firstDateTimeCellAt.Item2], out var dateTime);
                     waterQualityIndicator.TimeStamp = dateTime;
                     waterQualityIndicator.Name = columnIndexToName[indexesOfNumericColumns[i]];
-                    //TODO check if value and unit are matching
+                    
                     waterQualityIndicator.Value = double.Parse(tableObject.Cells[j][indexesOfNumericColumns[i]]);
                     //set defaultUnit
-                    //TODO check if there is another unit set
-
-
                     waterQualityIndicator.Unit = _utilityDataBaseAccessor.GetDefaultUnitForIndicator(waterQualityIndicator.Name);
 
                     if(string.IsNullOrEmpty(waterQualityIndicator.Name) ||
