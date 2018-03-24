@@ -32,38 +32,32 @@ public class DataObject {
         this.setValue(value);
     }
 
-    private final int IDENTITYHASHCODE = System.identityHashCode(this);
     private String key;
     private Object value;
-    private boolean isSelected = false;
+    private IDataSource dataSourceOrigin;
 
-    public void toggleSelection() {
-        this.isSelected = !this.isSelected;
-    }
 
     public String getKey() {
         return key;
     }
 
     public String getKeyWithType() {
-        if(value instanceof ArrayList){
-            if((((ArrayList) value).get(0) instanceof Integer)){
+        if (value instanceof ArrayList) {
+            if ((((ArrayList) value).get(0) instanceof Integer)) {
                 return key + " (Integer[])";
             }
-            if((((ArrayList) value).get(0) instanceof String)){
+            if ((((ArrayList) value).get(0) instanceof String)) {
                 return key + " (String[])";
             }
-            if((((ArrayList) value).get(0) instanceof Long)){
+            if ((((ArrayList) value).get(0) instanceof Long)) {
                 return key + " (Long[])";
             }
-            if((((ArrayList) value).get(0) instanceof Double)){
+            if ((((ArrayList) value).get(0) instanceof Double)) {
                 return key + " (Double[])";
-            }
-            else {
+            } else {
                 return key + " (null)";
             }
-        }
-        else {
+        } else {
             return key + " (" + value.getClass().getSimpleName() + ")";
         }
     }
@@ -78,5 +72,13 @@ public class DataObject {
 
     public void setValue(Object value) {
         this.value = value;
+    }
+
+    public IDataSource getDataSourceOrigin() {
+        return dataSourceOrigin;
+    }
+
+    public void setDataSourceOrigin(IDataSource dataSourceOrigin) {
+        this.dataSourceOrigin = dataSourceOrigin;
     }
 }

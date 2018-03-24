@@ -5,22 +5,24 @@ import com.vaadin.addon.charts.model.*;
 import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Grid;
-import com.vaadin.ui.TextField;
 import de.mjust.master.model.DataObject;
+import de.mjust.master.model.UserComponent;
+import de.mjust.master.model.UserComponentMap;
+import de.mjust.master.model.UserRegistry;
+import de.mjust.master.model.dbmodel.User;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
-public class ComponentBuilder implements IComponentObserver {
+public class ComponentBuilder implements ISelectedFieldsObserver {
 
     private ComponentRegistry componentRegistry;
     private Chart chart;
     private Collection<UUID> currentComponents;
+    private Collection<ISelectedComponentObserver> componentObserverList;
     private UUID activeComponent;
 
     public ComponentBuilder() {
+        this.componentObserverList = new ArrayList<>();
         this.componentRegistry = new ComponentRegistry();
         this.currentComponents = new ArrayList<>();
     }
@@ -46,17 +48,17 @@ public class ComponentBuilder implements IComponentObserver {
 
         Configuration conf = chart.getConfiguration();
 
-        conf.setTitle("Bar chart");
-        conf.setSubTitle("Plant 1");
+        conf.setTitle("Bar chart title");
+        conf.setSubTitle("Bar chart subtitle");
 
         XAxis x = new XAxis();
         x.setCategories("A", "B");
-        x.setTitle((String) "Plants");
+        x.setTitle((String) "X-Axis");
         conf.addxAxis(x);
 
         YAxis y = new YAxis();
         y.setMin(0);
-        AxisTitle title = new AxisTitle("Value");
+        AxisTitle title = new AxisTitle("Y-Axis");
         title.setAlign(VerticalAlign.MIDDLE);
         y.setTitle(title);
         conf.addyAxis(y);
@@ -70,7 +72,7 @@ public class ComponentBuilder implements IComponentObserver {
 
 
         conf.disableCredits();
-        registerChart();
+        registerChart(selectedFields);
 
         return configureBarChart(selectedFields);
     }
@@ -95,7 +97,7 @@ public class ComponentBuilder implements IComponentObserver {
 
 
         conf.disableCredits();
-        registerChart();
+        registerChart(selectedFields);
 
         return configurePieChart(selectedFields);
     }
@@ -104,6 +106,7 @@ public class ComponentBuilder implements IComponentObserver {
         Configuration conf = chart.getConfiguration();
         conf.setSeries(getMultipleSeriesFromSelectedFields(selectedFields));
         chart.drawChart(conf);
+        notifyComponentChanged();
         return chart;
     }
 
@@ -114,13 +117,18 @@ public class ComponentBuilder implements IComponentObserver {
         return chart;
     }
 
-    private void registerChart() {
-        UUID chartUUID = this.componentRegistry.addComponent(chart);
+    private void registerChart(Set<DataObject> selectedFields) {
+        UUID chartUUID = this.componentRegistry.addComponent(chart, selectedFields);
         this.activeComponent = chartUUID;
         this.currentComponents.add(chartUUID);
         chart.addChartClickListener(x -> {
             this.activeComponent = chartUUID;
+            notifyComponentChanged();
         });
+    }
+
+    private void notifyComponentChanged() {
+        componentObserverList.stream().forEach(x -> x.update());
     }
 
     private ArrayList<Series> getMultipleSeriesFromSelectedFields(Set<DataObject> selectedFields) {
@@ -189,5 +197,68 @@ public class ComponentBuilder implements IComponentObserver {
 
     public void drawChart() {
         chart.drawChart();
+    }
+
+    public void registerObserver(ISelectedComponentObserver observer) {
+        this.componentObserverList.add(observer);
+    }
+
+    public void saveComponentsInRegistry(UserRegistry userRegistry, User currentUser) {
+        Collection<UserComponent> userComponents = createComponentDefinitions();
+        userRegistry.addUserMapping(currentUser, userComponents);
+    }
+
+    private Collection<UserComponent> createComponentDefinitions() {
+        Collection<UserComponent> userComponents = new ArrayList<>();
+        Set<UUID> uuidKeys = componentRegistry.getUUIDs();
+        for (UUID uuid : uuidKeys) {
+            Component component = this.componentRegistry.getComponentByUUID(uuid);
+            UserComponent userComponent = new UserComponent();
+            if (component instanceof Chart) {
+                Chart chart = (Chart) component;
+                if (chart.getConfiguration().getChart().getType() == ChartType.BAR) {
+                    userComponent.setChartType(ChartType.BAR);
+                    userComponent.setConfiguration(chart.getConfiguration());
+                    userComponent.setChart(true);
+                    userComponent.setUuid(uuid);
+                    userComponent.setSelectedFields(new HashSet<>(this.componentRegistry.getDataObjectsByUUID(uuid)));
+                    userComponents.add(userComponent);
+                } else if (chart.getConfiguration().getChart().getType() == ChartType.PIE) {
+                    userComponent.setChartType(ChartType.PIE);
+                    userComponent.setConfiguration(chart.getConfiguration());
+                    userComponent.setChart(true);
+                    userComponent.setUuid(uuid);
+                    userComponent.setSelectedFields(new HashSet<>(this.componentRegistry.getDataObjectsByUUID(uuid)));
+                    userComponents.add(userComponent);
+                }
+            } else {
+                userComponent.setTable(true);
+                userComponent.setUuid(uuid);
+                userComponent.setSelectedFields(new HashSet<>(this.componentRegistry.getDataObjectsByUUID(uuid)));
+                userComponents.add(userComponent);
+            }
+        }
+        return userComponents;
+    }
+
+    public void removeCurrentComponents() {
+        this.componentRegistry.removeComponents();
+    }
+
+    public Collection<Component> buildUserComponents(Collection<UserComponent> userComponents) {
+        this.componentRegistry.removeComponents();
+        Collection<Component> components = new ArrayList<>();
+        for (UserComponent userComponent : userComponents) {
+            if (userComponent.isChart()) {
+                if (userComponent.getChartType() == ChartType.BAR) {
+                    components.add(buildBarChart(userComponent.getSelectedFields()));
+                } else if (userComponent.getChartType() == ChartType.PIE) {
+                    components.add(buildPieChart(userComponent.getSelectedFields()));
+                } else {
+                    components.add(buildTable(userComponent.getSelectedFields()));
+                }
+            }
+        }
+        return components;
     }
 }

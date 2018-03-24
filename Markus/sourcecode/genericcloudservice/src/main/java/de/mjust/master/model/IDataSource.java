@@ -10,5 +10,6 @@ public interface IDataSource {
     String getSourceOrigin();
     void setSourceOrigin(String sourceOrigin);
     void setDataProvider(IDataProvider provider);
+    void setUpdateInterval(int seconds);
     Collection<DataObject> getDataObjects();
 }

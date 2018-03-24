@@ -4,7 +4,8 @@ import de.mjust.master.model.DataObject;
 
 import java.util.Set;
 
-public interface IComponentObserver {
+public interface ISelectedFieldsObserver {
 
     void update(Set<DataObject> selectedFields);
+
 }

@@ -1,23 +1,23 @@
 package de.mjust.master.configUI.manager;
 
-import de.mjust.master.configUI.components.IComponentObserver;
+import de.mjust.master.configUI.components.ISelectedFieldsObserver;
 import de.mjust.master.model.DataObject;
+import de.mjust.master.model.IDataSource;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class ViewConfigManager {
 
     public ViewConfigManager() {
         this.selectedFields = new HashSet<>();
+        this.selectedDataSources = new HashSet<>();
         this.componentObserverList = new ArrayList<>();
     }
 
     private Set<DataObject> selectedFields;
+    private Set<IDataSource> selectedDataSources;
 
-    private Collection<IComponentObserver> componentObserverList;
+    private Collection<ISelectedFieldsObserver> componentObserverList;
 
     public Set<DataObject> getSelectedFields() {
         return selectedFields;
@@ -51,7 +51,15 @@ public class ViewConfigManager {
         return false;
     }
 
-    public void registerObserver(IComponentObserver observer){
+    public boolean addSelectedDataSource(IDataSource dataSource){
+        return this.selectedDataSources.add(dataSource);
+    }
+
+    public boolean removeSelectedDataSource(IDataSource dataSource){
+        return this.selectedDataSources.remove(dataSource);
+    }
+
+    public void registerObserver(ISelectedFieldsObserver observer){
         this.componentObserverList.add(observer);
     }
 

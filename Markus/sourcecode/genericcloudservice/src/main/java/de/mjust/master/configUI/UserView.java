@@ -8,7 +8,11 @@ import com.vaadin.ui.themes.ValoTheme;
 import de.mjust.master.configUI.components.ComponentBuilder;
 import de.mjust.master.configUI.components.ComponentType;
 import de.mjust.master.configUI.manager.ViewConfigManager;
+import de.mjust.master.model.UserComponent;
+import de.mjust.master.model.UserComponentMap;
+import de.mjust.master.model.dbmodel.User;
 
+import java.util.Collection;
 import java.util.Optional;
 
 public class UserView extends GridLayout {
@@ -27,6 +31,7 @@ public class UserView extends GridLayout {
     }
 
     private void initDropTarget() {
+        removeAllComponents();
         VerticalLayout dropTargetLayout = new VerticalLayout();
         Label dropLabel = new Label("<h2>Drop new component here</h2>", ContentMode.HTML);
         dropTargetLayout.addComponent(dropLabel);
@@ -78,5 +83,21 @@ public class UserView extends GridLayout {
                 break;
         }
 
+    }
+
+    public void buildUserView(UserComponentMap userComponentMap){
+
+    }
+
+    public void initUserComponents(Collection<UserComponent> userComponents) {
+        initDropTarget();
+        Collection<Component> components = this.componentBuilder.buildUserComponents(userComponents);
+        for (Component viewComponent : components) {
+            addComponents(viewComponent);
+        }
+    }
+
+    public void setBlankView(User value) {
+        initDropTarget();
     }
 }
