@@ -89,7 +89,6 @@ namespace Harmonizer
 
             // even if the mapping wasnt successful, we still might have a valid waterplant object
             // last try to deserialize it and checks if everything is correct afterwars
-            //TODO vllt sind nur qualityindicators übergeben oder nur die treatmentsteps ohne pflanze drüber
             var dynamicDict = mappingResult == null ? treeObject.Object : mappingResult;
 
             //<<DESERIALIZATION CHECKS>>
@@ -138,7 +137,7 @@ namespace Harmonizer
                 return wwtp;
             }
 
-            throw new Exception("Could not harmonize the dynamicObject"); //TODO handle this better
+            throw new Exception("Could not harmonize the dynamicObject");
 
         }
 
