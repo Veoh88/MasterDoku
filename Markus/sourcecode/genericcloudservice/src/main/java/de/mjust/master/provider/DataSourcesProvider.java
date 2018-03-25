@@ -1,13 +1,12 @@
 package de.mjust.master.provider;
 
-import de.mjust.master.model.DataSourceMock;
+import de.mjust.master.model.DataSourceMockA;
+import de.mjust.master.model.DataSourceMockB;
 import de.mjust.master.model.IDataSource;
 import de.mjust.master.model.RestDataSource;
-import de.mjust.master.model.dbmodel.DataSource;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class DataSourcesProvider implements IDataSourceProvider{
 
@@ -21,10 +20,12 @@ public class DataSourcesProvider implements IDataSourceProvider{
         dataSources.add(new RestDataSource("WPSteps4", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/4/treatmentStepTypes"));
         dataSources.add(new RestDataSource("WPQuality1", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/1/treatmentsteptypes/1/qualityindicatortypes/10/data"));
         dataSources.add(new RestDataSource("WPQuality2", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/2/treatmentsteptypes/1/qualityindicatortypes/10/data"));
-        dataSources.add(new RestDataSource("WPQuality3", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/3/treatmentsteptypes/1/qualityindicatortypes/10/data"));
-        dataSources.add(new RestDataSource("WPQuality4", "http://harmonizationwebservice-dev.eu-west-2.elasticbeanstalk.com/provider/waterPlants/4/treatmentsteptypes/1/qualityindicatortypes/10/data"));
-        dataSources.add(new DataSourceMock("TestSource1"));
-        dataSources.add(new DataSourceMock("TestSource2"));
+        dataSources.add(new RestDataSource("NO2WP3", "http://default-environment.senykdj5qb.eu-west-2.elasticbeanstalk.com/provider/waterPlants/3/treatmentsteptypes/1/qualityindicatortypes/10/data"));
+        dataSources.add(new RestDataSource("NO2WP4", "http://default-environment.senykdj5qb.eu-west-2.elasticbeanstalk.com/provider/waterPlants/4/treatmentsteptypes/1/qualityindicatortypes/10/data"));
+        dataSources.add(new RestDataSource("TempWP3", "http://default-environment.senykdj5qb.eu-west-2.elasticbeanstalk.com/provider/waterPlants/3/treatmentsteptypes/1/qualityindicatortypes/1/data"));
+        dataSources.add(new RestDataSource("TempWP4", "http://default-environment.senykdj5qb.eu-west-2.elasticbeanstalk.com/provider/waterPlants/4/treatmentsteptypes/1/qualityindicatortypes/1/data"));
+        dataSources.add(new DataSourceMockA("TestSource1"));
+        dataSources.add(new DataSourceMockB("TestSource2"));
     }
 
     @Override

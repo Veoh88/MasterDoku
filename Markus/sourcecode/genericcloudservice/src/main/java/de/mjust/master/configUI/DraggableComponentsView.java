@@ -19,6 +19,7 @@ public class DraggableComponentsView extends HorizontalLayout {
         createTableDrag();
         createBarChartDrag();
         createPieChartDrag();
+        createLineChartDrag();
     }
 
     private void createBarChartDrag() {
@@ -39,6 +40,7 @@ public class DraggableComponentsView extends HorizontalLayout {
         addComponent(draggableLabel);
     }
 
+
     private void createPieChartDrag() {
         Label draggableLabel = new Label();
         draggableLabel.setIcon(VaadinIcons.PIE_CHART);
@@ -53,6 +55,23 @@ public class DraggableComponentsView extends HorizontalLayout {
 // set other data to transfer (in this case HTML)
         dragSource.setDataTransferData("text/html", "<label>hello receiver</label>");
         dragSource.setDragData(ComponentType.PIECHART);
+        addComponent(draggableLabel);
+    }
+
+    private void createLineChartDrag() {
+        Label draggableLabel = new Label();
+        draggableLabel.setIcon(VaadinIcons.LINE_CHART);
+        draggableLabel.setValue("Linechart");
+        draggableLabel.setWidth("64px");
+        draggableLabel.setHeight("64px");
+        DragSourceExtension<Label> dragSource = new DragSourceExtension<>(draggableLabel);
+// set the allowed effect
+        dragSource.setEffectAllowed(EffectAllowed.COPY_MOVE);
+// set the text to transfer
+        dragSource.setDataTransferText("hello receiver");
+// set other data to transfer (in this case HTML)
+        dragSource.setDataTransferData("text/html", "<label>hello receiver</label>");
+        dragSource.setDragData(ComponentType.LINECHART);
         addComponent(draggableLabel);
     }
 

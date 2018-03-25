@@ -14,6 +14,7 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
+import de.mjust.master.configUI.UserView;
 import de.mjust.master.navigator.NavigatorUI;
 
 public class LoginPage extends VerticalLayout implements View {
@@ -38,10 +39,15 @@ public class LoginPage extends VerticalLayout implements View {
 
             @Override
             public void buttonClick(ClickEvent event) {
-                if(NavigatorUI.AUTH.authenticate(username.getValue(), password.getValue())){
+                if(NavigatorUI.AUTH.authenticateUser(username.getValue(), password.getValue())){
                     VaadinSession.getCurrent().setAttribute("user", username.getValue());
-                    getUI().getNavigator().addView("start", NavigatorUI.StartPage.class);
-                    Page.getCurrent().setUriFragment("!"+"start");
+                    if(username.getValue().equals("admin")) {
+                        getUI().getNavigator().addView("start", NavigatorUI.StartPage.class);
+                        Page.getCurrent().setUriFragment("!" + "start");
+                    }
+                    else {
+                        Page.getCurrent().setUriFragment("!" + "userview");
+                    }
                 }else{
                     Notification.show("Invalid credentials", Notification.Type.ERROR_MESSAGE);
                 }

@@ -1,5 +1,9 @@
 package de.mjust.master.configUI;
 
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.Page;
+import com.vaadin.server.VaadinSession;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.shared.ui.dnd.DropEffect;
 import com.vaadin.ui.*;
@@ -10,94 +14,59 @@ import de.mjust.master.configUI.components.ComponentType;
 import de.mjust.master.configUI.manager.ViewConfigManager;
 import de.mjust.master.model.UserComponent;
 import de.mjust.master.model.UserComponentMap;
+import de.mjust.master.model.UserRegistry;
 import de.mjust.master.model.dbmodel.User;
+import de.mjust.master.provider.UserProvider;
 
 import java.util.Collection;
 import java.util.Optional;
 
-public class UserView extends GridLayout {
+public class UserView extends GridLayout implements View {
 
-    private ViewConfigManager viewConfigManager;
     private ComponentBuilder componentBuilder;
+    private UserRegistry userRegistry;
+    private UserProvider userProvider;
+    private Label helloLabel;
 
-    public UserView(ViewConfigManager viewConfigManager, ComponentBuilder componentBuilder) {
-        super(3,2);
-        this.viewConfigManager = viewConfigManager;
-        this.componentBuilder = componentBuilder;
-        this.viewConfigManager.registerObserver(this.componentBuilder);
-        initDropTarget();
-        setStyleName("backColorGrey");
+    public UserView(UserRegistry userRegistry, UserProvider userProvider) {
+        super(4,3);
+        this.userRegistry = userRegistry;
+        this.userProvider = userProvider;
+        this.componentBuilder = new ComponentBuilder();
         setSizeFull();
+        setHeight("1024px");
+        setWidth("100%");
+        setRowExpandRatio(0,1);
+        setRowExpandRatio(1,3);
+        setRowExpandRatio(2,3);
+        initUserComponents();
+
     }
 
-    private void initDropTarget() {
-        removeAllComponents();
-        VerticalLayout dropTargetLayout = new VerticalLayout();
-        Label dropLabel = new Label("<h2>Drop new component here</h2>", ContentMode.HTML);
-        dropTargetLayout.addComponent(dropLabel);
-        dropTargetLayout.setComponentAlignment(dropLabel, Alignment.MIDDLE_CENTER);
-        dropTargetLayout.addStyleName(ValoTheme.LAYOUT_CARD);
-        dropTargetLayout.setWidth("500px");
-        dropTargetLayout.setHeight("400px");
-
-// make the layout accept drops
-        DropTargetExtension<VerticalLayout> dropTarget = new DropTargetExtension<>(dropTargetLayout);
-
-// the drop effect must match the allowed effect in the drag source for a successful drop
-        dropTarget.setDropEffect(DropEffect.COPY);
-        addComponent(dropTargetLayout, 0,0);
-
-        dropTarget.addDropListener(event -> {
-            // if the drag source is in the same UI as the target
-            Optional<AbstractComponent> dragSource = event.getDragSourceComponent();
-            if (dragSource.isPresent() && dragSource.get() instanceof Label) {
-
-                // get possible transfer data
-                Optional<String> optionalMessage = event.getDataTransferData("text/html");
-                if (optionalMessage != null) {
-                    Notification.show("DropEvent with data transfer html: " + optionalMessage);
-                } else {
-                    // get transfer text
-                    String message = event.getDataTransferText();
-                    Notification.show("DropEvent with data transfer text: " + message);
-                }
-
-                // handle possible server side drag data, if the drag source was in the same UI
-                event.getDragData().ifPresent(data -> createViewComponent((ComponentType) data));
+    public void initUserComponents() {
+        Collection<UserComponent> userComponents = this.userRegistry.getUserMappings(this.userProvider.getUserByName((String) VaadinSession.getCurrent().getAttribute("user")));
+        if(userComponents != null) {
+            Collection<Component> components = this.componentBuilder.buildUserComponents(userComponents);
+            for (Component viewComponent : components) {
+                addComponents(viewComponent);
+                setComponentAlignment(viewComponent, Alignment.TOP_LEFT);
             }
-        });
-    }
-
-    private void createViewComponent(ComponentType data) {
-        switch (data) {
-            case TABLE:
-                addComponent(componentBuilder.buildTable(this.viewConfigManager.getSelectedFields()));
-                break;
-            case BARCHART:
-                addComponent(componentBuilder.buildBarChart(this.viewConfigManager.getSelectedFields()));
-                break;
-            case PIECHART:
-                addComponent(componentBuilder.buildPieChart(this.viewConfigManager.getSelectedFields()));
-                break;
-            default:
-                break;
         }
-
-    }
-
-    public void buildUserView(UserComponentMap userComponentMap){
-
-    }
-
-    public void initUserComponents(Collection<UserComponent> userComponents) {
-        initDropTarget();
-        Collection<Component> components = this.componentBuilder.buildUserComponents(userComponents);
-        for (Component viewComponent : components) {
-            addComponents(viewComponent);
+        else
+        {
+            addComponent(new Label("nothing to show here"));
         }
     }
 
-    public void setBlankView(User value) {
-        initDropTarget();
+    @Override
+    public void enter(ViewChangeListener.ViewChangeEvent event){
+        removeAllComponents();
+        VerticalLayout welcomeLayout = new VerticalLayout();
+        Button logout = new Button("<< Logout");
+        logout.addClickListener(x -> Page.getCurrent().setUriFragment(""));
+        helloLabel = new Label("<h1>Hello, " + VaadinSession.getCurrent().getAttribute("user")+ "</h1>", ContentMode.HTML);
+        welcomeLayout.addComponents(logout, helloLabel);
+        addComponent(welcomeLayout,0,0,3,0);
+        initUserComponents();
     }
 }

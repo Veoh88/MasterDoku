@@ -48,6 +48,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.2" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.1" />
           <element id="library" level="project" name="Maven: com.vaadin:vaadin-icons:3.0.0" />
+          <element id="library" level="project" name="Maven: com.jarektoro:responsive-layout:2.1.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

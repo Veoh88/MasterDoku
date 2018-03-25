@@ -77,6 +77,72 @@ public class ComponentBuilder implements ISelectedFieldsObserver {
         return configureBarChart(selectedFields);
     }
 
+    public Component buildLineChart(Set<DataObject> selectedFields) {
+        chart = new Chart();
+        chart.setHeight("400px");
+        chart.setWidth("500px");
+
+        Configuration configuration = chart.getConfiguration();
+        configuration.getChart().setType(ChartType.LINE);
+
+        configuration.getTitle().setText("Line chart title");
+        configuration.getSubTitle().setText("Line chart subtitle");
+
+        YAxis yAxis = configuration.getyAxis();
+        yAxis.setTitle(new AxisTitle("Temperature (°C)"));
+        yAxis.getTitle().setAlign(VerticalAlign.MIDDLE);
+
+        configuration
+                .getTooltip()
+                .setFormatter(
+                        "'<b>'+ this.series.name +'</b><br/>'+this.x +': '+ this.y +'°C'");
+
+        PlotOptionsLine plotOptions = new PlotOptionsLine();
+        plotOptions.getDataLabels().setEnabled(true);
+        configuration.setPlotOptions(plotOptions);
+
+        registerChart(selectedFields);
+        return configureLineChart(selectedFields);
+    }
+
+
+    private Component buildBarChart(UserComponent userComponent) {
+        chart = new Chart(ChartType.BAR);
+        chart.setHeight("400px");
+        chart.setWidth("500px");
+
+        Configuration conf = userComponent.getConfiguration();
+        chart.setConfiguration(conf);
+        this.componentRegistry.addComponent(chart, userComponent.getSelectedFields());
+
+        return chart;
+    }
+
+    public Component buildPieChart(UserComponent userComponent) {
+        chart = new Chart(ChartType.PIE);
+        chart.setHeight("400px");
+        chart.setWidth("500px");
+
+        Configuration conf = userComponent.getConfiguration();
+        chart.setConfiguration(conf);
+        this.componentRegistry.addComponent(chart, userComponent.getSelectedFields());
+
+
+        return chart;
+    }
+    private Component buildLineChart(UserComponent userComponent) {
+        chart = new Chart(ChartType.LINE);
+        chart.setHeight("400px");
+        chart.setWidth("500px");
+
+        Configuration conf = userComponent.getConfiguration();
+        chart.setConfiguration(conf);
+        this.componentRegistry.addComponent(chart, userComponent.getSelectedFields());
+
+
+        return chart;
+    }
+
     public Component buildPieChart(Set<DataObject> selectedFields) {
         chart = new Chart(ChartType.PIE);
         chart.setHeight("400px");
@@ -84,8 +150,8 @@ public class ComponentBuilder implements ISelectedFieldsObserver {
 
         Configuration conf = chart.getConfiguration();
 
-        conf.setTitle("Pie chart");
-        conf.setSubTitle("Plant 1");
+        conf.setTitle("Pie chart title");
+        conf.setSubTitle("pie chart subtitle");
 
         Tooltip tooltip = new Tooltip();
         tooltip.setFormatter("this.series.name +': '+ this.y");
@@ -110,6 +176,14 @@ public class ComponentBuilder implements ISelectedFieldsObserver {
         return chart;
     }
 
+    private Component configureLineChart(Set<DataObject> selectedFields) {
+        Configuration conf = chart.getConfiguration();
+        conf.setSeries(getMultipleSeriesFromSelectedFields(selectedFields));
+        chart.drawChart(conf);
+        notifyComponentChanged();
+        return chart;
+    }
+
     private Component configurePieChart(Set<DataObject> selectedFields) {
         Configuration conf = chart.getConfiguration();
         conf.setSeries(getSingleSeriesFromSelectedFields(selectedFields));
@@ -118,11 +192,12 @@ public class ComponentBuilder implements ISelectedFieldsObserver {
     }
 
     private void registerChart(Set<DataObject> selectedFields) {
-        UUID chartUUID = this.componentRegistry.addComponent(chart, selectedFields);
+        UUID chartUUID = this.componentRegistry.addComponent(chart, new HashSet<>(selectedFields));
         this.activeComponent = chartUUID;
         this.currentComponents.add(chartUUID);
         chart.addChartClickListener(x -> {
             this.activeComponent = chartUUID;
+            this.chart = (Chart) this.componentRegistry.getComponentByUUID(chartUUID);
             notifyComponentChanged();
         });
     }
@@ -178,23 +253,6 @@ public class ComponentBuilder implements ISelectedFieldsObserver {
         return chart;
     }
 
-    public void setBarChartTitle(String titleField) {
-        chart.getConfiguration().setTitle(titleField);
-    }
-
-    public void setBarChartSubTitle(String subtitleField) {
-        chart.getConfiguration().setSubTitle(subtitleField);
-
-    }
-
-    public void setBarChartYLabel(String ylabelField) {
-        chart.getConfiguration().getyAxis().setTitle(ylabelField);
-    }
-
-    public void setBarChartXLabel(String xLabelField) {
-        chart.getConfiguration().getxAxis().setTitle(xLabelField);
-    }
-
     public void drawChart() {
         chart.drawChart();
     }
@@ -209,6 +267,7 @@ public class ComponentBuilder implements ISelectedFieldsObserver {
     }
 
     private Collection<UserComponent> createComponentDefinitions() {
+        this.activeComponent = null;
         Collection<UserComponent> userComponents = new ArrayList<>();
         Set<UUID> uuidKeys = componentRegistry.getUUIDs();
         for (UUID uuid : uuidKeys) {
@@ -225,6 +284,13 @@ public class ComponentBuilder implements ISelectedFieldsObserver {
                     userComponents.add(userComponent);
                 } else if (chart.getConfiguration().getChart().getType() == ChartType.PIE) {
                     userComponent.setChartType(ChartType.PIE);
+                    userComponent.setConfiguration(chart.getConfiguration());
+                    userComponent.setChart(true);
+                    userComponent.setUuid(uuid);
+                    userComponent.setSelectedFields(new HashSet<>(this.componentRegistry.getDataObjectsByUUID(uuid)));
+                    userComponents.add(userComponent);
+                } else if (chart.getConfiguration().getChart().getType() == ChartType.LINE) {
+                    userComponent.setChartType(ChartType.LINE);
                     userComponent.setConfiguration(chart.getConfiguration());
                     userComponent.setChart(true);
                     userComponent.setUuid(uuid);
@@ -251,14 +317,46 @@ public class ComponentBuilder implements ISelectedFieldsObserver {
         for (UserComponent userComponent : userComponents) {
             if (userComponent.isChart()) {
                 if (userComponent.getChartType() == ChartType.BAR) {
-                    components.add(buildBarChart(userComponent.getSelectedFields()));
+                    components.add(buildBarChart(userComponent));
                 } else if (userComponent.getChartType() == ChartType.PIE) {
-                    components.add(buildPieChart(userComponent.getSelectedFields()));
+                    components.add(buildPieChart(userComponent));
+                } else if (userComponent.getChartType() == ChartType.LINE) {
+                    components.add(buildLineChart(userComponent));
                 } else {
                     components.add(buildTable(userComponent.getSelectedFields()));
                 }
             }
         }
         return components;
+    }
+
+    public void setBarChartYMin(String value) {
+        chart.getConfiguration().getyAxis().setMin(Integer.parseInt(value));
+    }
+
+    public void setBarChartYMax(String value) {
+        chart.getConfiguration().getyAxis().setMax(Integer.parseInt(value));
+    }
+
+    public void setBarChartXIndexes(String value) {
+        String[] indexes = value.split(",");
+        chart.getConfiguration().getxAxis().setCategories(indexes);
+    }
+
+    public void setBarChartTitle(String titleField) {
+        chart.getConfiguration().setTitle(titleField);
+    }
+
+    public void setBarChartSubTitle(String subtitleField) {
+        chart.getConfiguration().setSubTitle(subtitleField);
+
+    }
+
+    public void setBarChartYLabel(String ylabelField) {
+        chart.getConfiguration().getyAxis().setTitle(ylabelField);
+    }
+
+    public void setBarChartXLabel(String xLabelField) {
+        chart.getConfiguration().getxAxis().setTitle(xLabelField);
     }
 }

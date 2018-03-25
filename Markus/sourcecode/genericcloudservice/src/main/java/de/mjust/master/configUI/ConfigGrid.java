@@ -26,15 +26,15 @@ public class ConfigGrid extends GridLayout implements View{
     private ViewRegistry viewRegistry;
 
 
-    public ConfigGrid(IDataSourceProvider dataSourceProvider){
+    public ConfigGrid(IDataSourceProvider dataSourceProvider, UserRegistry userRegistry, UserProvider userProvider){
         super(2,4);
         this.viewRegistry = ViewRegistry.getInstance();
         this.dataSourceProvider = dataSourceProvider;
         this.viewConfigManager = new ViewConfigManager();
         this.componentBuilder = new ComponentBuilder();
-        this.userProvider = new UserProvider();
+        this.userProvider = userProvider;
         this.userRoleProvider = new UserRoleProvider();
-        this.userRegistry = new UserRegistry();
+        this.userRegistry = userRegistry;
         setSizeFull();
         setResponsive(true);
         setStyleName("layout-with-border");
@@ -58,9 +58,9 @@ public class ConfigGrid extends GridLayout implements View{
         setComponentAlignment(titleLabel, Alignment.TOP_CENTER);
         DraggableComponentsView draggableComponentsView = new DraggableComponentsView();
         addComponent(draggableComponentsView, 1, 1);
-        UserView userView = new UserView(viewConfigManager, componentBuilder);
-        this.viewRegistry.setUserView(userView);
-        addComponent(userView, 1,2);
+        UserViewConfig userViewConfig = new UserViewConfig(viewConfigManager, componentBuilder);
+        this.viewRegistry.setUserViewConfig(userViewConfig);
+        addComponent(userViewConfig, 1,2);
         ComponentConfig componentConfig = new ComponentConfig(viewConfigManager, componentBuilder);
         this.viewRegistry.setComponentConfig(componentConfig);
         addComponent(componentConfig, 1, 3);

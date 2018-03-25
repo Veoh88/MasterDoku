@@ -68,10 +68,10 @@ public class ConfigPage extends VerticalLayout implements View {
 
     private void initUserView(HasValue.ValueChangeEvent<User> x) {
         if(this.userRegistry.userHasComponents(x.getValue())){
-            this.viewRegistry.getUserView().initUserComponents(userRegistry.getUserMappings(x.getValue()));
+            this.viewRegistry.getUserViewConfig().initUserComponents(userRegistry.getUserMappings(x.getValue()));
         }
         else {
-            this.viewRegistry.getUserView().setBlankView(x.getValue());
+            this.viewRegistry.getUserViewConfig().setBlankView(x.getValue());
             this.componentBuilder.removeCurrentComponents();
         }
     }

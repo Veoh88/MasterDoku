@@ -22,15 +22,18 @@ public class BarChartForm extends GridLayout implements IComponentConfigForm {
     private TextField subtitleField;
     private TextField ylabelField;
     private TextField xLabelField;
+    private TextField yMinField;
+    private TextField yMaxField;
+    private TextField xIndexField;
     private TextField updateInterval;
     private CheckBox intervalCheckbox;
 
     public BarChartForm(ComponentBuilder componentBuilder, ViewConfigManager viewConfigManager){
-        super(4,4);
+        super(4,5);
         this.componentBuilder = componentBuilder;
         this.viewConfigManager = viewConfigManager;
         Label titleLabel = new Label("<h2>Configure bar chart</h2>", ContentMode.HTML);
-        addComponent(titleLabel, 1,0);
+        addComponent(titleLabel, 0,0, 3,0);
         setSizeFull();
         initForm();
     }
@@ -45,30 +48,39 @@ public class BarChartForm extends GridLayout implements IComponentConfigForm {
 
     private void initLabelFields() {
         titleField = new TextField("Title");
-        addComponent(titleField,0,0);
+        addComponent(titleField,0,1);
 
         subtitleField = new TextField("Subtitle");
-        addComponent(subtitleField, 0,1);
+        addComponent(subtitleField, 0,2);
 
         ylabelField = new TextField("Y-Label");
-        addComponent(ylabelField, 0,2);
+        addComponent(ylabelField, 0,3);
 
         xLabelField = new TextField("X-Label");
-        addComponent(xLabelField,0,3);
+        addComponent(xLabelField,0,4);
+
+        yMinField = new TextField("Min y-value");
+        addComponent(yMinField,1,1);
+
+        yMaxField = new TextField("Max y-value");
+        addComponent(yMaxField,1,2);
+
+        xIndexField = new TextField("X-labels (comma separated)");
+        addComponent(xIndexField,1,3);
 
         CheckBox intervalCheckbox = new CheckBox("Live data?");
         intervalCheckbox.addValueChangeListener(x -> addUpdateIntervalInput(x));
-        addComponent(intervalCheckbox, 1, 1);
+        addComponent(intervalCheckbox, 2, 1);
 
         Button saveButton = new Button("Save");
         saveButton.addClickListener(x -> updatedBarChart());
-        addComponent(saveButton,3,3);
+        addComponent(saveButton,2,4);
     }
 
     private void addUpdateIntervalInput(HasValue.ValueChangeEvent<Boolean> x) {
         if(x.getValue()){
             this.updateInterval = new TextField("Update interval in seconds:");
-            addComponent(updateInterval, 1,2);
+            addComponent(updateInterval, 2,2);
         }
         else{
             removeComponent(updateInterval);
@@ -81,6 +93,9 @@ public class BarChartForm extends GridLayout implements IComponentConfigForm {
         componentBuilder.setBarChartSubTitle(subtitleField.getValue());
         componentBuilder.setBarChartYLabel(ylabelField.getValue());
         componentBuilder.setBarChartXLabel(xLabelField.getValue());
+        componentBuilder.setBarChartYMin(yMinField.getValue());
+        componentBuilder.setBarChartYMax(yMaxField.getValue());
+        componentBuilder.setBarChartXIndexes(xIndexField.getValue());
         componentBuilder.drawChart();
     }
 }

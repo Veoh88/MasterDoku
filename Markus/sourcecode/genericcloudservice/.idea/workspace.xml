@@ -2,27 +2,85 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97c46a6a-001c-48c0-bc94-dae5a2977ef4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ISelectedComponentObserver.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/manager/ViewRegistry.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserComponent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserComponentMap.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserRegistry.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/scheduler/PollingScheduler.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_2_2_2.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_48.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_codeborne_phantomjsdriver_1_4_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_0_18.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_23_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_gwt_gwt_elemental_2_8_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jarektoro_responsive_layout_2_1_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_vaadin_testbench_6_0_0_alpha4.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_7_5.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_4_1_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_platform_4_1_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_jcip_jcip_annotations_1_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_cssparser_cssparser_0_9_23.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_2_27.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_core_js_2_27.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_neko_htmlunit_2_27.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_exec_1_3.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_5.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_easymock_easymock_3_1.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_client_9_4_5_v20170502.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_http_9_4_5_v20170502.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_io_9_4_5_v20170502.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_util_9_4_5_v20170502.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_api_9_4_5_v20170502.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_client_9_4_5_v20170502.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_common_9_4_5_v20170502.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_18_1_GA.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_1_2.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_htmlunit_driver_2_27.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_jetty_repacked_9_4_5_v20170502.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_edge_driver_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_opera_driver_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_server_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_3_6_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_15.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_serializer_2_7_2.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_xalan_2_7_2.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_11_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserViewConfig.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMockB.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/test/tests/LoginElement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/test/tests/LoginTest.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/test/tests/MainViewElement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/test/tests/UserViewElement.java" />
       <change beforePath="$PROJECT_DIR$/../../Dissertation.docx" afterPath="$PROJECT_DIR$/../../Dissertation.docx" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/genericcloudservice_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/genericcloudservice_war_exploded.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/genericcloudservice.iml" afterPath="$PROJECT_DIR$/genericcloudservice.iml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ComponentConfig.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ComponentConfig.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigGrid.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigGrid.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigPage.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigPage.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DraggableComponentsView.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DraggableComponentsView.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserView.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserView.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentBuilder.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentRegistry.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentRegistry.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/IComponentObserver.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ISelectedFieldsObserver.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentType.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentType.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/forms/BarChartForm.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/forms/BarChartForm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/manager/ViewConfigManager.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/manager/ViewConfigManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataObject.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataObject.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMock.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMock.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/IDataSource.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/IDataSource.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/RestDataSource.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/RestDataSource.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/manager/ViewRegistry.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/manager/ViewRegistry.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/login/LoginPage.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/login/LoginPage.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMock.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMockA.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/navigator/NavigatorUI.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/navigator/NavigatorUI.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/DataSourcesProvider.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/DataSourcesProvider.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/UserProvider.java" afterPath="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/UserProvider.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,152 +91,106 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="CodeIris Favorites" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file leaf-file-name="ConfigPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <element signature="e#3504#3505#0" expanded="true" />
-                <element signature="e#3543#3544#0" expanded="true" />
-                <element signature="e#4129#4141#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="675">
+              <caret line="43" column="49" lean-forward="false" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HasValue.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/data/HasValue.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1106">
-              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <folding>
-                <marker date="1517749905378" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1517749905378" expanded="false" signature="139:478" ph="..." />
-                <marker date="1517749905378" expanded="false" signature="688:699" ph=" { " />
-                <marker date="1517749905378" expanded="false" signature="711:717" ph=" }" />
-                <marker date="1517749905378" expanded="true" signature="762:858" ph="{...}" />
-                <marker date="1517749905378" expanded="false" signature="889:900" ph=" { " />
-                <marker date="1517749905378" expanded="false" signature="961:967" ph=" }" />
-                <marker date="1517749905378" expanded="false" signature="1153:1164" ph=" { " />
-                <marker date="1517749905378" expanded="false" signature="1200:1206" ph=" }" />
-                <marker date="1517749905378" expanded="false" signature="1254:1265" ph=" { " />
-                <marker date="1517749905378" expanded="false" signature="1295:1301" ph=" }" />
-                <marker date="1517749905378" expanded="true" signature="1406:1681" ph="{...}" />
-                <marker date="1517749905378" expanded="true" signature="1416:1434" ph="/**...*/" />
-                <marker date="1517749905378" expanded="true" signature="1776:2919" ph="{...}" />
-                <marker date="1517749905378" expanded="true" signature="2066:2153" ph="{...}" />
-                <marker date="1517749905378" expanded="true" signature="2266:2480" ph="{...}" />
-                <marker date="1517749905378" expanded="false" signature="2512:2527" ph=" { " />
-                <marker date="1517749905378" expanded="false" signature="2548:2558" ph=" }" />
-                <marker date="1517749905378" expanded="true" signature="2587:2602" ph=" { " />
-                <marker date="1517749905378" expanded="true" signature="2620:2630" ph=" }" />
-                <marker date="1517749905378" expanded="false" signature="2673:2688" ph=" { " />
-                <marker date="1517749905378" expanded="false" signature="2715:2725" ph=" }" />
-                <marker date="1517749905378" expanded="false" signature="2766:2781" ph=" { " />
-                <marker date="1517749905378" expanded="false" signature="2803:2813" ph=" }" />
-                <marker date="1517749905378" expanded="false" signature="2853:2868" ph=" { " />
-                <marker date="1517749905378" expanded="false" signature="2903:2913" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComponentBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="724">
-              <caret line="240" column="0" lean-forward="false" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
-              <folding>
-                <element signature="e#6850#6851#0" expanded="true" />
-                <element signature="e#6906#6907#0" expanded="true" />
-                <element signature="e#9034#9035#0" expanded="true" />
-                <element signature="e#9091#9092#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComponentRegistry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentRegistry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-              <folding>
-                <element signature="e#1104#1105#0" expanded="true" />
-                <element signature="e#1161#1162#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserComponent.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding>
-                <element signature="e#1175#1176#0" expanded="true" />
-                <element signature="e#1244#1245#0" expanded="true" />
-                <element signature="e#1296#1297#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserRegistry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserRegistry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#265#266#0" expanded="true" />
-                <element signature="e#299#300#0" expanded="true" />
-                <element signature="e#338#339#0" expanded="true" />
-                <element signature="e#405#406#0" expanded="true" />
-                <element signature="e#1520#1521#0" expanded="true" />
-                <element signature="e#1587#1588#0" expanded="true" />
-                <element signature="e#1713#1714#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewConfigManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/manager/ViewConfigManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="27" />
-              <folding>
-                <element signature="e#1922#1923#0" expanded="true" />
-                <element signature="e#2012#2013#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1099">
-              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-              <folding>
-                <element signature="e#4017#4018#0" expanded="true" />
-                <element signature="e#4049#4050#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComponentConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ComponentConfig.java">
+      <file leaf-file-name="DataSourceConfigPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DataSourceConfigPage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NavigatorUI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/navigator/NavigatorUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="800">
+              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/tests/LoginTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/login/LoginPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="825">
+              <caret line="48" column="75" lean-forward="false" selection-start-line="48" selection-start-column="75" selection-end-line="48" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserViewElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/tests/UserViewElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="55" lean-forward="false" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainViewElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/tests/MainViewElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HasElementQuery.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-testbench/6.0.0.alpha4/vaadin-testbench-6.0.0.alpha4.jar!/com/vaadin/testbench/HasElementQuery.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="32" />
+              <folding>
+                <marker date="1522002119428" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1522002119428" expanded="true" signature="272:348" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/tests/LoginElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#227#228#0" expanded="true" />
+                <element signature="e#257#258#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -186,8 +198,8 @@
       <file leaf-file-name="ConfigGrid.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigGrid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+            <state relative-caret-position="350">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -217,6 +229,10 @@
       <find>backC</find>
       <find>layout-</find>
       <find>save</find>
+      <find>enter</find>
+      <find>bar</find>
+      <find>click</find>
+      <find>addons</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -233,32 +249,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/StartPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/SubPage.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/dbmodel/DataSource.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/dbmodel/DataField.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/dbmodel/VisualizationComponent.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/UnirestHttpProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/IDataProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/SubPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentType.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/MockDataSourcesProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/IDataSourceProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/login/LoginPage.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/styles.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/styles.scss" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/dbmodel/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/UserProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/UserRoleProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/dbmodel/UserRole.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/navigator/NavigatorUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DataSourceConfigPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/DataSourcesProvider.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DraggableComponentsView.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/IComponentObserver.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ISelectedFieldsObserver.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ISelectedComponentObserver.java" />
@@ -269,17 +274,32 @@
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserComponentMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/RestDataSource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMock.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/manager/ViewRegistry.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigGrid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentRegistry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/UserProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/login/LoginPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserRegistry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/navigator/NavigatorUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserViewConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DraggableComponentsView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMockA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMockB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/provider/DataSourcesProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserView.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/forms/BarChartForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ComponentConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigPage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentRegistry.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserComponent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserRegistry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigGrid.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentBuilder.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/de/mjust/master/tests/LoginTest.java" />
+        <option value="$PROJECT_DIR$/src/main/test/tests/MainViewElement.java" />
+        <option value="$PROJECT_DIR$/src/main/test/tests/UserViewElement.java" />
+        <option value="$PROJECT_DIR$/src/main/test/tests/LoginElement.java" />
+        <option value="$PROJECT_DIR$/src/main/test/tests/LoginTest.java" />
       </list>
     </option>
   </component>
@@ -350,10 +370,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -403,56 +419,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="configUI" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="configUI" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="configUI" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
               <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="dbmodel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
@@ -468,59 +435,15 @@
               <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="provider" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
               <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="VAADIN" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="VAADIN" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="genericcloudservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="VAADIN" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
-              <item name="mytheme" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="genericcloudservice" type="b2602c69:ProjectViewProjectNode" />
@@ -530,6 +453,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -538,10 +465,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="de.mjust.master.configUI" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="de.mjust.master.model" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="de.mjust.master.configUI.components" />
@@ -561,7 +494,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.LoginTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -582,6 +515,31 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+    </configuration>
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="genericcloudservice" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.LoginTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -669,6 +627,15 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Maven.TomcatMaven" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.LoginTest" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.LoginTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -703,48 +670,57 @@
       <workItem from="1521364461575" duration="2214000" />
       <workItem from="1521879410731" duration="10639000" />
       <workItem from="1521891643405" duration="23520000" />
+      <workItem from="1521957815607" duration="27276000" />
+      <workItem from="1522005538212" duration="111000" />
+      <workItem from="1522005663034" duration="471000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="LoginTest - 2018.03.25 at 20h 50m 47s.xml">
+      <configuration name="LoginTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179837000" />
+    <option name="totallyTimeSpent" value="207695000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="3862" height="2122" extended-state="6" />
-    <editor active="true" />
     <layout>
+      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994792" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09453125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09453125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991803" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991803" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21106558" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Code Iris" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12135417" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33145493" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33145493" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32940573" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991803" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14118247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14088115" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991803" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -765,167 +741,66 @@
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserRegistry.java</url>
-          <line>24</line>
+          <url>file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserView.java</url>
+          <line>47</line>
           <properties />
-          <option name="timeStamp" value="70" />
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentBuilder.java</url>
+          <line>269</line>
+          <properties />
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentBuilder.java</url>
+          <line>273</line>
+          <properties />
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserRegistry.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserRegistry.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigPage.java</url>
+          <line>137</line>
+          <properties />
+          <option name="timeStamp" value="89" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="77" />
+      <option name="time" value="90" />
     </breakpoint-manager>
     <watches-manager />
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>this.userRegistry.getUserMappings(this.userProvider.getUserByName(&quot;EngineerA&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>this.userProvider.getUserByName(&quot;EngineerA&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>VaadinSession.getCurrent().getAttribute(&quot;user&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/ui/AbstractOrderedLayout.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="50" column="25" lean-forward="true" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/forms/IComponentConfigForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="37" lean-forward="false" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/ui/TextField.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/addons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/provider/UserRoleProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#427#428#0" expanded="false" />
-            <element signature="e#460#461#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/dbmodel/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/dbmodel/UserRole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#273#274#0" expanded="false" />
-            <element signature="e#310#311#0" expanded="false" />
-            <element signature="e#345#346#0" expanded="false" />
-            <element signature="e#377#378#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/tomcat/conf/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9225">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.desktop/javax/swing/Icon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="37" column="17" lean-forward="false" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/com/vaadin/vaadin-icons/3.0.0/vaadin-icons-3.0.0.pom">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/server/FontIcon.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/icons/VaadinIcons.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/icons/VaadinIcons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/server/Resource.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15875">
-          <caret line="635" column="47" lean-forward="false" selection-start-line="635" selection-start-column="39" selection-end-line="635" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/styles.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DataSourceConfigPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="68" column="59" lean-forward="false" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1325">
-          <caret line="53" column="3" lean-forward="false" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/ui/AbstractComponent.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
@@ -933,19 +808,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DraggableComponentsView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="29" column="41" lean-forward="false" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
           <caret line="281" column="29" lean-forward="false" selection-start-line="281" selection-start-column="29" selection-end-line="281" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -953,7 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -961,7 +826,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -969,15 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/provider/DataSourcesProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="26" column="55" lean-forward="false" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -985,9 +840,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -995,7 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,7 +854,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3951">
           <caret line="157" column="17" lean-forward="false" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1011,12 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-          <folding>
-            <element signature="e#1916#1917#0" expanded="false" />
-            <element signature="e#1955#1956#0" expanded="false" />
-            <element signature="e#2024#2025#0" expanded="false" />
-            <element signature="e#2080#2081#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1024,47 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="85" selection-end-column="5" />
-          <folding>
-            <element signature="e#4590#4591#0" expanded="false" />
-            <element signature="e#4622#4623#0" expanded="false" />
-            <element signature="e#4672#4673#0" expanded="false" />
-            <element signature="e#4714#4715#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1025">
-          <caret line="54" column="49" lean-forward="false" selection-start-line="54" selection-start-column="49" selection-end-line="54" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/navigator/NavigatorUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="37" column="46" lean-forward="false" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/provider/UserProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/forms/BarChartForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <element signature="e#1400#1401#0" expanded="false" />
-            <element signature="e#1433#1434#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1072,7 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,43 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2">
           <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/event/ListenerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="224" column="0" lean-forward="false" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
-          <folding>
-            <marker date="1517749905378" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1517749905378" expanded="false" signature="140:536" ph="..." />
-            <marker date="1517749905378" expanded="true" signature="856:1357" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="1452:1854" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="1952:2860" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="3014:3948" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="4106:5248" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="5378:5836" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="5970:6626" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="6736:7631" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="7745:8843" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="8893:10034" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="10098:10179" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="10258:10369" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="10397:10746" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="10786:11437" ph="{...}" />
-            <marker date="1517749905378" expanded="false" signature="11484:11495" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="11530:11536" ph=" }" />
-            <marker date="1517749905378" expanded="false" signature="11592:11603" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="11653:11659" ph=" }" />
-            <marker date="1517749905378" expanded="false" signature="11690:11701" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="11720:11726" ph=" }" />
-            <marker date="1517749905378" expanded="false" signature="11771:11782" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="11838:11844" ph=" }" />
-            <marker date="1517749905378" expanded="true" signature="11904:12023" ph="{...}" />
-            <marker date="1517749905378" expanded="false" signature="11970:11985" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="12007:12017" ph=" }" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1124,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="502">
           <caret line="233" column="0" lean-forward="false" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,7 +896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1356">
           <caret line="413" column="0" lean-forward="false" selection-start-line="413" selection-start-column="0" selection-end-line="413" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1140,72 +903,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1175">
           <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding>
-            <element signature="e#1723#1724#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/data/HasValue.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1106">
+        <state relative-caret-position="1575">
           <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding>
-            <marker date="1517749905378" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1517749905378" expanded="false" signature="139:478" ph="..." />
-            <marker date="1517749905378" expanded="false" signature="688:699" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="711:717" ph=" }" />
-            <marker date="1517749905378" expanded="true" signature="762:858" ph="{...}" />
-            <marker date="1517749905378" expanded="false" signature="889:900" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="961:967" ph=" }" />
-            <marker date="1517749905378" expanded="false" signature="1153:1164" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="1200:1206" ph=" }" />
-            <marker date="1517749905378" expanded="false" signature="1254:1265" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="1295:1301" ph=" }" />
-            <marker date="1517749905378" expanded="true" signature="1406:1681" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="1416:1434" ph="/**...*/" />
-            <marker date="1517749905378" expanded="true" signature="1776:2919" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="2066:2153" ph="{...}" />
-            <marker date="1517749905378" expanded="true" signature="2266:2480" ph="{...}" />
-            <marker date="1517749905378" expanded="false" signature="2512:2527" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="2548:2558" ph=" }" />
-            <marker date="1517749905378" expanded="true" signature="2587:2602" ph=" { " />
-            <marker date="1517749905378" expanded="true" signature="2620:2630" ph=" }" />
-            <marker date="1517749905378" expanded="false" signature="2673:2688" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="2715:2725" ph=" }" />
-            <marker date="1517749905378" expanded="false" signature="2766:2781" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="2803:2813" ph=" }" />
-            <marker date="1517749905378" expanded="false" signature="2853:2868" ph=" { " />
-            <marker date="1517749905378" expanded="false" signature="2903:2913" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#1520#1521#0" expanded="true" />
-            <element signature="e#1587#1588#0" expanded="true" />
-            <element signature="e#1713#1714#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1099">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding>
-            <element signature="e#4017#4018#0" expanded="true" />
-            <element signature="e#4049#4050#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1213,74 +917,379 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="27" />
-          <folding>
-            <element signature="e#1922#1923#0" expanded="true" />
-            <element signature="e#2012#2013#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ComponentConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentRegistry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
+        <state relative-caret-position="750">
           <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigPage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/dbmodel/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="e#3504#3505#0" expanded="true" />
-            <element signature="e#3543#3544#0" expanded="true" />
-            <element signature="e#4129#4141#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="625">
+          <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/dbmodel/UserRole.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="240" column="0" lean-forward="false" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
-          <folding>
-            <element signature="e#6850#6851#0" expanded="true" />
-            <element signature="e#6906#6907#0" expanded="true" />
-            <element signature="e#9034#9035#0" expanded="true" />
-            <element signature="e#9091#9092#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="425">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/provider/UserProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="40" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserViewConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DraggableComponentsView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMockA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/DataSourceMockB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="52" column="47" lean-forward="false" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/forms/BarChartForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="82" column="43" lean-forward="false" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state relative-caret-position="750">
+          <caret line="51" column="46" lean-forward="false" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ComponentConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/event/ListenerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="224" column="0" lean-forward="false" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/provider/DataSourcesProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="196" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="196" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-server/8.3.0/vaadin-server-8.3.0.jar!/com/vaadin/ui/AbstractSingleSelect.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/components/ComponentBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
           <folding>
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1296#1297#0" expanded="true" />
+            <element signature="e#12734#12735#0" expanded="false" />
+            <element signature="e#12817#12818#0" expanded="false" />
+            <element signature="e#12866#12867#0" expanded="false" />
+            <element signature="e#12949#12950#0" expanded="false" />
+            <element signature="e#13176#13177#0" expanded="false" />
+            <element signature="e#13237#13238#0" expanded="false" />
+            <element signature="e#13423#13424#0" expanded="false" />
+            <element signature="e#13496#13497#0" expanded="false" />
+            <element signature="e#13553#13554#0" expanded="false" />
+            <element signature="e#13626#13627#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/model/UserRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#1713#1714#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/UserView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="60" column="13" lean-forward="false" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/com/vaadin/vaadin-testbench/6.0.0.alpha4/vaadin-testbench-6.0.0.alpha4.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3825">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2875">
+          <caret line="115" column="25" lean-forward="false" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/vaadin/vaadin-testbench/6.0.0.alpha4/vaadin-testbench-6.0.0.alpha4.jar!/com/vaadin/testbench/HasElementQuery.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="32" />
+          <folding>
+            <marker date="1522002119428" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1522002119428" expanded="true" signature="272:348" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/tests/MainViewElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/tests/UserViewElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="55" lean-forward="false" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/login/LoginPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="48" column="75" lean-forward="false" selection-start-line="48" selection-start-column="75" selection-end-line="48" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/tests/LoginElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
+            <element signature="e#257#258#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/tests/LoginTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/de.mjust.master.configUI.ConfigGrid">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>de.mjust.master.configUI.ConfigGrid</OriginalElement>
+          <nodes>
+            <node x="" y="">com.vaadin.ui.Layout.SpacingHandler</node>
+            <node x="" y="">com.vaadin.ui.HasComponents</node>
+            <node x="" y="">com.vaadin.ui.ComponentContainer</node>
+            <node x="" y="">com.vaadin.server.Sizeable</node>
+            <node x="" y="">java.lang.Iterable</node>
+            <node x="" y="">java.io.Serializable</node>
+            <node x="" y="">com.vaadin.ui.Layout.MarginHandler</node>
+            <node x="" y="">com.vaadin.event.MethodEventSource</node>
+            <node x="" y="">com.vaadin.server.AbstractClientConnector</node>
+            <node x="" y="">com.vaadin.ui.Layout</node>
+            <node x="" y="">com.vaadin.event.ContextClickEvent.ContextClickNotifier</node>
+            <node x="" y="">com.vaadin.ui.AbstractComponent</node>
+            <node x="" y="">com.vaadin.ui.HasComponents.ComponentAttachDetachNotifier</node>
+            <node x="" y="">com.vaadin.ui.Layout.AlignmentHandler</node>
+            <node x="" y="">com.vaadin.ui.AbstractLayout</node>
+            <node x="" y="">com.vaadin.event.LayoutEvents.LayoutClickNotifier</node>
+            <node x="" y="">com.vaadin.server.ClientConnector</node>
+            <node x="" y="">com.vaadin.ui.GridLayout</node>
+            <node x="" y="">de.mjust.master.configUI.ConfigGrid</node>
+            <node x="" y="">com.vaadin.ui.AbstractComponentContainer</node>
+            <node x="" y="">com.vaadin.shared.Connector</node>
+            <node x="" y="">com.vaadin.navigator.View</node>
+            <node x="" y="">com.vaadin.ui.Component</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="1102.0" y="475.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/de.mjust.master.configUI.ConfigPage">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>de.mjust.master.configUI.ConfigPage</OriginalElement>
+          <nodes>
+            <node x="" y="">com.vaadin.ui.VerticalLayout</node>
+            <node x="" y="">com.vaadin.ui.HasComponents</node>
+            <node x="" y="">com.vaadin.ui.ComponentContainer</node>
+            <node x="" y="">java.lang.Iterable</node>
+            <node x="" y="">com.vaadin.ui.Layout.MarginHandler</node>
+            <node x="" y="">com.vaadin.event.MethodEventSource</node>
+            <node x="" y="">de.mjust.master.configUI.ConfigPage</node>
+            <node x="" y="">com.vaadin.server.AbstractClientConnector</node>
+            <node x="" y="">com.vaadin.event.ContextClickEvent.ContextClickNotifier</node>
+            <node x="" y="">com.vaadin.ui.HasComponents.ComponentAttachDetachNotifier</node>
+            <node x="" y="">com.vaadin.server.ClientConnector</node>
+            <node x="" y="">com.vaadin.ui.AbstractOrderedLayout</node>
+            <node x="" y="">com.vaadin.shared.Connector</node>
+            <node x="" y="">com.vaadin.ui.Layout.SpacingHandler</node>
+            <node x="" y="">com.vaadin.server.Sizeable</node>
+            <node x="" y="">java.io.Serializable</node>
+            <node x="" y="">com.vaadin.annotations.Theme</node>
+            <node x="" y="">com.vaadin.ui.Layout</node>
+            <node x="" y="">com.vaadin.ui.AbstractComponent</node>
+            <node x="" y="">com.vaadin.ui.Layout.AlignmentHandler</node>
+            <node x="" y="">com.vaadin.ui.AbstractLayout</node>
+            <node x="" y="">com.vaadin.event.LayoutEvents.LayoutClickNotifier</node>
+            <node x="" y="">com.vaadin.navigator.View</node>
+            <node x="" y="">com.vaadin.ui.AbstractComponentContainer</node>
+            <node x="" y="">com.vaadin.ui.Component</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="1143.0" y="524.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/de.mjust.master">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>de.mjust.master</OriginalElement>
+          <nodes>
+            <node x="" y="">de.mjust.master.login</node>
+            <node x="" y="">de.mjust.master.model</node>
+            <node x="" y="">de.mjust.master.configUI</node>
+            <node x="" y="">de.mjust.master.provider</node>
+            <node x="" y="">de.mjust.master.scheduler</node>
+            <node x="" y="">de.mjust.master.navigator</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="201.0" y="208.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/de.mjust.master.navigator.NavigatorUI">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>de.mjust.master.navigator.NavigatorUI</OriginalElement>
+          <nodes>
+            <node x="" y="">de.mjust.master.configUI.ComponentConfig</node>
+            <node x="" y="">de.mjust.master.configUI.ConfigPage</node>
+            <node x="" y="">de.mjust.master.configUI.UserView</node>
+            <node x="" y="">de.mjust.master.navigator.NavigatorUI</node>
+            <node x="" y="">de.mjust.master.login.LoginPage</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="995.0" y="427.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>Project Files</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/ConfigPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="43" column="49" lean-forward="false" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/configUI/DataSourceConfigPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/mjust/master/navigator/NavigatorUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1289,6 +1298,80 @@
     <states>
       <state key="ArquillianSettingsConfigurable.UI">
         <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>genericcloudservice:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>GWT</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>9.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>genericcloudservice</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

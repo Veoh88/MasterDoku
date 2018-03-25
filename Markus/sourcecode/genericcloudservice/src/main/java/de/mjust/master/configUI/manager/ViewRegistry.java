@@ -12,7 +12,7 @@ public class ViewRegistry {
     private ComponentConfig componentConfig;
     private DataSourceConfigPage dataSourceConfigPage;
     private LoginPage loginPage;
-    private UserView userView;
+    private UserViewConfig userViewConfig;
 
     private ViewRegistry () {}
 
@@ -63,11 +63,11 @@ public class ViewRegistry {
         this.loginPage = loginPage;
     }
 
-    public UserView getUserView() {
-        return userView;
+    public UserViewConfig getUserViewConfig() {
+        return userViewConfig;
     }
 
-    public void setUserView(UserView userView) {
-        this.userView = userView;
+    public void setUserViewConfig(UserViewConfig userViewConfig) {
+        this.userViewConfig = userViewConfig;
     }
 }

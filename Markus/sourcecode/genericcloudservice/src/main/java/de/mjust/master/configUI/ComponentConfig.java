@@ -27,7 +27,7 @@ public class ComponentConfig extends HorizontalLayout implements ISelectedCompon
         this.componentBuilder = componentBuilder;
         barChartForm = new BarChartForm(componentBuilder, viewConfigManager);
         this.componentBuilder.registerObserver(this);
-        setStyleName("layout-with-border");
+        setSizeFull();
         getCurrentEditingComponent();
     }
 
