@@ -15,7 +15,9 @@ public class RestDataSource implements IDataSource {
 
     private String sourceUri;
     private String sourceName;
+    private int updateInterval = 0;
     private IDataProvider dataProvider;
+    private Collection<DataObject> dataObjects;
 
     public RestDataSource(String name, String uri) {
         this.sourceUri = uri;
@@ -44,25 +46,43 @@ public class RestDataSource implements IDataSource {
     }
 
     @Override
+    public void setUpdateInterval(int seconds) {
+        this.updateInterval = seconds;
+    }
+
+    @Override
     public Collection<DataObject> getDataObjects() {
         try {
+            dataObjects = new ArrayList<>();
             HttpResponse<JsonNode> response = this.dataProvider.performHttpGet(this.sourceUri, new HashMap<String, Object>());
             if (response.getBody().isArray()) {
                 JSONArray jsonArray = response.getBody().getArray();
                 if(jsonArray.length() > 1) {
-                    return convertArrayToDataObjects(jsonArray);
+                    dataObjects = convertArrayToDataObjects(jsonArray);
+                    addThisSourceToDataObjects();
+                    return dataObjects;
                 }
                 else{
-                    return convertSingleArrayToDataObjects(jsonArray);
+                    dataObjects = convertSingleArrayToDataObjects(jsonArray);
+                    addThisSourceToDataObjects();
+                    return dataObjects;
                 }
             } else {
                 JSONObject jsonObject = response.getBody().getObject();
-                return parseDataObjectsFromJsonObject(jsonObject);
+                dataObjects = parseDataObjectsFromJsonObject(jsonObject);
+                addThisSourceToDataObjects();
+                return dataObjects;
             }
         } catch (UnirestException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private void addThisSourceToDataObjects() {
+        for(DataObject dataObject: dataObjects){
+            dataObject.setDataSourceOrigin(this);
+        }
     }
 
     private Collection<DataObject> convertArrayToDataObjects(JSONArray jsonArray) {
